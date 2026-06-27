@@ -8,6 +8,14 @@ export const CONTACT_PHONE = '+91 9650-593-896'
 
 export const CONTACT_PHONE_TEL = '+919650593896'
 
+export const WHATSAPP_NUMBER = '919528466566'
+
+export const WHATSAPP_PHONE = '+91 95284-66566'
+
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi Shribi, I would like to connect with you.')}`
+
+export const WHATSAPP_LABEL = 'Chat on WhatsApp'
+
 export const CONTACT_API =
   process.env.NEXT_PUBLIC_CONTACT_API || '/api/contact.php'
 

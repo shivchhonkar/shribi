@@ -1,8 +1,10 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 
 import '@/styles/styles.css'
 import '@/styles/header.css'
+import '@/styles/whatsapp-float.css'
+import WhatsAppFloat from '@/components/layout/whatsapp-float'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
 
 const inter = Inter({
@@ -10,6 +12,12 @@ const inter = Inter({
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -25,7 +33,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <WhatsAppFloat />
+      </body>
     </html>
   )
 }
