@@ -17,7 +17,7 @@ export default function ContactForm({
   showSubject = true,
   submitLabel = 'Send Message →',
   stacked = false,
-  phonePlaceholder = '+91 98765 43210',
+  phonePlaceholder = 'Your phone number',
 }: ContactFormProps) {
   const [note, setNote] = useState('')
   const [isError, setIsError] = useState(false)
