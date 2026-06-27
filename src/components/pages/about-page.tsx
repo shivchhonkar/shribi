@@ -124,7 +124,7 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      <section className="section section-light about-kpi-section">
+      {/* <section className="section section-light about-kpi-section">
         <div className="container">
           <div className="about-kpi-grid">
             {kpiCards.map((card) => (
@@ -143,7 +143,7 @@ export default function AboutPageContent() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="section section-muted">
         <div className="container">
