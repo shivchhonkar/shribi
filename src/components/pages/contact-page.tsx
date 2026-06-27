@@ -85,7 +85,7 @@ export default function ContactPageContent() {
         <div className="container contact-page__grid">
           <div className="contact-page__info reveal">
             <span className="section-tag">Get in touch</span>
-            <h2>Shribi Technologies</h2>
+            <h2 className="text-normal-weight">Shribi Technologies</h2>
             <p>
               Have a project in mind or need expert guidance? Reach out to us and our team will get
               back to you within one business day.
@@ -129,7 +129,7 @@ export default function ContactPageContent() {
             showPhone
             showSubject={false}
             submitLabel="Send Message"
-            phonePlaceholder="+91 00000 00000"
+            phonePlaceholder="Your phone number"
           />
         </div>
       </section>

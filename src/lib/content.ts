@@ -91,8 +91,8 @@ export const offices = [
     name: 'Noida Office',
     address: 'A-56, Sector 64, Noida, Uttar Pradesh 201301, India',
     email: 'noida@shribi.com',
-    phone: '+91 9650-593-896',
-    tel: '+919650593896',
+    phone: '+91 9528-466-566',
+    tel: '+919528-466-566',
     mapCenter: '28.625,77.375',
   },
   {
@@ -103,12 +103,12 @@ export const offices = [
     tel: '+919650593896',
     mapCenter: '27.605,77.596',
   },
-  {
-    name: 'Jaipur Office',
-    address: 'C-89, Shyam Nagar, Jaipur, Rajasthan 302019, India',
-    email: 'jaipur@shribi.com',
-    phone: '+91 9650-593-896',
-    tel: '+919650593896',
-    mapCenter: '26.912,75.729',
-  },
+  // {
+  //   name: 'Jaipur Office',
+  //   address: 'C-89, Shyam Nagar, Jaipur, Rajasthan 302019, India',
+  //   email: 'jaipur@shribi.com',
+  //   phone: '+91 9650-593-896',
+  //   tel: '+919650593896',
+  //   mapCenter: '26.912,75.729',
+  // },
 ] as const
