@@ -1,0 +1,297 @@
+/* Shared site header — home page style on all routes */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.header:not(.scrolled):not(.nav-solid) .nav-links > li > a,
+.header:not(.scrolled):not(.nav-solid) .nav-menu-btn {
+  color: #cbd5e1;
+}
+
+.header:not(.scrolled):not(.nav-solid) .nav-links > li > a:hover,
+.header:not(.scrolled):not(.nav-solid) .nav-menu-btn:hover {
+  color: #fff;
+}
+
+.header:not(.scrolled):not(.nav-solid) .nav-links > li > a.nav-active,
+.header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active {
+  color: #60a5fa;
+}
+
+.header:not(.scrolled):not(.nav-solid) .nav-toggle span {
+  background: #fff;
+}
+
+.header:not(.scrolled):not(.nav-solid) .brand-name {
+  background: linear-gradient(135deg, #fff, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header.scrolled,
+.header.nav-solid {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.header.scrolled .brand-name,
+.header.nav-solid .brand-name {
+  background: linear-gradient(135deg, #0f172a, #2563eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header.scrolled .nav-links > li > a,
+.header.scrolled .nav-menu-btn,
+.header.nav-solid .nav-links > li > a,
+.header.nav-solid .nav-menu-btn {
+  color: #475569;
+}
+
+.header.scrolled .nav-links > li > a:hover,
+.header.nav-solid .nav-links > li > a:hover,
+.header.scrolled .nav-menu-btn:hover,
+.header.nav-solid .nav-menu-btn:hover {
+  color: #0f172a;
+}
+
+.header.scrolled .nav-links > li > a.nav-active,
+.header.nav-solid .nav-links > li > a.nav-active,
+.header.scrolled .nav-menu-btn.nav-active,
+.header.nav-solid .nav-menu-btn.nav-active {
+  color: #2563eb;
+}
+
+.header.scrolled .nav-toggle span,
+.header.nav-solid .nav-toggle span {
+  background: #0f172a;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.brand-logo {
+  border-radius: 8px;
+}
+
+.brand-name {
+  text-transform: lowercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links > li > a,
+.nav-menu-btn {
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-item--has-menu {
+  position: relative;
+}
+
+.nav-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+}
+
+.nav-menu-btn svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.65;
+}
+
+.nav-submenu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 190px;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s,
+    transform 0.2s,
+    visibility 0.2s;
+  z-index: 120;
+  list-style: none;
+  margin: 0;
+}
+
+.nav-submenu a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: #334155 !important;
+}
+
+.nav-submenu a:hover {
+  background: #f1f5f9;
+  color: #2563eb !important;
+}
+
+.nav-item--has-menu:hover .nav-submenu,
+.nav-item--has-menu:focus-within .nav-submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-cta {
+  padding: 0.55rem 1.1rem !important;
+  background: #2563eb !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+}
+
+.nav-cta:hover {
+  background: #1d4ed8 !important;
+  color: #fff !important;
+}
+
+.nav-cta.nav-active {
+  background: #1d4ed8 !important;
+  color: #fff !important;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1rem 0 1.5rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a,
+  .nav-menu-btn {
+    display: block;
+    padding: 0.875rem 1.5rem;
+    color: #334155 !important;
+  }
+
+  .nav-item--has-menu .nav-submenu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    padding-left: 0.5rem;
+    display: none;
+    background: transparent;
+  }
+
+  .nav-item--has-menu.open .nav-submenu {
+    display: block;
+  }
+
+  .nav-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}

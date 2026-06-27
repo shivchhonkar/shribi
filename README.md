@@ -1,62 +1,82 @@
 # Shribi Website
 
-A responsive, professional landing page for **Shribi**, styled to match the brand logo (royal blue, cyan accents, dark theme, geometric hex patterns).
+SEO-friendly marketing site for **Shribi Technologies**, built with **Next.js** (App Router) and exported as static HTML for deployment on Hostinger or any static host.
 
 ## Quick start
 
-### Static preview (forms won't send mail)
-
-Open `index.html` in a browser, or run a local server:
+### Development
 
 ```bash
-# Python
-python -m http.server 8080
-
-# Node (npx)
-npx serve .
+npm install
+npm run dev
 ```
 
-Then visit `http://localhost:8080`.
+Open [http://localhost:3000](http://localhost:3000).
+
+### Production build (static export)
+
+```bash
+npm run build
+```
+
+Static files are generated in `out/`:
+
+- `out/index.html` — Home
+- `out/about-us/index.html` — About
+- `out/services/index.html` — Services
+- `out/contact/index.html` — Contact
+- `out/sitemap.xml`, `out/robots.txt` — SEO
+- `out/api/contact.php` — Contact form handler (PHP)
+
+Deploy the entire `out/` folder to your web host.
 
 ### Contact form (PHP + Hostinger SMTP)
 
-1. Copy mail config and add your Hostinger email credentials:
+1. Copy mail config on the server:
 
 ```bash
-copy config\mail.config.example.php config\mail.config.php
+copy public\config\mail.config.example.php public\config\mail.config.php
 ```
 
-Edit `config/mail.config.php`:
+Edit `public/config/mail.config.php`:
 
 - `smtp_host`: `smtp.hostinger.com`
 - `smtp_port`: `465` (SSL) or `587` (TLS — set `smtp_secure` to `tls`)
 - `smtp_user` / `smtp_pass`: your Hostinger mailbox (e.g. `info@shribi.com`)
 - `to_email`: where contact submissions are delivered
 
-2. Run with PHP's built-in server (so `api/contact.php` works):
+2. After deploy, forms POST to `/api/contact.php`.
+
+Optional env vars (create `.env.local` for dev):
 
 ```bash
-php -S localhost:8080
+NEXT_PUBLIC_SITE_URL=https://www.shribi.com
+NEXT_PUBLIC_CONTACT_API=/api/contact.php
 ```
 
-Deploy the full project (including `config/mail.config.php`) to Hostinger hosting.
-
-## Structure
+## Project structure
 
 ```
 shribi/
-├── index.html
-├── contact.html
-├── api/contact.php       # Contact form handler (SMTP)
-├── lib/SmtpMailer.php    # Hostinger SMTP client
-├── config/mail.config.php
-├── css/styles.css
-├── js/main.js
-└── assets/
+├── src/
+│   ├── app/              # Routes (/, /about-us/, /services/, /contact/)
+│   ├── components/       # Header, footer, pages, forms
+│   ├── lib/              # Site config, shared content
+│   └── styles/           # CSS (ported from legacy site)
+├── public/
+│   ├── assets/           # Images, logos
+│   ├── api/contact.php   # SMTP contact handler
+│   └── config/           # Mail config (not committed)
+├── out/                  # Static export (after build)
+└── next.config.mjs       # output: 'export'
 ```
+
+## Legacy static files
+
+The original `index.html`, `about-us.html`, `services.html`, and `contact.html` remain in the repo for reference. The Next.js app is the primary site.
 
 ## Customize
 
-- Update contact email/phone in `index.html` and `contact.html`.
-- Edit copy, stats, and services to match your business.
-- Contact forms on `index.html` and `contact.html` POST to `api/contact.php`.
+- Page copy and services: `src/lib/content.ts` and page components in `src/components/pages/`
+- Contact details: `src/lib/site.ts`
+- Per-page SEO: `metadata` exports in each `src/app/*/page.tsx`
