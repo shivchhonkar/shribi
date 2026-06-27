@@ -5,7 +5,7 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // output: 'export',
   trailingSlash: true,
   outputFileTracingRoot: projectRoot,
   images: {
