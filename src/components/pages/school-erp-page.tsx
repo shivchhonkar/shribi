@@ -9,32 +9,17 @@ import {
   EDUFY_URL,
   WHY_CHOOSE_US,
 } from '@/lib/school-erp-content'
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from '@/lib/site'
 
 export default function SchoolErpPageContent() {
   return (
     <>
-      {/* <div className="erp-topbar">
-        <div className="container erp-topbar-inner">
-          <div className="erp-topbar-contact">
-            <a href={`tel:${CONTACT_PHONE_TEL}`}>{CONTACT_PHONE}</a>
-            <span aria-hidden="true">·</span>
-            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-          </div>
-          {/* <p>India&apos;s Trusted School ERP Platform</p> 
-        </div>
-      </div> */}
-
-      <section className="erp-hero mt-20 pt-20" id="overview">
-        <div className="erp-hero-bg" aria-hidden="true" />
+      <section className="erp-hero" id="overview">
         <div className="container erp-hero-grid">
           <div className="erp-hero-content reveal">
-            <p className="eyebrow">Shribi Edufy · India's Trusted School ERP Platform
-
-</p>
+            <p className="eyebrow">Shribi Edufy · School ERP</p>
             <h1>
-              Complete School Management,
-              <span className="erp-hero-accent"> One Platform</span>
+              Complete School Management,{' '}
+              <span className="gradient-text">One Platform</span>
             </h1>
             <p className="erp-hero-lead">
               Shribi Edufy is an advanced, user-friendly School ERP for admissions, academics,
@@ -44,13 +29,13 @@ export default function SchoolErpPageContent() {
             <div className="hero-actions">
               <a
                 href={`${EDUFY_URL}/register-school`}
-                className="btn btn-primary btn-light"
+                className="btn btn-primary"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Get Started Free →
               </a>
-              <a href="#modules" className="btn btn-ghost btn-outline-light">
+              <a href="#modules" className="btn btn-ghost">
                 Explore Modules
               </a>
             </div>
@@ -170,7 +155,7 @@ export default function SchoolErpPageContent() {
             <div className="erp-cta-actions">
               <a
                 href={`${EDUFY_URL}/register-school`}
-                className="btn btn-primary btn-light"
+                className="btn btn-primary btn-cta-solid"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -178,7 +163,7 @@ export default function SchoolErpPageContent() {
               </a>
               <a
                 href={`${EDUFY_URL}/login`}
-                className="btn btn-ghost btn-outline-light"
+                className="btn btn-ghost btn-cta-outline"
                 target="_blank"
                 rel="noopener noreferrer"
               >

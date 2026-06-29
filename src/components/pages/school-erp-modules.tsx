@@ -37,11 +37,8 @@ export default function SchoolErpModules() {
         </div>
 
         <div className="erp-module-grid">
-          {modules.map((mod, index) => (
-            <article
-              key={mod.title}
-              className={`erp-module-card reveal${index % 3 === 1 ? ' reveal-delay' : index % 3 === 2 ? ' reveal-delay-2' : ''}`}
-            >
+          {modules.map((mod) => (
+            <article key={`${activeTab}-${mod.title}`} className="erp-module-card">
               <div className="erp-module-icon">
                 <SchoolErpIcon name={mod.icon} />
               </div>

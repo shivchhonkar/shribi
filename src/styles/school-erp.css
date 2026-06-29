@@ -1,13 +1,10 @@
-/* School ERP page — Shribi Edufy landing */
+/* School ERP page — aligned with home / about theme */
 
 body.page-school-erp {
   --erp-container: 1180px;
   --erp-gutter: clamp(1rem, 4vw, 1.75rem);
-  --erp-section-y: clamp(3rem, 6vw, 5rem);
-  --erp-brand: #2563eb;
-  --erp-brand-dark: #0f2744;
-  --erp-brand-light: #60a5fa;
-  background: #f8fafc;
+  --erp-section-y: clamp(2rem, 7vw, 3.5rem);
+  background: #f1f5f9;
   color: #0f172a;
 }
 
@@ -43,42 +40,15 @@ body.page-school-erp .section-muted {
 }
 
 body.page-school-erp .section.erp-cta {
-  background: linear-gradient(135deg, #0a1628 0%, #0f2744 55%, #1e3a5f 100%);
+  background: linear-gradient(135deg, #0a1628 0%, #0f2744 55%, #0a1929 100%);
   color: #fff;
 }
 
-/* Top bar */
-.page-school-erp .erp-topbar {
-  background: #0a1628;
-  color: #cbd5e1;
-  font-size: 0.8125rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: var(--header-h);
-}
-
-.page-school-erp .erp-topbar-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
-  padding: 0.5rem 0;
-}
-
-.page-school-erp .erp-topbar-contact {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.page-school-erp .erp-topbar-contact a:hover {
-  color: #fff;
-}
-
-.page-school-erp .erp-topbar-inner > p {
-  margin: 0;
-  color: #94a3b8;
+/* Header — same as about page over hero */
+body.page-school-erp .header:not(.scrolled):not(.nav-solid) {
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
 }
 
 /* Section headers */
@@ -97,7 +67,7 @@ body.page-school-erp .section.erp-cta {
 
 .page-school-erp .section-tag {
   display: inline-block;
-  color: var(--erp-brand);
+  color: #2563eb;
   font-weight: 700;
   font-size: 0.6875rem;
   letter-spacing: 0.14em;
@@ -117,19 +87,10 @@ body.page-school-erp .section.erp-cta {
 /* Hero */
 .page-school-erp .erp-hero {
   position: relative;
-  padding: 1.5rem 0 clamp(2.5rem, 5vw, 4rem);
-  background: linear-gradient(135deg, #0a1628 0%, #1d4ed8 52%, #2563eb 100%);
+  padding: calc(var(--header-h) + 3rem) 0 clamp(3rem, 6vw, 4.5rem);
+  background: #030b24;
   overflow: hidden;
   isolation: isolate;
-}
-
-.page-school-erp .erp-hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(96, 165, 250, 0.35), transparent 45%),
-    radial-gradient(circle at 85% 80%, rgba(37, 99, 235, 0.4), transparent 40%);
-  pointer-events: none;
 }
 
 .page-school-erp .erp-hero-grid {
@@ -139,7 +100,7 @@ body.page-school-erp .section.erp-cta {
   grid-template-columns: 1fr;
   gap: 2.5rem;
   align-items: center;
-  margin-top: 60px;
+  min-height: clamp(320px, 42vh, 480px);
 }
 
 @media (min-width: 960px) {
@@ -149,32 +110,37 @@ body.page-school-erp .section.erp-cta {
   }
 }
 
+.page-school-erp .erp-hero-content {
+  max-width: 36rem;
+}
+
 .page-school-erp .erp-hero-content .eyebrow {
-  color: #bfdbfe;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  color: #60a5fa;
+  letter-spacing: 0.16em;
+  font-size: 0.6875rem;
+  font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .page-school-erp .erp-hero-content h1 {
   color: #fff;
-  font-size: clamp(1.875rem, 4vw, 2.75rem);
+  font-size: clamp(2rem, 4.2vw, 3.125rem);
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -0.03em;
-  margin-bottom: 1rem;
+  margin-bottom: 1.125rem;
 }
 
-.page-school-erp .erp-hero-accent {
-  display: block;
-  color: #bfdbfe;
-  margin-top: 0.25rem;
+.page-school-erp .gradient-text {
+  background: linear-gradient(135deg, #60a5fa, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .page-school-erp .erp-hero-lead {
-  color: #dbeafe;
+  color: #cbd5e1;
   font-size: 1.0625rem;
   line-height: 1.65;
   max-width: 34rem;
@@ -184,47 +150,63 @@ body.page-school-erp .section.erp-cta {
 .page-school-erp .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.875rem;
 }
 
-.page-school-erp .btn-light {
+.page-school-erp .btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.8125rem 1.375rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.page-school-erp .btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 8px;
+  padding: 0.8125rem 1.375rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.page-school-erp .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.page-school-erp .btn-cta-solid {
   background: #fff;
   color: #0f2744;
   border: 1px solid #fff;
+  box-shadow: none;
 }
 
-.page-school-erp .btn-light:hover {
+.page-school-erp .btn-cta-solid:hover {
   background: #eff6ff;
 }
 
-.page-school-erp .btn-outline-light {
+.page-school-erp .btn-cta-outline {
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.32);
 }
 
-.page-school-erp .btn-outline-light:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.page-school-erp .erp-cta-actions .btn-ghost {
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background: transparent;
-}
-
-.page-school-erp .erp-cta-actions .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.6);
-  color: #fff;
+.page-school-erp .btn-cta-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .page-school-erp .erp-hero-frame {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 22, 40, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 1rem;
   padding: 0.625rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
 }
 
 .page-school-erp .erp-hero-frame img {
@@ -278,7 +260,7 @@ body.page-school-erp .section.erp-cta {
   height: 3rem;
   border-radius: 0.875rem;
   background: #eff6ff;
-  color: var(--erp-brand);
+  color: #2563eb;
   display: grid;
   place-items: center;
   margin-bottom: 1rem;
@@ -295,7 +277,7 @@ body.page-school-erp .section.erp-cta {
 
 .page-school-erp .erp-why-card:hover .erp-card-icon,
 .page-school-erp .erp-module-card:hover .erp-module-icon {
-  background: var(--erp-brand);
+  background: #2563eb;
   color: #fff;
 }
 
@@ -375,7 +357,7 @@ body.page-school-erp .section.erp-cta {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 0.625rem;
-  background: var(--erp-brand);
+  background: #2563eb;
   color: #fff;
   display: grid;
   place-items: center;
@@ -429,12 +411,18 @@ body.page-school-erp .section.erp-cta {
   color: #1d4ed8;
 }
 
-.page-school-erp .erp-tab--active {
-  background: var(--erp-brand);
-  border-color: var(--erp-brand);
+.page-school-erp .erp-tab--active,
+.page-school-erp .erp-tab--active:hover {
+  background: #2563eb;
+  border-color: #2563eb;
   color: #fff;
   font-weight: 600;
   box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.page-school-erp .erp-module-card {
+  opacity: 1;
+  transform: none;
 }
 
 .page-school-erp .erp-module-grid {
@@ -458,7 +446,7 @@ body.page-school-erp .section.erp-cta {
 .page-school-erp .erp-module-link {
   display: inline-block;
   margin-top: 0.75rem;
-  color: var(--erp-brand);
+  color: #2563eb;
   font-size: 0.8125rem;
   font-weight: 600;
 }
@@ -497,7 +485,7 @@ body.page-school-erp .section.erp-cta {
 }
 
 .page-school-erp .erp-cta-copy > p {
-  color: #bfdbfe;
+  color: #cbd5e1;
   font-size: 1rem;
   line-height: 1.65;
   margin-bottom: 1.5rem;
@@ -512,7 +500,7 @@ body.page-school-erp .section.erp-cta {
   display: flex;
   align-items: flex-start;
   gap: 0.625rem;
-  color: #dbeafe;
+  color: #cbd5e1;
   font-size: 0.9375rem;
 }
 
@@ -538,7 +526,7 @@ body.page-school-erp .section.erp-cta {
 }
 
 .page-school-erp .erp-cta-panel > p {
-  color: #bfdbfe;
+  color: #cbd5e1;
   font-size: 0.875rem;
   line-height: 1.6;
   margin-bottom: 1.25rem;
