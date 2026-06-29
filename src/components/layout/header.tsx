@@ -58,6 +58,11 @@ export default function Header({ activePage }: { activePage: PageKey }) {
               About Us
             </Link>
           </li>
+          <li>
+            <Link href="/school-erp/" className={navClass(activePage, 'school-erp')}>
+              School ERP
+            </Link>
+          </li>
           <li className="nav-item nav-item--has-menu">
             <button type="button" className="nav-menu-btn" aria-haspopup="true">
               Solutions

@@ -2,9 +2,9 @@
 
 import { useEffect } from 'react'
 
-type PageTheme = 'home' | 'about' | 'services' | 'contact'
+import type { PageKey } from '@/lib/site'
 
-export default function PageEffects({ theme }: { theme: PageTheme }) {
+export default function PageEffects({ theme }: { theme: PageKey }) {
   useEffect(() => {
     const header = document.getElementById('header')
     const navToggle = document.getElementById('navToggle')
@@ -16,11 +16,12 @@ export default function PageEffects({ theme }: { theme: PageTheme }) {
         10,
       ) || 72
 
-    const heroIds: Record<PageTheme, string | null> = {
+    const heroIds: Record<PageKey, string | null> = {
       home: 'home',
       about: 'about-hero',
       services: 'services-hero',
       contact: 'contact-hero',
+      'school-erp': 'overview',
     }
 
     const onScroll = () => {

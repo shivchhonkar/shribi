@@ -52,6 +52,9 @@ export default function Footer() {
               <Link href="/about-us/">About Us</Link>
             </li>
             <li>
+              <Link href="/school-erp/">School ERP</Link>
+            </li>
+            <li>
               <Link href="/#companies">Our Products</Link>
             </li>
             <li>
@@ -72,7 +75,7 @@ export default function Footer() {
               <Link href="/services/#core-services">Billing &amp; Inventory</Link>
             </li>
             <li>
-              <Link href="/services/#core-services">School ERP</Link>
+              <Link href="/school-erp/">School ERP</Link>
             </li>
             <li>
               <Link href="/services/#core-services">Estate &amp; CRM</Link>

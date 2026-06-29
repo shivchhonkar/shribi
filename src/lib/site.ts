@@ -19,7 +19,7 @@ export const WHATSAPP_LABEL = 'Chat on WhatsApp'
 export const CONTACT_API =
   process.env.NEXT_PUBLIC_CONTACT_API || '/api/contact.php'
 
-export type PageKey = 'home' | 'about' | 'services' | 'contact'
+export type PageKey = 'home' | 'about' | 'services' | 'contact' | 'school-erp'
 
 export const SOCIAL_LINKS = [
   {
