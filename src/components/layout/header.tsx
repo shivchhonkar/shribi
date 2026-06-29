@@ -63,6 +63,11 @@ export default function Header({ activePage }: { activePage: PageKey }) {
               School ERP
             </Link>
           </li>
+          <li>
+            <Link href="/services/" className={navClass(activePage, 'services')}>
+              Services
+            </Link>
+          </li>
           <li className="nav-item nav-item--has-menu">
             <button type="button" className="nav-menu-btn" aria-haspopup="true">
               Solutions
@@ -78,7 +83,8 @@ export default function Header({ activePage }: { activePage: PageKey }) {
               ))}
             </ul>
           </li>
-          <li className="nav-item nav-item--has-menu">
+          
+          {/* <li className="nav-item nav-item--has-menu">
             <button
               type="button"
               className={`nav-menu-btn${activePage === 'services' ? ' nav-active' : ''}`}
@@ -89,13 +95,16 @@ export default function Header({ activePage }: { activePage: PageKey }) {
               <ChevronDown />
             </button>
             <ul className="nav-submenu">
-              {servicesLinks.map((link) => (
+              {/* {servicesLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>{link.label}</Link>
                 </li>
-              ))}
+              ))} 
+              <li>
+                <Link href="/services/">Services</Link>
+              </li>
             </ul>
-          </li>
+          </li> */}
           {/* <li>
             <Link href="/#industries">Industries</Link>
           </li> */}

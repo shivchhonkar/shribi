@@ -99,7 +99,7 @@ body.page-about .header:not(.scrolled):not(.nav-solid) {
   background-image: url('/assets/about-us.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 76% 62%;
+  background-position: 90% 0%;
   opacity: 0.85;
   -webkit-mask-image: linear-gradient(
     105deg,
