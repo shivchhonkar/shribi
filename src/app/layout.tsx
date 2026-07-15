@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 
 import '@/styles/styles.css'
 import '@/styles/header.css'
@@ -33,6 +34,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-QD6NWZ0LZ5" strategy="afterInteractive" />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8T0ELQ8YZW');`}
+        </Script>
+
       <body className={inter.className}>
         {children}
         <WhatsAppFloat />
