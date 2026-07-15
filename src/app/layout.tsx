@@ -34,10 +34,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-QD6NWZ0LZ5" strategy="afterInteractive" />
-        <Script id="ga-init" strategy="afterInteractive">
-          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8T0ELQ8YZW');`}
-        </Script>
+        <Script
+      src="https://www.googletagmanager.com/gtag/js?id=G-QD6NWZ0LZ5"
+      strategy="afterInteractive"
+    />
+    <Script id="ga-init" strategy="afterInteractive">
+      {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QD6NWZ0LZ5');
+      `}
+    </Script>
 
       <body className={inter.className}>
         {children}
