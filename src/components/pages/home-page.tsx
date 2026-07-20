@@ -58,7 +58,7 @@ const products = [
   {
     href: 'https://www.zamiwala.com',
     label: 'Visit Zamiwala',
-    image: '/assets/thumbnails/zamiwala-thunbnail.png',
+    image: '/assets/thumbnails/zamiwala-thumbnail.png',
     alt: 'Zamiwala platform',
     name: 'Zamiwala',
     description:
@@ -70,7 +70,7 @@ const products = [
   {
     href: 'https://edufy.shribi.com/',
     label: 'Visit Shribi Edufy',
-    image: '/assets/thumbnails/edufy-shribi.jpeg',
+    image: '/assets/thumbnails/edufy-shribi.png',
     alt: 'Shribi Edufy school ERP',
     name: 'Shribi Edufy',
     description:
@@ -178,7 +178,7 @@ export default function HomePageContent() {
                 aria-label={product.label}
               >
                 <figure className="company-screenshot">
-                  <Image src={product.image} alt={product.alt} width={1280} height={720} />
+                  <Image src={product.image} alt={product.alt} width={880} height={720} />
                 </figure>
                 <div className="company-card-body">
                   <h3>{product.name}</h3>
