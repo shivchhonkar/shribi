@@ -9,7 +9,8 @@ const teamMembers = [
     name: 'Beenu Chhonkar',
     role: 'Business Development Manager',
     bio: 'Drives business growth by building strong client relationships and identifying new opportunities for collaboration.',
-    image: teamPlaceholderImage,
+    // image: teamPlaceholderImage,
+    image: '/assets/beenu.jpeg',
     delay: 'reveal-delay-3',
   },  
   {

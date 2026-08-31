@@ -16,8 +16,7 @@ export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURICo
 
 export const WHATSAPP_LABEL = 'Chat on WhatsApp'
 
-export const CONTACT_API =
-  process.env.NEXT_PUBLIC_CONTACT_API || '/api/contact.php'
+export const CONTACT_API = process.env.NEXT_PUBLIC_CONTACT_API || '/api/contact/'
 
 export type PageKey = 'home' | 'about' | 'services' | 'contact' | 'school-erp'
 
