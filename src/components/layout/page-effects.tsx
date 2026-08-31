@@ -22,6 +22,7 @@ export default function PageEffects({ theme }: { theme: PageKey }) {
       services: 'services-hero',
       contact: 'contact-hero',
       'school-erp': 'overview',
+      billint: 'overview',
     }
 
     const onScroll = () => {
@@ -50,6 +51,14 @@ export default function PageEffects({ theme }: { theme: PageKey }) {
 
     navToggle?.addEventListener('click', onToggle)
 
+    const menuButtons = navLinks?.querySelectorAll('.nav-menu-btn')
+    const onMenuClick = (event: Event) => {
+      const button = event.currentTarget as HTMLElement
+      const item = button.closest('.nav-item--has-menu')
+      item?.classList.toggle('open')
+    }
+    menuButtons?.forEach((button) => button.addEventListener('click', onMenuClick))
+
     navLinks?.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open')
@@ -75,6 +84,7 @@ export default function PageEffects({ theme }: { theme: PageKey }) {
     return () => {
       window.removeEventListener('scroll', onScroll)
       navToggle?.removeEventListener('click', onToggle)
+      menuButtons?.forEach((button) => button.removeEventListener('click', onMenuClick))
       revealObserver.disconnect()
     }
   }, [theme])

@@ -55,6 +55,9 @@ export default function Footer() {
               <Link href="/school-erp/">School ERP</Link>
             </li>
             <li>
+              <Link href="/billing-and-inventory-management-software/">Billint</Link>
+            </li>
+            <li>
               <Link href="/#companies">Our Products</Link>
             </li>
             <li>
@@ -72,19 +75,25 @@ export default function Footer() {
           <h4>Services</h4>
           <ul>
             <li>
-              <Link href="/services/#core-services">Billing &amp; Inventory</Link>
+              <Link href="/website-development-services/">Website Development</Link>
+            </li>
+            <li>
+              <Link href="/mobile-app-development-services/">Mobile App Development</Link>
+            </li>
+            <li>
+              <Link href="/custom-software-development-services/">Custom Software</Link>
+            </li>
+            <li>
+              <Link href="/real-estate-website-development/">Real Estate Websites</Link>
+            </li>
+            <li>
+              <Link href="/website-development-company-in-mathura/">Mathura Web Company</Link>
             </li>
             <li>
               <Link href="/school-erp/">School ERP</Link>
             </li>
             <li>
-              <Link href="/services/#core-services">Estate &amp; CRM</Link>
-            </li>
-            <li>
-              <Link href="/services/#core-services">Web Development</Link>
-            </li>
-            <li>
-              <Link href="/services/#core-services">AI Integration</Link>
+              <Link href="/billing-and-inventory-management-software/">Billint</Link>
             </li>
           </ul>
         </div>

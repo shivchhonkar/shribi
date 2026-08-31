@@ -44,11 +44,11 @@ const trustCards = [
 
 const products = [
   {
-    href: 'https://www.billint.com',
+    href: '/billing-and-inventory-management-software/',
     label: 'Visit Billint',
     image: '/assets/thumbnails/billint-thumbnail.png',
     alt: 'Billint dashboard',
-    name: 'Billint',
+    name: 'Billint - CRM & Billing Software',
     description:
       'Complete billing and invoice management for Indian businesses — GST invoices, inventory, parties, payments, and multi-business support.',
     features: ['GST billing & e-invoice', 'Inventory & batch pricing', 'Web + Android / iOS app'],

@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { ServiceCard } from '@/components/shared/service-card'
 import { coreServices, serviceIndustries } from '@/lib/content'
+import { serviceLandingPages } from '@/lib/service-landing-content'
 import { IndustryIcon } from '@/lib/industry-icons'
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from '@/lib/site'
 
@@ -140,6 +141,24 @@ export default function ServicesPageContent() {
                 <p>{item.text}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-muted" id="service-pages">
+        <div className="container">
+          <div className="section-header reveal">
+            <span className="section-tag">Explore Further</span>
+            <h2>Focused service pages</h2>
+          </div>
+          <div className="landing-related reveal">
+            <ul>
+              {serviceLandingPages.map((page) => (
+                <li key={page.slug}>
+                  <Link href={page.path}>{page.navLabel}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

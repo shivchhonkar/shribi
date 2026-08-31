@@ -18,7 +18,7 @@ export const WHATSAPP_LABEL = 'Chat on WhatsApp'
 
 export const CONTACT_API = process.env.NEXT_PUBLIC_CONTACT_API || '/api/contact/'
 
-export type PageKey = 'home' | 'about' | 'services' | 'contact' | 'school-erp'
+export type PageKey = 'home' | 'about' | 'services' | 'contact' | 'school-erp' | 'billint'
 
 export const SOCIAL_LINKS = [
   {
@@ -40,16 +40,19 @@ export function pageMetadata({
   title,
   description,
   path = '',
+  keywords,
 }: {
   title: string
   description: string
   path?: string
+  keywords?: string[]
 }) {
   const url = `${SITE_URL}${path}`
 
   return {
     title,
     description,
+    keywords,
     alternates: { canonical: url },
     openGraph: {
       title,

@@ -24,6 +24,8 @@ const icons = {
   ),
 }
 
+export type ServiceIconType = keyof typeof icons
+
 export function ServiceIcon({
   type,
   className = 'service-icon',
@@ -47,7 +49,7 @@ export function ServiceCard({
   features,
   delayClass = '',
 }: {
-  icon: keyof typeof icons
+    icon: ServiceIconType
   title: string
   description: string
   features: string[]

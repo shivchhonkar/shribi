@@ -64,9 +64,30 @@ export default function Header({ activePage }: { activePage: PageKey }) {
             </Link>
           </li>
           <li>
-            <Link href="/services/" className={navClass(activePage, 'services')}>
-              Services
+            <Link
+              href="/billing-and-inventory-management-software/"
+              className={navClass(activePage, 'billint')}
+            >
+              Billing & Inventory app
             </Link>
+          </li>
+          <li className="nav-item nav-item--has-menu">
+            <button
+              type="button"
+              className={`nav-menu-btn${activePage === 'services' ? ' nav-active' : ''}`}
+              aria-haspopup="true"
+              aria-current={activePage === 'services' ? 'page' : undefined}
+            >
+              Services
+              <ChevronDown />
+            </button>
+            <ul className="nav-submenu nav-submenu--wide">
+              {servicesLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
           </li>
           <li className="nav-item nav-item--has-menu">
             <button type="button" className="nav-menu-btn" aria-haspopup="true">

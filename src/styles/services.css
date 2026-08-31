@@ -380,10 +380,6 @@ body.page-services .section-services-dark {
 }
 
 /* CTA banner */
-.page-services .services-cta-section {
-  padding-top: 0;
-}
-
 .page-services .services-cta-banner {
   background: #fff;
   border: 1px solid #e2e8f0;
@@ -499,6 +495,186 @@ body.page-services .section-services-dark {
   }
 
   .page-services .why-partner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SEO service landing pages */
+.page-services .landing-breadcrumb {
+  margin-bottom: 1rem;
+}
+
+.page-services .landing-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.page-services .landing-breadcrumb li:not(:last-child)::after {
+  content: "/";
+  margin-left: 0.4rem;
+  color: #64748b;
+}
+
+.page-services .landing-breadcrumb a {
+  color: #93c5fd;
+  font-weight: 500;
+}
+
+.page-services .landing-breadcrumb a:hover {
+  color: #fff;
+}
+
+.page-services .landing-overview .section-header {
+  max-width: 760px;
+}
+
+.page-services .section-light .section-header p,
+.page-services .section-muted .section-header p {
+  color: #64748b;
+}
+
+.page-services .services-grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.page-services .landing-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--svc-card-gap);
+}
+
+.page-services .landing-process-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.35rem 1.2rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.page-services .landing-process-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+  color: #2563eb;
+}
+
+.page-services .landing-process-icon span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #2563eb;
+}
+
+.page-services .landing-process-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.page-services .landing-process-card h3 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.45rem;
+}
+
+.page-services .landing-process-card p {
+  font-size: 0.8125rem;
+  color: #64748b;
+  line-height: 1.55;
+}
+
+.page-services .landing-faq-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.page-services .landing-faq-item {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.page-services .landing-faq-item h3 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.45rem;
+  line-height: 1.4;
+}
+
+.page-services .landing-faq-item p {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.65;
+}
+
+.page-services .landing-related {
+  margin-top: 2.25rem;
+  text-align: center;
+}
+
+.page-services .landing-related p {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin-bottom: 0.85rem;
+}
+
+.page-services .landing-related ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-services .landing-related a {
+  display: inline-flex;
+  padding: 0.5rem 0.95rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  color: #334155;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.page-services .landing-related a:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+@media (max-width: 1200px) {
+  .page-services .services-grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .page-services .landing-process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .page-services .services-grid--4,
+  .page-services .landing-process-grid {
     grid-template-columns: 1fr;
   }
 }

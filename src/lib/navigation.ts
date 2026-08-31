@@ -1,14 +1,17 @@
+import { serviceLandingPages } from '@/lib/service-landing-content'
+
 export const solutionsLinks = [
-  { href: 'https://www.billint.com', label: 'Billint' },
-  { href: 'https://www.zamiwala.com', label: 'Zamiwala' },
-  { href: 'https://edufy.shribi.com/', label: 'Shribi Edufy' },
+  { href: 'https://www.billint.com', label: 'CRM & Billing Software - Billint' },
+  { href: 'https://edufy.shribi.com/', label: 'School ERP - Shribi Edufy' },
+  { href: 'https://www.zamiwala.com', label: 'Property Discovery & Estate Management - Zamiwala' },
 ] as const
 
 export const servicesLinks = [
-  { href: '/services/#core-services', label: 'Core Services' },
-  { href: '/services/#industries', label: 'Industries' },
-  { href: '/services/#why-partner', label: 'Why Partner' },
-] as const
+  { href: '/services/', label: 'All Services' },
+  ...serviceLandingPages
+    .filter((page) => page.slug !== 'website-development-company-in-mathura')
+    .map((page) => ({ href: page.path, label: page.navLabel })),
+]
 
 export const resourcesLinks = [
   { href: '/about-us/', label: 'About Shribi' },

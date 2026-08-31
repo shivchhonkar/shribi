@@ -215,6 +215,18 @@ body.page-school-erp .header:not(.scrolled):not(.nav-solid) {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
+.page-school-erp .erp-hero-frame--banner {
+  overflow: hidden;
+}
+
+.page-school-erp .erp-hero-frame--banner img {
+  width: 100%;
+  height: min(400px, 48vh);
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
 /* Why choose us */
 .page-school-erp .erp-why-grid {
   display: grid;
