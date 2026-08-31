@@ -309,6 +309,96 @@ export const serviceLandingPages: ServiceLandingContent[] = [
     ctaText: 'Describe the bottleneck. We will reply with a dummy approach, modules, and a starter timeline.',
   },
   {
+    slug: 'ai-automation-and-integration',
+    path: '/ai-automation-and-integration/',
+    navLabel: 'AI Automation & Integration',
+    title: 'AI Automation and Integration',
+    description:
+      'Shribi AI automation and integration services — chatbots, workflow automation, API connections, and custom AI solutions that plug into your existing software.',
+    keywords: [
+      'AI automation and integration',
+      'AI integration services',
+      'business process automation',
+      'AI chatbot development India',
+    ],
+    eyebrow: 'AI Automation and Integration',
+    h1: 'AI automation and integration that',
+    h1Highlight: 'saves real hours',
+    lead: 'Connect AI to the tools you already use — automate follow-ups, extract data, and give your team assistants that work inside your CRM, ERP, and support stack.',
+    overviewTag: 'What You Get',
+    overviewTitle: 'Automation that fits your stack, not a new silo',
+    overviewText:
+      'Dummy content: our AI automation and integration services cover process discovery, chatbot and assistant builds, API and webhook connections, document intelligence, and ongoing model/ops support. We start with one high-friction workflow, prove the time saved, then roll out to the next team.',
+    offeringsTag: 'Our Capabilities',
+    offeringsTitle: 'AI solutions we deliver',
+    offeringsIntro: 'Dummy packages for operations, sales, support, and product teams that want AI without ripping out current software.',
+    offerings: [
+      {
+        icon: 'ai',
+        title: 'AI chatbots & assistants',
+        description: 'Website, WhatsApp, and helpdesk bots that answer FAQs and hand off to humans when needed.',
+        features: ['Website chat', 'WhatsApp bots', 'Knowledge base Q&A', 'Human handover'],
+      },
+      {
+        icon: 'erp',
+        title: 'Workflow automation',
+        description: 'Replace copy-paste work with rules, queues, and AI steps across your daily processes.',
+        features: ['Lead routing', 'Ticket triage', 'Approvals', 'Scheduled jobs'],
+      },
+      {
+        icon: 'web',
+        title: 'System integrations',
+        description: 'Connect CRMs, ERPs, billing, GST tools, and internal APIs so data moves once, correctly.',
+        features: ['REST / webhooks', 'CRM & ERP sync', 'WhatsApp / SMS', 'Single sign-on'],
+      },
+      {
+        icon: 'billing',
+        title: 'Custom AI solutions',
+        description: 'Document reading, summaries, forecasts, and internal copilots trained on your process.',
+        features: ['Document extraction', 'Summaries', 'Predictive insights', 'Private data handling'],
+      },
+    ],
+    processTitle: 'How we implement AI with you',
+    processIntro: 'A short, practical path from one workflow to a live automation.',
+    process: [
+      { title: 'Map', text: 'We pick one process, list systems involved, and define what “done” looks like.' },
+      { title: 'Prototype', text: 'A clickable or live demo on sample data so you can judge quality early.' },
+      { title: 'Integrate', text: 'Connect APIs, permissions, and fallbacks so staff can override the AI.' },
+      { title: 'Run', text: 'Launch with monitoring, a support window, and a list of the next automations.' },
+    ],
+    whyTitle: 'Why teams choose Shribi for AI',
+    why: [
+      { title: 'Business-first use cases', text: 'We automate work that already costs you time — not novelty demos.' },
+      { title: 'Works with your tools', text: 'Dummy: CRM, ERP, billing, and WhatsApp connections instead of a locked-in portal.' },
+      { title: 'Human in the loop', text: 'Staff can review, edit, and take over before anything goes to a customer.' },
+      { title: 'Measurable rollout', text: 'Each phase has a before/after metric: hours saved, faster replies, fewer errors.' },
+    ],
+    faqs: [
+      {
+        question: 'Do we need to replace our current software?',
+        answer:
+          'Dummy answer: no. Most AI automation and integration work sits on top of the CRM, ERP, or helpdesk you already run.',
+      },
+      {
+        question: 'Where does our data go?',
+        answer:
+          'Dummy answer: we agree the stack up front — private APIs, your cloud, or a scoped vendor — and keep customer data out of public training by default.',
+      },
+      {
+        question: 'How long does a first automation take?',
+        answer:
+          'Dummy answer: a focused workflow (FAQ bot, lead routing, or invoice capture) is often a 4–8 week pilot, then we expand.',
+      },
+      {
+        question: 'Can you connect WhatsApp, CRM, and billing?',
+        answer:
+          'Yes. Dummy integrations include WhatsApp, CRM, GST/billing tools, email, and internal REST APIs.',
+      },
+    ],
+    ctaTitle: 'Ready to automate one painful workflow?',
+    ctaText: 'Tell us the process that eats the most hours. We will send a dummy pilot plan, systems list, and timeline.',
+  },
+  {
     slug: 'real-estate-website-development',
     path: '/real-estate-website-development/',
     navLabel: 'Real Estate Websites',

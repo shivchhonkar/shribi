@@ -84,6 +84,9 @@ export default function Footer() {
               <Link href="/custom-software-development-services/">Custom Software</Link>
             </li>
             <li>
+              <Link href="/ai-automation-and-integration/">AI Automation &amp; Integration</Link>
+            </li>
+            <li>
               <Link href="/real-estate-website-development/">Real Estate Websites</Link>
             </li>
             <li>
