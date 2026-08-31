@@ -84,7 +84,7 @@ export default function ServiceLandingPageContent({ slug }: { slug: string }) {
       <section className="services-hero" id="services-hero">
         <div className="services-hero-banner-bg" aria-hidden="true">
           <Image
-            src="/assets/services.png"
+            src={page.bannerImage || '/assets/services.png'}
             alt=""
             width={1920}
             height={1080}
