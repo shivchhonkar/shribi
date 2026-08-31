@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 
-import { SmtpMailer } from '@/lib/smtp-mailer'
+import { SmtpMailer, type SmtpConfig } from '@/lib/smtp-mailer'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -26,10 +26,11 @@ function asTrimmedString(value: unknown) {
   return typeof value === 'string' ? value.trim() : ''
 }
 
-function getMailConfig() {
+function getMailConfig(): SmtpConfig & { toEmail: string } {
   const username = process.env.SMTP_USER || ''
   const password = process.env.SMTP_PASS || ''
-  const secure = (process.env.SMTP_SECURE || 'ssl').toLowerCase() === 'tls' ? 'tls' : 'ssl'
+  const secure: SmtpConfig['secure'] =
+    (process.env.SMTP_SECURE || 'ssl').toLowerCase() === 'tls' ? 'tls' : 'ssl'
 
   return {
     host: process.env.SMTP_HOST || 'smtp.hostinger.com',
