@@ -182,11 +182,13 @@
   color: #2563eb !important;
 }
 
-.nav-item--has-menu:hover .nav-submenu,
-.nav-item--has-menu:focus-within .nav-submenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
+@media (min-width: 1025px) {
+  .nav-item--has-menu:hover .nav-submenu,
+  .nav-item--has-menu:focus-within .nav-submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .nav-cta {
@@ -228,7 +230,7 @@
   transition: var(--transition);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .nav-toggle {
     display: flex;
   }
@@ -247,6 +249,7 @@
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
+    overflow-x: hidden;
     transition:
       transform 0.25s ease,
       opacity 0.25s ease,
@@ -264,27 +267,54 @@
     text-align: center;
   }
 
-  .nav-links a,
-  .nav-menu-btn {
-    display: block;
-    padding: 0.875rem 1.5rem;
-    color: #334155 !important;
+  .nav-item--has-menu {
+    position: static;
   }
 
-  .nav-item--has-menu .nav-submenu {
+  .nav-links > li > a,
+  .nav-menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    color: #334155 !important;
+    text-align: center;
+  }
+
+  .nav-item--has-menu .nav-submenu,
+  .nav-item--has-menu:hover .nav-submenu,
+  .nav-item--has-menu:focus-within .nav-submenu {
     position: static;
+    left: auto;
+    right: auto;
+    top: auto;
     transform: none;
     opacity: 1;
     visibility: visible;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     box-shadow: none;
     border: none;
-    padding-left: 0.5rem;
     display: none;
     background: transparent;
   }
 
   .nav-item--has-menu.open .nav-submenu {
     display: block;
+  }
+
+  .nav-submenu li {
+    width: 100%;
+  }
+
+  .nav-submenu a {
+    text-align: center;
+    padding: 0.65rem 1.5rem;
+    white-space: normal;
   }
 
   .nav-toggle.open span:nth-child(1) {
