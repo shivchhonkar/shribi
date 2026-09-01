@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import type { CSSProperties } from 'react'
 import Link from 'next/link'
 
 import { ServiceCard } from '@/components/shared/service-card'
@@ -81,17 +81,16 @@ export default function ServiceLandingPageContent({ slug }: { slug: string }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="services-hero" id="services-hero">
-        <div className="services-hero-banner-bg" aria-hidden="true">
-          <Image
-            src={page.bannerImage || '/assets/services.png'}
-            alt=""
-            width={1920}
-            height={1080}
-            priority
-            decoding="async"
-          />
-        </div>
+      <section
+        className="services-hero services-hero--landing"
+        id="services-hero"
+        style={
+          {
+            '--services-hero-banner': `url("${page.bannerImage || '/assets/services.png'}")`,
+          } as CSSProperties
+        }
+      >
+        <div className="services-hero-banner-bg" aria-hidden="true" />
         <div className="container services-hero-shell">
           <div className="services-hero-grid">
             <div className="services-hero-content reveal">

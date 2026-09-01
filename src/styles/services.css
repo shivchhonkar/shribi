@@ -122,6 +122,32 @@ body.page-services .section-services-dark {
   );
 }
 
+/* Landing pages: banner is a CSS background so phones never download the image */
+@media (min-width: 769px) {
+  .page-services .services-hero--landing .services-hero-banner-bg {
+    height: 130%;
+    background-image: var(--services-hero-banner);
+    background-size: cover;
+    background-position: 72% center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    -webkit-mask-image: linear-gradient(
+      105deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      #000 22%,
+      #000 68%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      105deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      #000 22%,
+      #000 68%,
+      transparent 100%
+    );
+  }
+}
+
 .page-services .services-hero-shell {
   position: relative;
   z-index: 1;
@@ -486,6 +512,10 @@ body.page-services .section-services-dark {
 }
 
 @media (max-width: 768px) {
+  .page-services .services-hero--landing .services-hero-banner-bg {
+    display: none;
+  }
+
   .page-services .services-grid {
     grid-template-columns: 1fr;
   }
