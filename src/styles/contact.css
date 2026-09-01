@@ -268,9 +268,17 @@ body.page-contact .office-card:hover {
 
 body.page-contact .office-card__map {
   position: relative;
-  height: 140px;
+  height: 220px;
   overflow: hidden;
   background: #0f172a;
+}
+
+body.page-contact .office-card__map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  filter: none;
 }
 
 body.page-contact .office-card__map img {
@@ -337,6 +345,83 @@ body.page-contact .office-card__link:hover {
   color: #93c5fd;
 }
 
+/* Google reviews */
+body.page-contact .contact-page__reviews {
+  padding-top: 0;
+  padding-bottom: var(--contact-section-y);
+}
+
+body.page-contact .google-reviews-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+body.page-contact .google-reviews-panel {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1.75rem 1.5rem;
+}
+
+body.page-contact .google-reviews-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #e2e8f0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+body.page-contact .google-reviews-panel h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+body.page-contact .google-reviews-panel p {
+  color: #94a3b8;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+body.page-contact .google-reviews-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+body.page-contact .google-reviews-actions .btn-ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+body.page-contact .google-reviews-actions .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.page-contact .google-reviews-map {
+  min-height: 280px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0f172a;
+}
+
+body.page-contact .google-reviews-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border: 0;
+  display: block;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   body.page-contact .contact-page__grid {
@@ -347,6 +432,10 @@ body.page-contact .office-card__link:hover {
     grid-template-columns: 1fr;
     max-width: 420px;
     margin-inline: auto;
+  }
+
+  body.page-contact .google-reviews-grid {
+    grid-template-columns: 1fr;
   }
 }
 

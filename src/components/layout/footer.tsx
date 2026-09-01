@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { SOCIAL_LINKS } from '@/lib/site'
+import { GOOGLE_BUSINESS_URL, SOCIAL_LINKS } from '@/lib/site'
 import { SocialIcon } from '@/components/layout/social-icons'
 
 export default function Footer() {
@@ -147,6 +147,9 @@ export default function Footer() {
         <div className="footer-legal">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms &amp; Conditions</a>
+          <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer">
+            Google Business Profile
+          </a>
           <a href="/sitemap.xml">Sitemap</a>
         </div>
       </div>

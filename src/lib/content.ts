@@ -92,8 +92,9 @@ export const offices = [
     address: 'A-56, Sector 64, Noida, Uttar Pradesh 201301, India',
     email: 'noida@shribi.com',
     phone: '+91 9528-466-566',
-    tel: '+919528-466-566',
+    tel: '+919528466566',
     mapCenter: '28.625,77.375',
+    mapsQuery: 'A-56, Sector 64, Noida, Uttar Pradesh 201301, India',
   },
   {
     name: 'Mathura Office',
@@ -102,6 +103,7 @@ export const offices = [
     phone: '+91 9650-593-896',
     tel: '+919650593896',
     mapCenter: '27.605,77.596',
+    mapsQuery: 'NH-19, 43 KA Bhag Near, GLA University, Mathura, Uttar Pradesh 281406, India',
   },
   // {
   //   name: 'Jaipur Office',

@@ -16,6 +16,12 @@ export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURICo
 
 export const WHATSAPP_LABEL = 'Chat on WhatsApp'
 
+export const CALL_LABEL = 'Call Shribi'
+
+export const GOOGLE_BUSINESS_URL = 'https://share.google/v5jB0AgFHPmHGpUXt'
+
+export const GOOGLE_BUSINESS_LABEL = 'Google Business Profile'
+
 export const CONTACT_API = process.env.NEXT_PUBLIC_CONTACT_API || '/api/contact/'
 
 export type PageKey = 'home' | 'about' | 'services' | 'contact' | 'school-erp' | 'billint'

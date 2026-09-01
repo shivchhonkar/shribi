@@ -5,7 +5,7 @@ import Script from 'next/script'
 import '@/styles/styles.css'
 import '@/styles/header.css'
 import '@/styles/whatsapp-float.css'
-import WhatsAppFloat from '@/components/layout/whatsapp-float'
+import FloatActions from '@/components/layout/float-actions'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
 
 const inter = Inter({
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body className={inter.className}>
         {children}
-        <WhatsAppFloat />
+        <FloatActions />
       </body>
     </html>
   )
