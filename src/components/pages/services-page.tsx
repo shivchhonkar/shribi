@@ -153,6 +153,9 @@ export default function ServicesPageContent() {
           </div>
           <div className="landing-related reveal">
             <ul>
+              <li>
+                <Link href="/shribi-talent/">Shribi Talent</Link>
+              </li>
               {serviceLandingPages.map((page) => (
                 <li key={page.slug}>
                   <Link href={page.path}>{page.navLabel}</Link>

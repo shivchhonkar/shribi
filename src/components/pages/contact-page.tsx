@@ -73,7 +73,13 @@ function OfficeMap({ name, query }: { name: string; query: string }) {
   )
 }
 
-export default function ContactPageContent() {
+export default function ContactPageContent({
+  defaultSubject,
+  defaultMessage,
+}: {
+  defaultSubject?: string
+  defaultMessage?: string
+}) {
   return (
     <>
       <section
@@ -173,6 +179,8 @@ export default function ContactPageContent() {
             showSubject={false}
             submitLabel="Send Message"
             phonePlaceholder="Your phone number"
+            defaultSubject={defaultSubject}
+            defaultMessage={defaultMessage}
           />
         </div>
       </section>

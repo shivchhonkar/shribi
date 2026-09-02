@@ -13,10 +13,16 @@ export const metadata: Metadata = pageMetadata({
   path: '/contact/',
 })
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ subject?: string; message?: string }>
+}) {
+  const params = await searchParams
+
   return (
     <SiteShell activePage="contact" bodyClass="page-contact">
-      <ContactPageContent />
+      <ContactPageContent defaultSubject={params.subject} defaultMessage={params.message} />
     </SiteShell>
   )
 }

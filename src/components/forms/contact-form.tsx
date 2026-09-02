@@ -16,6 +16,8 @@ type ContactFormProps = {
   submitLabel?: string
   stacked?: boolean
   phonePlaceholder?: string
+  defaultSubject?: string
+  defaultMessage?: string
 }
 
 export default function ContactForm({
@@ -24,6 +26,8 @@ export default function ContactForm({
   submitLabel = 'Send Message →',
   stacked = false,
   phonePlaceholder = 'Your phone number',
+  defaultSubject = '',
+  defaultMessage = '',
 }: ContactFormProps) {
   const [note, setNote] = useState('')
   const [isError, setIsError] = useState(false)
@@ -112,6 +116,9 @@ export default function ContactForm({
           autoComplete="off"
         />
       </div>
+      {defaultSubject && !showSubject ? (
+        <input type="hidden" name="subject" value={defaultSubject} />
+      ) : null}
       {stacked ? (
         <>
           <div className="form-row">
@@ -192,7 +199,13 @@ export default function ContactForm({
               {showSubject ? (
                 <div className="form-row">
                   <label htmlFor="subject">Subject</label>
-                  <input type="text" id="subject" name="subject" placeholder="Project inquiry" />
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Project inquiry"
+                    defaultValue={defaultSubject}
+                  />
                 </div>
               ) : null}
             </div>
@@ -207,6 +220,7 @@ export default function ContactForm({
           rows={4}
           required
           placeholder="Tell us about your project…"
+          defaultValue={defaultMessage}
         />
       </div>
       <button type="submit" className="btn btn-primary btn-full" disabled={isSubmitting}>

@@ -75,6 +75,9 @@ export default function Footer() {
           <h4>Services</h4>
           <ul>
             <li>
+              <Link href="/shribi-talent/">Shribi Talent</Link>
+            </li>
+            <li>
               <Link href="/website-development-services/">Website Development</Link>
             </li>
             <li>

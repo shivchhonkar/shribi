@@ -22,6 +22,10 @@ function navClass(activePage: PageKey, page: PageKey) {
   return activePage === page ? 'nav-active' : undefined
 }
 
+function isSolutionsPage(activePage: PageKey) {
+  return activePage === 'school-erp' || activePage === 'billint'
+}
+
 export default function Header({ activePage }: { activePage: PageKey }) {
   return (
     <header className="header" id="header">
@@ -58,19 +62,6 @@ export default function Header({ activePage }: { activePage: PageKey }) {
               About Us
             </Link>
           </li>
-          <li>
-            <Link href="/school-erp/" className={navClass(activePage, 'school-erp')}>
-              School ERP
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/billing-and-inventory-management-software/"
-              className={navClass(activePage, 'billint')}
-            >
-              Billing & Inventory app
-            </Link>
-          </li>
           <li className="nav-item nav-item--has-menu">
             <button
               type="button"
@@ -90,16 +81,25 @@ export default function Header({ activePage }: { activePage: PageKey }) {
             </ul>
           </li>
           <li className="nav-item nav-item--has-menu">
-            <button type="button" className="nav-menu-btn" aria-haspopup="true">
+            <button
+              type="button"
+              className={`nav-menu-btn${isSolutionsPage(activePage) ? ' nav-active' : ''}`}
+              aria-haspopup="true"
+              aria-current={isSolutionsPage(activePage) ? 'page' : undefined}
+            >
               Solutions
               <ChevronDown />
             </button>
-            <ul className="nav-submenu">
+            <ul className="nav-submenu nav-submenu--wide">
               {solutionsLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} target="_blank" rel="noopener noreferrer">
-                    {link.label}
-                  </a>
+                  {link.external ? (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer">
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link href={link.href}>{link.label}</Link>
+                  )}
                 </li>
               ))}
             </ul>
