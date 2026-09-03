@@ -82,7 +82,13 @@ export default function ServiceLandingPageContent({ slug }: { slug: string }) {
       />
 
       <section
-        className="services-hero services-hero--landing"
+        className={`services-hero services-hero--landing${
+          slug === 'mobile-app-development-services'
+            ? ' services-hero--mobile-app'
+            : slug === 'ai-automation-and-integration'
+              ? ' services-hero--ai'
+              : ''
+        }`}
         id="services-hero"
         style={
           {

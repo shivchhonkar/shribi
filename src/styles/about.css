@@ -99,7 +99,7 @@ body.page-about .header:not(.scrolled):not(.nav-solid) {
   background-image: url('/assets/about-us.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 90% 0%;
+  background-position: 90% -100px;
   opacity: 0.85;
   -webkit-mask-image: linear-gradient(
     105deg,
@@ -627,7 +627,7 @@ body.page-about .header:not(.scrolled):not(.nav-solid) {
   }
 
   .page-about .about-hero-banner-bg {
-    background-position: 82% 66%;
+    background-position: 82% calc(66% - 10px);
     opacity: 0.65;
   }
 

@@ -125,7 +125,7 @@ body.page-services .section-services-dark {
 /* Landing pages: banner is a CSS background so phones never download the image */
 @media (min-width: 769px) {
   .page-services .services-hero--landing .services-hero-banner-bg {
-    height: 130%;
+    height: 100%;
     background-image: var(--services-hero-banner);
     background-size: cover;
     background-position: 72% center;
@@ -145,6 +145,14 @@ body.page-services .section-services-dark {
       #000 68%,
       transparent 100%
     );
+  }
+
+  .page-services .services-hero--mobile-app .services-hero-banner-bg {
+    background-position: 72% calc(50% + 20px);
+  }
+
+  .page-services .services-hero--ai .services-hero-banner-bg {
+    background-position: 72% calc(50% + 20px);
   }
 }
 

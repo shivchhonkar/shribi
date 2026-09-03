@@ -224,7 +224,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
   {
     slug: 'custom-software-development-services',
     path: '/custom-software-development-services/',
-    navLabel: 'Custom Software',
+    navLabel: 'Software Development',
     title: 'Custom Software Development Services',
     description:
       'Custom software development services from Shribi — tailored web platforms, internal tools, integrations, and automation for businesses that have outgrown off-the-shelf products.',
