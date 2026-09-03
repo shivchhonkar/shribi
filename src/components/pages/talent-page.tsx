@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import Link from 'next/link'
 
 import {
@@ -81,7 +82,16 @@ export default function TalentPageContent() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="services-hero services-hero--talent" id="services-hero">
+      <section
+        className="services-hero services-hero--talent services-hero--workshop"
+        id="services-hero"
+        style={
+          {
+            '--services-hero-banner': 'url("/assets/shribi-college-traning.png")',
+          } as CSSProperties
+        }
+      >
+        <div className="services-hero-banner-bg" aria-hidden="true" />
         <div className="container services-hero-shell">
           <div className="services-hero-grid">
             <div className="services-hero-content reveal">
