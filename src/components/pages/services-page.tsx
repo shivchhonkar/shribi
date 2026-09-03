@@ -156,6 +156,9 @@ export default function ServicesPageContent() {
               <li>
                 <Link href="/shribi-talent/">Shribi Talent</Link>
               </li>
+              <li>
+                <Link href="/shribi-workshop-in-college/">College Workshops</Link>
+              </li>
               {serviceLandingPages.map((page) => (
                 <li key={page.slug}>
                   <Link href={page.path}>{page.navLabel}</Link>

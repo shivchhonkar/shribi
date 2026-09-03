@@ -1,51 +1,50 @@
+import type { CSSProperties } from 'react'
 import Link from 'next/link'
 
-import {
-  TALENT_PATH,
-  talentDevelopers,
-  talentFaqs,
-  talentHeroActions,
-  talentModels,
-  talentPage,
-  talentProcess,
-  talentProfileRequestHref,
-  talentSkills,
-  talentWhy,
-} from '@/lib/talent-content'
 import { serviceLandingPages } from '@/lib/service-landing-content'
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, SITE_NAME, SITE_URL } from '@/lib/site'
+import {
+  WORKSHOP_PATH,
+  workshopAudience,
+  workshopFaqs,
+  workshopHeroActions,
+  workshopPage,
+  workshopProcess,
+  workshopWhy,
+} from '@/lib/workshop-content'
+import WorkshopTracks from '@/components/pages/workshop-tracks'
 
 const whyIcons = [
+  <path key="code" d="M8 9l-3 3 3 3M16 9l3 3-3 3M14 4l-4 16" />,
+  <path key="folder" d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" />,
+  <path key="map" d="M12 21s7-4.35 7-10a7 7 0 10-14 0c0 5.65 7 10 7 10zM12 11a2 2 0 110-4 2 2 0 010 4z" />,
   <path key="users" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />,
-  <path
-    key="shield"
-    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-  />,
-  <path key="globe" d="M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20M12 2c2.5 3 4 6.5 4 10s-1.5 7-4 10c-2.5-3-4-6.5-4-10s1.5-7 4-10z" />,
-  <path key="bolt" d="M13 10V3L4 14h7v7l9-11h-7z" />,
 ]
 
 const processIcons = [
   <path key="brief" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />,
-  <path key="search" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z" />,
-  <path key="chat" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4-.8L3 20l.8-3.2A7.5 7.5 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />,
-  <path key="rocket" d="M5 13l4 4L19 7" />,
+  <path key="pen" d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />,
+  <path key="campus" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />,
+  <path key="check" d="M5 13l4 4L19 7" />,
 ]
 
-const relatedServices = serviceLandingPages.filter(
-  (page) => page.slug !== 'website-development-company-in-mathura',
-)
+const relatedServices = [
+  { href: '/shribi-talent/', label: 'Hire Shribi Talent' },
+  ...serviceLandingPages
+    .filter((page) => page.slug !== 'website-development-company-in-mathura')
+    .map((page) => ({ href: page.path, label: page.navLabel })),
+]
 
-export default function TalentPageContent() {
-  const pageUrl = `${SITE_URL}${TALENT_PATH}`
+export default function WorkshopPageContent() {
+  const pageUrl = `${SITE_URL}${WORKSHOP_PATH}`
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'Service',
-        name: talentPage.title,
-        description: talentPage.description,
+        name: workshopPage.title,
+        description: workshopPage.description,
         url: pageUrl,
         provider: {
           '@type': 'Organization',
@@ -53,19 +52,19 @@ export default function TalentPageContent() {
           url: SITE_URL,
         },
         areaServed: 'India',
-        serviceType: 'Dedicated development teams and remote staffing',
+        serviceType: 'College coding workshops',
       },
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
           { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/services/` },
-          { '@type': 'ListItem', position: 3, name: talentPage.navLabel, item: pageUrl },
+          { '@type': 'ListItem', position: 3, name: workshopPage.navLabel, item: pageUrl },
         ],
       },
       {
         '@type': 'FAQPage',
-        mainEntity: talentFaqs.map((faq) => ({
+        mainEntity: workshopFaqs.map((faq) => ({
           '@type': 'Question',
           name: faq.question,
           acceptedAnswer: { '@type': 'Answer', text: faq.answer },
@@ -81,7 +80,16 @@ export default function TalentPageContent() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="services-hero services-hero--talent" id="services-hero">
+      <section
+        className="services-hero services-hero--talent services-hero--workshop"
+        id="services-hero"
+        style={
+          {
+            '--services-hero-banner': 'url("/assets/shribi-college-traning.png")',
+          } as CSSProperties
+        }
+      >
+        <div className="services-hero-banner-bg" aria-hidden="true" />
         <div className="container services-hero-shell">
           <div className="services-hero-grid">
             <div className="services-hero-content reveal">
@@ -93,17 +101,18 @@ export default function TalentPageContent() {
                   <li>
                     <Link href="/services/">Services</Link>
                   </li>
-                  <li aria-current="page">{talentPage.navLabel}</li>
+                  <li aria-current="page">{workshopPage.navLabel}</li>
                 </ol>
               </nav>
               <h1>
-                {talentPage.h1}{' '}
-                <span className="gradient-text">{talentPage.h1Highlight}</span> {talentPage.h1Suffix}
+                {workshopPage.h1} <span className="gradient-text">{workshopPage.h1Highlight}</span>
               </h1>
-              <p className="services-hero-lead">{talentPage.lead}</p>
-              <p className="services-hero-lead services-hero-lead--secondary">{talentPage.leadSecondary}</p>
+              <p className="services-hero-lead">{workshopPage.lead}</p>
+              <p className="services-hero-lead services-hero-lead--secondary">
+                {workshopPage.leadSecondary}
+              </p>
               <div className="services-hero-actions">
-                {talentHeroActions.map((action) =>
+                {workshopHeroActions.map((action) =>
                   action.href.startsWith('/') ? (
                     <Link
                       key={action.label}
@@ -128,100 +137,35 @@ export default function TalentPageContent() {
         </div>
       </section>
 
-      <section className="section section-muted" id="available-developers">
+      <section className="section section-services-dark" id="tracks">
         <div className="container">
           <div className="section-header reveal">
-            <span className="section-tag">Available Talent</span>
-            <h2>Available Developers</h2>
+            <span className="section-tag">Workshop Tracks</span>
+            <h2>Courses based on subjects</h2>
             <p>
-              A curated snapshot of roles we can staff now — not a public directory of students.
-              Request a profile to receive the full CV, interview availability, and a private
-              introduction.
+              Learn and grow as a developer with project-based workshops led by practising
+              engineers.
             </p>
           </div>
-          <div className="talent-profile-grid">
-            {talentDevelopers.map((developer, index) => (
-              <article
-                key={developer.id}
-                className={`talent-profile-card reveal${index ? ` reveal-delay${index > 1 ? `-${Math.min(index, 3)}` : ''}` : ''}`}
-              >
-                <div className="talent-profile-card__top">
-                  <h3>{developer.role}</h3>
-                  <span className={`talent-availability talent-availability--${developer.availabilityTone}`}>
-                    {developer.availability}
-                  </span>
-                </div>
-                <dl className="talent-profile-meta">
-                  <div>
-                    <dt>Experience</dt>
-                    <dd>{developer.experience}</dd>
-                  </div>
-                  <div>
-                    <dt>Engagement</dt>
-                    <dd>{developer.engagement}</dd>
-                  </div>
-                </dl>
-                <div className="talent-profile-skills">
-                  <p>Skills</p>
-                  <ul>
-                    {developer.skills.map((skill) => (
-                      <li key={skill}>{skill}</li>
-                    ))}
-                  </ul>
-                </div>
-                <Link
-                  href={talentProfileRequestHref(developer.role, developer.experience)}
-                  className="btn btn-primary talent-profile-card__cta"
-                >
-                  Request Profile
-                </Link>
-              </article>
-            ))}
-          </div>
+          <WorkshopTracks />
         </div>
       </section>
 
-      <section className="section section-services-dark" id="models">
+      <section className="section section-muted" id="audience">
         <div className="container">
           <div className="section-header reveal">
-            <span className="section-tag">How You Engage</span>
-            <h2>Dedicated teams, staffing, or a project squad</h2>
-            <p>Choose the model that matches how you already build software.</p>
-          </div>
-          <div className="services-grid talent-models-grid">
-            {talentModels.map((model, index) => (
-              <article
-                key={model.title}
-                className={`service-card reveal${index ? ` reveal-delay${index > 1 ? `-${index}` : ''}` : ''}`}
-              >
-                <h3>{model.title}</h3>
-                <p>{model.text}</p>
-                <ul>
-                  {model.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-muted" id="skills">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-tag">Core Skills</span>
-            <h2>React, Next.js, Node.js, and software engineering</h2>
-            <p>Carefully selected talent for the stacks most product teams ship on today.</p>
+            <span className="section-tag">Who It Is For</span>
+            <h2>Colleges, placement cells, and student communities</h2>
+            <p>We design the batch around your calendar, labs, and learning outcomes.</p>
           </div>
           <div className="talent-skills-grid">
-            {talentSkills.map((skill, index) => (
+            {workshopAudience.map((item, index) => (
               <article
-                key={skill.name}
+                key={item.name}
                 className={`talent-skill-card reveal${index ? ` reveal-delay${index > 1 ? `-${index}` : ''}` : ''}`}
               >
-                <h3>{skill.name}</h3>
-                <p>{skill.text}</p>
+                <h3>{item.name}</h3>
+                <p>{item.text}</p>
               </article>
             ))}
           </div>
@@ -231,11 +175,11 @@ export default function TalentPageContent() {
       <section className="section section-dark" id="why-partner">
         <div className="container">
           <div className="section-header reveal">
-            <span className="section-tag">Why Shribi Talent</span>
-            <h2>Trained developers, led by practising engineers</h2>
+            <span className="section-tag">Why Shribi</span>
+            <h2>Campus workshops led by a working product team</h2>
           </div>
           <div className="why-partner-grid">
-            {talentWhy.map((item, index) => (
+            {workshopWhy.map((item, index) => (
               <article
                 key={item.title}
                 className={`why-partner-item reveal${index ? ` reveal-delay${index > 1 ? `-${index}` : ''}` : ''}`}
@@ -257,11 +201,11 @@ export default function TalentPageContent() {
         <div className="container">
           <div className="section-header reveal">
             <span className="section-tag">How It Works</span>
-            <h2>From brief to a team that is shipping</h2>
-            <p>A short, practical path — you stay in control of who joins your product.</p>
+            <h2>From a campus brief to a closing demo</h2>
+            <p>A short path that fits a semester timetable.</p>
           </div>
           <div className="landing-process-grid">
-            {talentProcess.map((step, index) => (
+            {workshopProcess.map((step, index) => (
               <article
                 key={step.title}
                 className={`landing-process-card reveal${index ? ` reveal-delay${index > 1 ? `-${index}` : ''}` : ''}`}
@@ -284,10 +228,10 @@ export default function TalentPageContent() {
         <div className="container">
           <div className="section-header reveal">
             <span className="section-tag">FAQs</span>
-            <h2>Questions companies ask before they hire</h2>
+            <h2>Questions colleges ask before they book</h2>
           </div>
           <div className="landing-faq-list">
-            {talentFaqs.map((faq) => (
+            {workshopFaqs.map((faq) => (
               <article key={faq.question} className="landing-faq-item reveal">
                 <h3>{faq.question}</h3>
                 <p>{faq.answer}</p>
@@ -295,14 +239,11 @@ export default function TalentPageContent() {
             ))}
           </div>
           <div className="landing-related reveal">
-            <p>Related services</p>
+            <p>Related</p>
             <ul>
-              <li>
-                <Link href="/shribi-workshop-in-college/">College Workshops</Link>
-              </li>
               {relatedServices.map((item) => (
-                <li key={item.slug}>
-                  <Link href={item.path}>{item.navLabel}</Link>
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
                 </li>
               ))}
             </ul>
@@ -314,11 +255,11 @@ export default function TalentPageContent() {
         <div className="container">
           <div className="services-cta-banner reveal">
             <div className="services-cta-text">
-              <span className="section-tag">Ready to hire?</span>
-              <h2>Tell us the roles you need. We will send profiles.</h2>
+              <span className="section-tag">Host Shribi on campus</span>
+              <h2>Tell us your dates. We will propose a workshop track.</h2>
               <p>
-                Share your stack, seniority, and start date. Our talent team will come back with
-                curated developer profiles and a proposed engagement model.
+                Share batch size, student year, and whether you want React, Node.js, or a full-stack
+                sprint. We will reply with an outline and available slots.
               </p>
             </div>
             <div className="services-cta-contact">
@@ -349,8 +290,8 @@ export default function TalentPageContent() {
                 {CONTACT_PHONE}
               </a>
             </div>
-            <Link href="/contact/?subject=Request developer profiles" className="btn btn-primary">
-              Request Developer Profiles →
+            <Link href="/contact/?subject=Book a college workshop" className="btn btn-primary">
+              Book a Campus Workshop →
             </Link>
           </div>
         </div>

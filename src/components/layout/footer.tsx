@@ -78,6 +78,9 @@ export default function Footer() {
               <Link href="/shribi-talent/">Shribi Talent</Link>
             </li>
             <li>
+              <Link href="/shribi-workshop-in-college/">College Workshops</Link>
+            </li>
+            <li>
               <Link href="/website-development-services/">Website Development</Link>
             </li>
             <li>

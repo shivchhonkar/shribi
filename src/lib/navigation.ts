@@ -19,6 +19,7 @@ export const solutionsLinks = [
 export const servicesLinks = [
   { href: '/services/', label: 'All Services' },
   { href: '/shribi-talent/', label: 'Hire Developers' },
+  { href: '/shribi-workshop-in-college/', label: 'College Workshops' },
   ...serviceLandingPages
     .filter((page) => page.slug !== 'website-development-company-in-mathura')
     .map((page) => ({ href: page.path, label: page.navLabel })),
