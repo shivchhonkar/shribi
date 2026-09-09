@@ -2,14 +2,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import ContactForm from '@/components/forms/contact-form'
+import TestimonialsSlider from '@/components/home/testimonials-slider'
 import { ContactLinks, ServiceCard } from '@/components/shared/service-card'
 import { coreServices, industries } from '@/lib/content'
 import { IndustryIcon } from '@/lib/industry-icons'
 
 const trustCards = [
   {
-    title: 'End-to-end delivery',
-    text: 'Strategy, design, development, and deployment under one roof — no handoffs, no gaps.',
+    title: 'From idea to launch',
+    text: 'We handle strategy, design, development and deployment under one team, so you don\'t have to coordinate multiple vendors.',
     icon: (
       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
     ),
@@ -17,21 +18,21 @@ const trustCards = [
   },
   {
     title: 'Secure by design',
-    text: 'Security and compliance woven into every layer — from architecture to operations.',
+    text: 'We consider security, access control and data protection while designing and developing your application, not as an afterthought.',
     icon: (
       <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
     ),
     delay: 'reveal-delay',
   },
   {
-    title: 'Built for performance',
-    text: 'Fast, responsive experiences on web and mobile — optimized for real-world scale.',
+    title: 'Fast and reliable',
+    text: 'We build responsive websites and applications that load quickly and work reliably across devices.',
     icon: <path d="M13 10V3L4 14h7v7l9-11h-7z" />,
     delay: 'reveal-delay-2',
   },
   {
-    title: 'Reliable support',
-    text: 'Responsive help when you need it — onboarding, training, and SLA-backed maintenance.',
+    title: 'Ongoing support',
+    text: 'To ensure high satisfaction, we provide responsive help when you need it, including onboarding, training and SLA-backed maintenance.',
     icon: (
       <>
         <path d="M3 18v-6a9 9 0 0118 0v6" />
@@ -39,6 +40,129 @@ const trustCards = [
       </>
     ),
     delay: 'reveal-delay-3',
+  },
+]
+
+const testimonials = [
+  {
+    quote:
+      'Edufy replaced three spreadsheets and a dozen WhatsApp groups. Parents see homework the same evening, and our office finally closes on time.',
+    name: 'Meera Iyer',
+    title: 'Principal, Greenwood Public School',
+    product: 'Shribi Edufy',
+    initials: 'MI',
+  },
+  {
+    quote:
+      'GST invoices, stock, and party ledgers used to live in different tools. Billint pulled it together — our team was live in a week, not a quarter.',
+    name: 'Rajesh Malhotra',
+    title: 'Director, Malhotra Traders',
+    product: 'Billint',
+    initials: 'RM',
+  },
+  {
+    quote:
+      'Zamiwala gave our agents a single place for listings and follow-ups. Site visits are booked from the app, and nothing slips through the cracks.',
+    name: 'Ananya Kapoor',
+    title: 'Founder, Skyline Estates',
+    product: 'Zamiwala',
+    initials: 'AK',
+  },
+  {
+    quote:
+      'We needed GST-ready billing across two warehouses. Shribi understood the workflow before writing a line of code — that is rare.',
+    name: 'Vikram Shah',
+    title: 'CFO, Shah Pharmaceuticals',
+    product: 'Billint',
+    initials: 'VS',
+  },
+  {
+    quote:
+      'Attendance, fees, and exam reports now live in one login. Teachers adopted it faster than any tool we have rolled out in ten years.',
+    name: 'Fatima Khan',
+    title: 'Academic Head, Crescent International',
+    product: 'Shribi Edufy',
+    initials: 'FK',
+  },
+  {
+    quote:
+      'Our brokers were still sharing PDFs on WhatsApp. Zamiwala made inventory searchable, and the admin dashboard keeps every listing honest.',
+    name: 'Suresh Nair',
+    title: 'Partner, Nair & Sons Realty',
+    product: 'Zamiwala',
+    initials: 'SN',
+  },
+  {
+    quote:
+      'From e-invoicing to batch pricing, Billint matches how a mid-size retailer actually works. Support answers before the day ends.',
+    name: 'Priya Deshmukh',
+    title: 'Operations Lead, Deshmukh Retail',
+    product: 'Billint',
+    initials: 'PD',
+  },
+  {
+    quote:
+      'Parents used to call the office for every homework query. Edufy cut those calls in half in the first term.',
+    name: 'Arjun Reddy',
+    title: 'Correspondent, Lakshya Vidyalaya',
+    product: 'Shribi Edufy',
+    initials: 'AR',
+  },
+  {
+    quote:
+      'Project pages, location filters, and a clean mobile flow — Zamiwala feels like a product team that has sat in a broker’s cabin.',
+    name: 'Neha Banerjee',
+    title: 'Principal Broker, Eastwind Properties',
+    product: 'Zamiwala',
+    initials: 'NB',
+  },
+  {
+    quote:
+      'We run three GSTINs. Switching businesses in Billint is a tap, and stock never gets mixed. That alone paid for the subscription.',
+    name: 'Harpreet Singh',
+    title: 'Owner, Singh Auto Spares',
+    product: 'Billint',
+    initials: 'HS',
+  },
+  {
+    quote:
+      'A Montessori cannot live on a heavy ERP. Edufy is light enough for our staff and complete enough for the board.',
+    name: 'Kavya Rao',
+    title: 'Administrator, Little Oak Montessori',
+    product: 'Shribi Edufy',
+    initials: 'KR',
+  },
+  {
+    quote:
+      'Shribi rebuilt our customer portal and the Android app as one programme. Delivery dates held, which is why we came back for phase two.',
+    name: 'Omar Hassan',
+    title: 'Director, Horizon Facilities',
+    product: 'Custom software',
+    initials: 'OH',
+  },
+  {
+    quote:
+      'Payroll and vendor bills used to collide at month-end. Billint’s party ledger gave finance a single source of truth.',
+    name: 'Divya Menon',
+    title: 'HR & Admin, Menon Logistics',
+    product: 'Billint',
+    initials: 'DM',
+  },
+  {
+    quote:
+      'Site visit logging used to live in a notebook. With Zamiwala, sales sees the pipeline before the morning huddle.',
+    name: 'Rohan Joshi',
+    title: 'Sales Head, Joshi Projects',
+    product: 'Zamiwala',
+    initials: 'RJ',
+  },
+  {
+    quote:
+      'We needed admissions, transport, and parent SMS without hiring an IT team. Shribi trained our clerks and stayed on the phone until it stuck.',
+    name: 'Lakshmi Narayan',
+    title: 'Trustee, Saraswati Vidya Mandir',
+    product: 'Shribi Edufy',
+    initials: 'LN',
   },
 ]
 
@@ -86,59 +210,85 @@ export default function HomePageContent() {
     <>
       <section className="hero hero--globe hero--banner" id="home">
         <div className="hero-banner-bg" aria-hidden="true">
-          <Image src="/assets/hero-banner.png" alt="" width={1920} height={1080} priority />
+          <Image
+            src="/assets/hero-banner3.png"
+            alt=""
+            width={1920}
+            height={800}
+            priority
+          />
         </div>
         <div className="container hero-shell">
           <div className="hero-grid">
             <div className="hero-content reveal">
-              <p className="eyebrow">Technology · Innovation · Trust</p>
               <h1>
-                Building digital solutions that <span className="gradient-text">scale with you</span>
+              We build software that <span className="gradient-text">solves real business problems</span>
+                {/* Building digital solutions that <span className="gradient-text">scale with you</span> */}
               </h1>
               <p className="hero-lead">
-                Shribi delivers modern software, cloud infrastructure, and business technology
-                tailored for growth — precise, reliable, and beautifully engineered.
+              Shribi helps businesses in improve and manage their digital operations through custom software, websites, mobile apps and business platforms. 
+              {/* We also build and operate our own products, including Billint, Zamiwala and Shribi Edufy. */}
+                {/* Shribi delivers modern software, cloud infrastructure, and business technology
+                tailored for growth — precise, reliable, and beautifully engineered. */}
               </p>
               <div className="hero-actions">
-                <Link href="#companies" className="btn btn-primary">
-                  Explore Solutions →
+                <Link href="#services" className="btn btn-primary">
+                  Explore Services
                 </Link>
                 <Link href="#contact" className="btn btn-ghost">
-                  Talk to an Expert
+                  Talk to an expert
                 </Link>
               </div>
             </div>
           </div>
           <div className="hero-stats-bar reveal">
-            <div className="hero-stat-item">
+            {/* <div className="hero-stat-item">
               <strong>4+</strong>
-              <span>Years of Excellence</span>
+              <span>Years of experience</span>
             </div>
             <div className="hero-stat-item">
               <strong>50+</strong>
-              <span>Satisfied Clients</span>
+              <span>Happy clients</span>
             </div>
             <div className="hero-stat-item">
-              <strong>99%</strong>
-              <span>Client Satisfaction</span>
+              <strong>88%</strong>
+              <span>Client retention</span>
             </div>
             <div className="hero-stat-item">
               <strong>24/7</strong>
               <span>Support</span>
+            </div> */}
+            <div className="hero-stat-item">
+              <strong className="gradient-text">50+</strong>
+              <span className="gradient-text">Happy clients</span>
             </div>
+            <div className="hero-stat-item">
+              <strong>150+</strong>
+              <span className="gradient-text">Projects delivered</span>
+            </div>
+            <div className="hero-stat-item">
+              <strong>95%</strong>
+              <span className="gradient-text">Client retention</span>
+            </div>
+            <div className="hero-stat-item">
+              <strong>98%</strong>
+              <span className="gradient-text">On-time delivery</span>
+            </div> 
           </div>
         </div>
       </section>
 
+      
+
       <section className="section section-muted about" id="about">
         <div className="container">
           <div className="section-header reveal">
-            <span className="section-tag">Why Clients Trust Us</span>
-            <h2>The company behind trusted Indian SaaS brands</h2>
+            {/* <span className="section-tag">Why Clients Trust Us</span> */}
+            {/* <h2>The company behind trusted Indian SaaS brands</h2> */}
+            <h2>Why Clients Trust Us</h2>
             <p>
-              Shribi owns and operates <strong>Billint.com</strong>, <strong>Zamiwala.com</strong>, and{' '}
-              <strong>edufy.shribi.com</strong> — delivering billing, real estate, and school ERP
-              technology to businesses across India.
+              We deliver custom software, websites, mobile apps and business platforms
+              to businesses across India.
             </p>
           </div>
           <div className="trust-grid">
@@ -157,14 +307,42 @@ export default function HomePageContent() {
         </div>
       </section>
 
+      <section className="section section-services services" id="services">
+        <div className="container">
+          <div className="section-header reveal">
+            {/* <span className="section-tag">What We Do Best</span> */}
+            <h2>Our Core Services</h2>
+          </div>
+          <div className="services-grid">
+            {coreServices.map((service, i) => (
+              <ServiceCard
+                key={service.title}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                features={service.features}
+                delayClass={
+                  i === 1
+                    ? 'reveal-delay'
+                    : i === 2
+                      ? 'reveal-delay-2'
+                      : i === 3
+                        ? 'reveal-delay-3'
+                        : ''
+                }
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section section-light companies" id="companies">
         <div className="container">
           <div className="section-header reveal">
-            <span className="section-tag">Our Products</span>
-            <h2>Products by Shribi</h2>
+            {/* <span className="section-tag">Our Products</span> */}
+            <h2>The products we build and operate</h2>
             <p>
-              Three focused products by Shribi — one company committed to quality, support, and
-              continuous innovation.
+              Products built and operated by Shribi, committed to quality, support, and continuous innovation.
             </p>
           </div>
           <div className="companies-grid">
@@ -196,40 +374,29 @@ export default function HomePageContent() {
         </div>
       </section>
 
-      <section className="section section-services services" id="services">
+      
+
+      <section className="section section-light testimonials" id="testimonials">
         <div className="container">
           <div className="section-header reveal">
-            <span className="section-tag">What We Do Best</span>
-            <h2>Our Core Services</h2>
+            {/* <span className="section-tag">Customer stories</span> */}
+            <h2>Trusted by teams who run on Shribi</h2>
+            <p>
+              Voices from schools, traders, and property teams using our products every day.
+            </p>
           </div>
-          <div className="services-grid">
-            {coreServices.map((service, i) => (
-              <ServiceCard
-                key={service.title}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                features={service.features}
-                delayClass={
-                  i === 1
-                    ? 'reveal-delay'
-                    : i === 2
-                      ? 'reveal-delay-2'
-                      : i === 3
-                        ? 'reveal-delay-3'
-                        : ''
-                }
-              />
-            ))}
-          </div>
+          <TestimonialsSlider items={testimonials} />
         </div>
       </section>
 
       <section className="section section-muted industries" id="industries">
         <div className="container">
           <div className="section-header reveal">
-            <span className="section-tag">Industries We Serve</span>
-            <h2>Industries We Serve with Our Technical Expertise</h2>
+            {/* <span className="section-tag">Industries We Serve</span> */}
+            <h2>Industries We Serve</h2>
+            <p>
+              We serve businesses across various industries, from education to real estate and more.
+            </p>
           </div>
           <div className="industry-strip">
             {industries.map((name) => (
@@ -247,12 +414,11 @@ export default function HomePageContent() {
       <section className="section section-light why" id="why">
         <div className="container why-grid">
           <div className="why-content reveal">
-            <span className="section-tag">Why Partner With Us</span>
+            {/* <span className="section-tag">Why Partner With Us</span> */}
             <h2>A partner who understands your business</h2>
             <p>
-              As the parent of Billint, Zamiwala, and Shribi Edufy, we combine product vision with
-              hands-on engineering — shipping reliable software that businesses depend on every day
-              across India.
+            Our experience in building and operating our own products gives us a practical understanding of development, deployment, maintenance and long-term support. This helps us approach every client project with a practical understanding of development, deployment, maintenance and long-term support. 
+            Whether you need a website, business application, mobile app or a custom software solution, we work closely with you to understand your requirements and build something that fits your business.
             </p>
             <ul className="why-list">
               <li>
@@ -305,9 +471,10 @@ export default function HomePageContent() {
       <section className="section section-contact contact" id="contact">
         <div className="container contact-grid">
           <div className="contact-info reveal">
-            <span className="section-tag">Let&apos;s Connect</span>
-            <h2>Let&apos;s build something great together</h2>
-            <p>Tell us about your project. We&apos;ll respond within one business day.</p>
+            {/* <span className="section-tag">Let&apos;s Connect</span> */}
+            <h2>Let&apos;s talk about your project</h2>
+            <p>Have an idea, a business problem to solve, or an existing system that needs improvement? Tell us a little about what you’re looking for.</p>
+            <p>Share the basics below and our team will get back to you within one business day. If you’re still figuring things out, that’s fine too—we can discuss the right approach together.</p>
             <div className="contact-details">
               <ContactLinks />
             </div>

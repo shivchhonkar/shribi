@@ -380,6 +380,23 @@
   padding: 1.25rem;
 }
 
+.page-services .workshop-course-enquire .contact-form input,
+.page-services .workshop-course-enquire .contact-form select,
+.page-services .workshop-course-enquire .contact-form textarea {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+.page-services .workshop-course-enquire .contact-form select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.4rem;
+}
+
 .page-services .workshop-course-faq {
   max-width: 800px;
   margin: 0 auto;

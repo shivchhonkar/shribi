@@ -243,7 +243,7 @@ body.page-services .section-services-dark {
 /* Core service cards */
 .page-services .services-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--svc-card-gap);
   align-items: stretch;
 }
@@ -288,6 +288,10 @@ body.page-services .section-services-dark {
 
 .page-services .service-icon--web {
   background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.page-services .service-icon--mobile {
+  background: linear-gradient(135deg, #ec4899, #db2777);
 }
 
 .page-services .service-icon--ai {
@@ -478,10 +482,6 @@ body.page-services .section-services-dark {
 
 /* Responsive */
 @media (max-width: 1200px) {
-  .page-services .services-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .page-services .industries-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }

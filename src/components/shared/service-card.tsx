@@ -16,6 +16,12 @@ const icons = {
       <path d="M8 9l-3 3 3 3M16 9l3 3-3 3M14 4l-4 16" />
     </>
   ),
+  mobile: (
+    <>
+      <rect x="7" y="2" width="10" height="20" rx="2" />
+      <path d="M11 18h2" />
+    </>
+  ),
   ai: (
     <>
       <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" />

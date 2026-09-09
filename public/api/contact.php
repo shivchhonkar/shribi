@@ -40,7 +40,7 @@ if ($input === []) {
     $input = $_POST;
 }
 
-if (!empty($input['website'])) {
+if (!empty($input['website']) || !empty($input['hp_field'])) {
     echo json_encode([
         'success' => true,
         'message' => "Thank you! Your message has been received. We'll get back to you soon.",
@@ -50,6 +50,11 @@ if (!empty($input['website'])) {
 
 $name = trim((string) ($input['name'] ?? ''));
 $email = trim((string) ($input['email'] ?? ''));
+$phone = trim((string) ($input['phone'] ?? ''));
+$company = trim((string) ($input['company'] ?? ''));
+$need = trim((string) ($input['need'] ?? ''));
+$budget = trim((string) ($input['budget'] ?? ''));
+$enquirySubject = trim((string) ($input['subject'] ?? ''));
 $message = trim((string) ($input['message'] ?? ''));
 
 if ($name === '' || $email === '' || $message === '') {
@@ -64,7 +69,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-if (mb_strlen($name) > 120 || mb_strlen($email) > 254 || mb_strlen($message) > 5000) {
+if (mb_strlen($name) > 120 || mb_strlen($email) > 254 || mb_strlen($company) > 160 || mb_strlen($message) > 5000) {
     http_response_code(422);
     echo json_encode(['success' => false, 'message' => 'One or more fields are too long.']);
     exit;
@@ -72,19 +77,42 @@ if (mb_strlen($name) > 120 || mb_strlen($email) > 254 || mb_strlen($message) > 5
 
 $toEmail = (string) ($config['to_email'] ?? $config['from_email'] ?? $config['smtp_user']);
 $subject = 'New contact form message from ' . $name;
-$body = implode("\n", [
+$bodyLines = [
     'You received a new message from the Shribi website contact form.',
     '',
     'Name: ' . $name,
     'Email: ' . $email,
-    '',
-    'Message:',
-    $message,
-    '',
-    '---',
-    'Sent: ' . gmdate('Y-m-d H:i:s') . ' UTC',
-    'IP: ' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown'),
-]);
+];
+
+if ($phone !== '') {
+    $bodyLines[] = 'Phone / WhatsApp: ' . $phone;
+}
+
+if ($company !== '') {
+    $bodyLines[] = 'Company: ' . $company;
+}
+
+if ($need !== '') {
+    $bodyLines[] = 'What they need: ' . $need;
+}
+
+if ($budget !== '') {
+    $bodyLines[] = 'Estimated budget: ' . $budget;
+}
+
+if ($enquirySubject !== '') {
+    $bodyLines[] = 'Subject: ' . $enquirySubject;
+}
+
+$bodyLines[] = '';
+$bodyLines[] = 'Message:';
+$bodyLines[] = $message;
+$bodyLines[] = '';
+$bodyLines[] = '---';
+$bodyLines[] = 'Sent: ' . gmdate('Y-m-d H:i:s') . ' UTC';
+$bodyLines[] = 'IP: ' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown');
+
+$body = implode("\n", $bodyLines);
 
 $mailer = new SmtpMailer($config);
 $sent = $mailer->send($toEmail, $subject, $body, $email, $name);

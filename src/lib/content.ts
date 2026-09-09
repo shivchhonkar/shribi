@@ -1,5 +1,29 @@
 export const coreServices = [
   {
+    icon: 'web' as const,
+    title: 'Website Design & Development',
+    description:
+      'Modern, responsive and high-performance websites that elevate your brand and deliver great user experiences.',
+    features: [
+      'Custom Websites',
+      'E-commerce Development',
+      'CMS Development',
+      'Maintenance & Support',
+    ],
+  },
+  {
+    icon: 'mobile' as const,
+    title: 'Mobile Application Development',
+    description:
+      'Native and cross-platform apps for Android and iOS — from MVP to store-ready products your users actually use.',
+    features: [
+      'Android & iOS Apps',
+      'Flutter / React Native',
+      'Store Launch & Updates',
+      'Push, Offline & Analytics',
+    ],
+  },
+  {
     icon: 'billing' as const,
     title: 'Billing & Inventory Management',
     description:
@@ -30,59 +54,55 @@ export const coreServices = [
       'Customer Relationship',
     ],
   },
-  {
-    icon: 'web' as const,
-    title: 'Website Design & Development',
-    description:
-      'Modern, responsive and high-performance websites that elevate your brand and deliver great user experiences.',
-    features: [
-      'Custom Websites',
-      'E-commerce Development',
-      'CMS Development',
-      'Maintenance & Support',
-    ],
-  },
+  
   {
     icon: 'ai' as const,
     title: 'AI Integration',
     description:
-      'Integrate AI capabilities into your products and workflows to automate tasks and unlock new opportunities.',
+      'Add AI to your existing products and business processes to automate repetitive work, assist your teams and make better use of your data.',
     features: [
       'AI Chatbots & Assistants',
-      'Process Automation',
-      'Data & Predictive Analytics',
-      'Custom AI Solutions',
+      'Workflow Automation',
+      'Document & Data Processing',
+      'AI-powered Business Tools',
     ],
   },
 ]
 
 export const industries = [
-  'Banks & Financial Services',
-  'Public Sector & Government',
-  'EdTech',
+  // 'Banks & Financial Services',
+  // 'Public Sector & Government',
+  // 'EdTech',
+  'Education',
   'Healthcare',
-  'IT/ITeS',
+  // 'IT/ITeS',
   'Advertising & Marketing',
   'eCommerce',
-  'FinTech',
+  // 'FinTech',
+  
   'Transportation & Logistics',
-  'Telecom',
+  // 'Telecom',
+  
   'Sports',
+  'Hotel & Restaurant',
   'Estate',
 ]
 
 export const serviceIndustries = [
-  'Media & Entertainment',
-  'Public Sector & Government',
-  'EdTech',
+  // 'Media & Entertainment',
+  // 'Public Sector & Government',
+  // 'EdTech',
+  'Education',
   'Healthcare',
-  'IT/ITeS',
+  // 'IT/ITeS',
   'Advertising & Marketing',
   'eCommerce',
-  'FinTech',
+ 
+  // 'FinTech',
   'Transportation & Logistics',
-  'Telecom',
+  // 'Telecom',
   'Sports',
+  'Hotel & Restaurant',
   'Estate',
 ]
 
