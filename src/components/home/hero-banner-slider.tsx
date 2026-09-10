@@ -6,6 +6,7 @@ import Image from 'next/image'
 const HERO_SLIDES = [
   '/assets/bannerImages/slider/hero-banner1.png',
   '/assets/bannerImages/slider/hero-banner2.png',
+  '/assets/bannerImages/slider/hero-banner3.png',
 ]
 
 const INTERVAL_MS = 9000
