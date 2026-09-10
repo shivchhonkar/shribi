@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import ContactForm from '@/components/forms/contact-form'
+import HeroBannerSlider from '@/components/home/hero-banner-slider'
 import TestimonialsSlider from '@/components/home/testimonials-slider'
 import { ContactLinks, ServiceCard } from '@/components/shared/service-card'
 import { coreServices, industries } from '@/lib/content'
@@ -209,15 +210,7 @@ export default function HomePageContent() {
   return (
     <>
       <section className="hero hero--globe hero--banner" id="home">
-        <div className="hero-banner-bg" aria-hidden="true">
-          <Image
-            src="/assets/hero-banner3.png"
-            alt=""
-            width={1920}
-            height={800}
-            priority
-          />
-        </div>
+        <HeroBannerSlider />
         <div className="container hero-shell">
           <div className="hero-grid">
             <div className="hero-content reveal">

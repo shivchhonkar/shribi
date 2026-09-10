@@ -183,14 +183,20 @@ body.page-home .hero {
   position: absolute;
   inset: 0;
   z-index: 0;
-  pointer-events: none;
 }
 
 .page-home .hero-banner-bg img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: right center;
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+
+.page-home .hero-banner-bg img.is-active {
   opacity: 1;
 }
 
@@ -198,6 +204,7 @@ body.page-home .hero {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0.78) 0%,
@@ -206,6 +213,36 @@ body.page-home .hero {
     transparent 72%
   );
   pointer-events: none;
+}
+
+.page-home .hero-banner-dots {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.25rem;
+  z-index: 2;
+  display: flex;
+  gap: 0.45rem;
+}
+
+.page-home .hero-banner-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.28);
+  cursor: pointer;
+}
+
+.page-home .hero-banner-dots button.is-active {
+  width: 22px;
+  background: #2563eb;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-home .hero-banner-bg img {
+    transition: none;
+  }
 }
 
 .page-home .hero-shell {
@@ -1040,6 +1077,13 @@ body.page-home .hero {
     object-position: 72% center;
   }
 
+  .page-home .hero-banner-dots {
+    left: 50%;
+    right: auto;
+    bottom: 1rem;
+    transform: translateX(-50%);
+  }
+
   .page-home .hero-banner-bg::after {
     background: linear-gradient(
       180deg,
@@ -1080,9 +1124,71 @@ body.page-home .hero {
   }
 }
 
+/* iPad landscape and similar tablets: keep copy on the left over a stronger wash */
+@media (max-width: 1024px) and (min-width: 769px) and (min-height: 500px) {
+  .page-home .hero-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    min-height: clamp(300px, 52vh, 440px);
+    padding-bottom: 1.75rem;
+    text-align: left;
+  }
+
+  .page-home .hero-content {
+    max-width: 34rem;
+    margin-inline: 0;
+  }
+
+  .page-home .hero-lead {
+    margin-inline: 0;
+  }
+
+  .page-home .hero-actions {
+    justify-content: flex-start;
+  }
+
+  .page-home .hero-banner-bg img {
+    object-position: right center;
+  }
+
+  .page-home .hero-banner-bg img.is-active {
+    opacity: 0.62;
+  }
+
+  .page-home .hero-banner-bg::after {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(255, 255, 255, 0.82) 34%,
+      rgba(255, 255, 255, 0.42) 58%,
+      rgba(255, 255, 255, 0.12) 76%,
+      transparent 90%
+    );
+  }
+
+  .page-home .hero-banner-dots {
+    left: auto;
+    right: 1.5rem;
+    bottom: 1rem;
+    transform: none;
+  }
+}
+
 @media (max-width: 768px) {
   body.page-home {
     --home-section-y: 3.25rem;
+  }
+
+  .page-home .hero-banner-bg img.is-active {
+    opacity: 0.4;
+  }
+
+  .page-home .hero-banner-bg::after {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(255, 255, 255, 0.9) 45%,
+      rgba(255, 255, 255, 0.86) 100%
+    );
   }
 
   .page-home .hero-stats-bar {

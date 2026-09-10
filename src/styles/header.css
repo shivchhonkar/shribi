@@ -182,7 +182,7 @@
   color: #2563eb !important;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 769px) {
   .nav-item--has-menu:hover .nav-submenu,
   .nav-item--has-menu:focus-within .nav-submenu {
     opacity: 1;
@@ -230,7 +230,24 @@
   transition: var(--transition);
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-links {
+    gap: 0.85rem;
+  }
+
+  .nav-links > li > a,
+  .nav-menu-btn {
+    font-size: 0.8125rem;
+    white-space: nowrap;
+  }
+
+  .nav-cta {
+    padding: 0.5rem 0.9rem !important;
+    font-size: 0.8125rem !important;
+  }
+}
+
+@media (max-width: 768px) {
   .nav-toggle {
     display: flex;
   }
