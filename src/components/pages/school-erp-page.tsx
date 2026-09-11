@@ -16,7 +16,7 @@ export default function SchoolErpPageContent() {
       <section className="erp-hero" id="overview">
         <div className="container erp-hero-grid">
           <div className="erp-hero-content reveal">
-            <p className="eyebrow">Shribi Edufy · School ERP</p>
+            {/* <p className="eyebrow">Shribi Edufy · School ERP</p> */}
             <h1>
               Complete School Management,{' '}
               <span className="gradient-text">One Platform</span>

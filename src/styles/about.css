@@ -44,11 +44,24 @@ body.page-about .section-dark {
   background: linear-gradient(180deg, #0a1628 0%, #0f2744 100%);
 }
 
-/* Header — transparent over hero banner */
+/* Header — stay readable over the light photo banner */
 body.page-about .header:not(.scrolled):not(.nav-solid) {
-  background: transparent;
-  border-bottom: none;
-  box-shadow: none;
+  background: linear-gradient(180deg, rgba(8, 18, 36, 0.72) 0%, rgba(8, 18, 36, 0.28) 70%, transparent 100%);
+}
+
+body.page-about .header:not(.scrolled):not(.nav-solid) .nav-links > li > a,
+body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn {
+  color: #f8fafc;
+}
+
+body.page-about .header:not(.scrolled):not(.nav-solid) .nav-links > li > a:hover,
+body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn:hover {
+  color: #fff;
+}
+
+body.page-about .header:not(.scrolled):not(.nav-solid) .nav-links > li > a.nav-active,
+body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active {
+  color: #93c5fd;
 }
 
 /* Section headers */
@@ -81,13 +94,24 @@ body.page-about .header:not(.scrolled):not(.nav-solid) {
   margin: 0;
 }
 
-/* Hero */
+/* Hero — same navy photo banner theme as services */
 .page-about .about-hero {
   position: relative;
-  padding: calc(var(--header-h) + 3rem) 0 clamp(3rem, 6vw, 4.5rem);
+  padding: calc(var(--header-h) + 2.75rem) 0 clamp(2.5rem, 5vw, 4rem);
   background: linear-gradient(135deg, #0a1628 0%, #0f2744 48%, #0a1929 100%);
   overflow: hidden;
   isolation: isolate;
+}
+
+.page-about .about-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(8, 18, 36, 0.7) 0%, rgba(8, 18, 36, 0.22) 26%, transparent 48%),
+    linear-gradient(90deg, rgba(8, 18, 36, 0.88) 0%, rgba(8, 18, 36, 0.62) 30%, rgba(8, 18, 36, 0.22) 54%, transparent 74%);
 }
 
 .page-about .about-hero-banner-bg {
@@ -95,39 +119,46 @@ body.page-about .header:not(.scrolled):not(.nav-solid) {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-color: transparent;
-  background-image: url('/assets/about-us.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 90% -100px;
-  opacity: 0.85;
+}
+
+.page-about .about-hero-banner-bg img {
+  width: 100%;
+  height: 130%;
+  object-fit: cover;
+  object-position: 72% center;
+  opacity: 0.9;
   -webkit-mask-image: linear-gradient(
     105deg,
-    rgba(0, 0, 0, 0.4) 0%,
-    #000 22%,
+    rgba(0, 0, 0, 0.28) 0%,
+    #000 24%,
     #000 68%,
     transparent 100%
   );
   mask-image: linear-gradient(
     105deg,
-    rgba(0, 0, 0, 0.4) 0%,
-    #000 22%,
+    rgba(0, 0, 0, 0.28) 0%,
+    #000 24%,
     #000 68%,
     transparent 100%
   );
 }
 
-.page-about .about-hero-grid {
+.page-about .about-hero-shell {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+}
+
+.page-about .about-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   align-items: center;
-  min-height: clamp(320px, 42vh, 480px);
+  min-height: clamp(360px, 48vh, 500px);
 }
 
 .page-about .about-hero-content {
-  max-width: 36rem;
+  max-width: 34rem;
+  padding: 0;
+  text-align: left;
 }
 
 .page-about .about-hero-content .eyebrow {
@@ -145,7 +176,7 @@ body.page-about .header:not(.scrolled):not(.nav-solid) {
   line-height: 1.12;
   letter-spacing: -0.03em;
   color: #ffffff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.125rem;
 }
 
 .page-about .about-hero-content .gradient-text {
@@ -155,19 +186,86 @@ body.page-about .header:not(.scrolled):not(.nav-solid) {
   -webkit-text-fill-color: transparent;
 }
 
-.page-about .about-hero-accent {
-  width: 3.5rem;
-  height: 4px;
-  background: #2563eb;
-  border-radius: 999px;
-  margin-bottom: 1.25rem;
-}
-
 .page-about .about-hero-lead {
-  color: #cbd5e1;
+  color: #e2e8f0;
   font-size: 1.0625rem;
   line-height: 1.65;
+  margin-bottom: 1.75rem;
   max-width: 32rem;
+}
+
+.page-about .about-hero-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.page-about .about-hero-actions .btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.8125rem 1.375rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.page-about .about-hero-actions .btn-ghost {
+  background: rgba(15, 23, 42, 0.28);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 8px;
+  padding: 0.8125rem 1.375rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.page-about .about-hero-actions .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+.page-about .about-hero-stats {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 1.25rem 0;
+  background: #0f172a;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+.page-about .about-hero-stat {
+  text-align: center;
+  padding: 0.35rem 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.page-about .about-hero-stat:last-child {
+  border-right: none;
+}
+
+.page-about .about-hero-stat strong {
+  display: block;
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.page-about .about-hero-stat span {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-top: 0.35rem;
+  line-height: 1.35;
 }
 
 /* KPI stats */
@@ -622,13 +720,22 @@ body.page-about .header:not(.scrolled):not(.nav-solid) {
 /* Responsive */
 @media (max-width: 1024px) {
   .page-about .about-hero-grid {
+    grid-template-columns: 1fr;
     min-height: auto;
-    text-align: left;
   }
 
-  .page-about .about-hero-banner-bg {
-    background-position: 82% calc(66% - 10px);
-    opacity: 0.65;
+  .page-about .about-hero-content {
+    max-width: none;
+  }
+
+  .page-about .about-hero::after {
+    background:
+      linear-gradient(180deg, rgba(8, 18, 36, 0.78) 0%, rgba(8, 18, 36, 0.42) 36%, rgba(8, 18, 36, 0.28) 100%),
+      linear-gradient(90deg, rgba(8, 18, 36, 0.82) 0%, rgba(8, 18, 36, 0.48) 48%, transparent 78%);
+  }
+
+  .page-about .about-hero-banner-bg img {
+    opacity: 0.55;
   }
 
   .page-about .about-kpi-grid {
@@ -667,6 +774,28 @@ body.page-about .header:not(.scrolled):not(.nav-solid) {
 
   .page-about .about-commitment-text p {
     margin-inline: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-about .about-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem 0;
+  }
+
+  .page-about .about-hero-stat:nth-child(2) {
+    border-right: none;
+  }
+
+  .page-about .about-hero-stat:nth-child(1),
+  .page-about .about-hero-stat:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 0.75rem;
+  }
+
+  .page-about .about-hero-stat:nth-child(3),
+  .page-about .about-hero-stat:nth-child(4) {
+    padding-top: 0.75rem;
   }
 }
 

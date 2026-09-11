@@ -91,6 +91,26 @@ body.page-services .section-services-dark {
   color: #2563eb;
 }
 
+/* Header — stay readable over the light photo banner */
+body.page-services .header:not(.scrolled):not(.nav-solid) {
+  background: linear-gradient(180deg, rgba(8, 18, 36, 0.72) 0%, rgba(8, 18, 36, 0.28) 70%, transparent 100%);
+}
+
+body.page-services .header:not(.scrolled):not(.nav-solid) .nav-links > li > a,
+body.page-services .header:not(.scrolled):not(.nav-solid) .nav-menu-btn {
+  color: #f8fafc;
+}
+
+body.page-services .header:not(.scrolled):not(.nav-solid) .nav-links > li > a:hover,
+body.page-services .header:not(.scrolled):not(.nav-solid) .nav-menu-btn:hover {
+  color: #fff;
+}
+
+body.page-services .header:not(.scrolled):not(.nav-solid) .nav-links > li > a.nav-active,
+body.page-services .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active {
+  color: #93c5fd;
+}
+
 /* Hero */
 .page-services .services-hero {
   position: relative;
@@ -98,6 +118,17 @@ body.page-services .section-services-dark {
   background: linear-gradient(135deg, #0a1628 0%, #0f2744 48%, #0a1929 100%);
   overflow: hidden;
   isolation: isolate;
+}
+
+.page-services .services-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(8, 18, 36, 0.7) 0%, rgba(8, 18, 36, 0.22) 26%, transparent 48%),
+    linear-gradient(90deg, rgba(8, 18, 36, 0.88) 0%, rgba(8, 18, 36, 0.62) 30%, rgba(8, 18, 36, 0.22) 54%, transparent 74%);
 }
 
 .page-services .services-hero-banner-bg {
@@ -113,10 +144,17 @@ body.page-services .section-services-dark {
   object-fit: cover;
   object-position: 72% center;
   opacity: 0.9;
+  -webkit-mask-image: linear-gradient(
+    105deg,
+    rgba(0, 0, 0, 0.28) 0%,
+    #000 24%,
+    #000 68%,
+    transparent 100%
+  );
   mask-image: linear-gradient(
     105deg,
-    rgba(0, 0, 0, 0.4) 0%,
-    #000 22%,
+    rgba(0, 0, 0, 0.28) 0%,
+    #000 24%,
     #000 68%,
     transparent 100%
   );
@@ -158,7 +196,7 @@ body.page-services .section-services-dark {
 
 .page-services .services-hero-shell {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .page-services .services-hero-grid {
@@ -200,7 +238,7 @@ body.page-services .section-services-dark {
 }
 
 .page-services .services-hero-lead {
-  color: #cbd5e1;
+  color: #e2e8f0;
   font-size: 1.0625rem;
   line-height: 1.65;
   margin-bottom: 1.75rem;
@@ -226,9 +264,9 @@ body.page-services .section-services-dark {
 }
 
 .page-services .services-hero-actions .btn-ghost {
-  background: transparent;
+  background: rgba(15, 23, 42, 0.28);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 8px;
   padding: 0.8125rem 1.375rem;
   font-size: 0.9375rem;
@@ -497,8 +535,14 @@ body.page-services .section-services-dark {
     max-width: none;
   }
 
+  .page-services .services-hero::after {
+    background:
+      linear-gradient(180deg, rgba(8, 18, 36, 0.78) 0%, rgba(8, 18, 36, 0.42) 36%, rgba(8, 18, 36, 0.28) 100%),
+      linear-gradient(90deg, rgba(8, 18, 36, 0.82) 0%, rgba(8, 18, 36, 0.48) 48%, transparent 78%);
+  }
+
   .page-services .services-hero-banner-bg img {
-    opacity: 0.65;
+    opacity: 0.55;
   }
 
   .page-services .why-partner-grid {

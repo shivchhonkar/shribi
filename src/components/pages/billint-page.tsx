@@ -65,7 +65,7 @@ export default function BillintPageContent() {
       <section className="erp-hero" id="overview">
         <div className="container erp-hero-grid">
           <div className="erp-hero-content reveal">
-            <p className="eyebrow">Billint · Billing &amp; Inventory</p>
+            {/* <p className="eyebrow">Billint · Billing &amp; Inventory</p> */}
             <h1>
               Free GST billing &amp; inventory software for{' '}
               <span className="gradient-text">small businesses</span>

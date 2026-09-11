@@ -92,7 +92,7 @@ export default function WorkshopPageContent() {
         <div className="services-hero-banner-bg" aria-hidden="true" />
         <div className="container services-hero-shell">
           <div className="services-hero-grid">
-            <div className="services-hero-content reveal">
+            <div className="services-hero-content reveal" style={{ maxWidth: '500px' }}>
               <nav className="landing-breadcrumb" aria-label="Breadcrumb">
                 <ol>
                   <li>

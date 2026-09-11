@@ -65,7 +65,7 @@ export default function ServicesPageContent() {
         <div className="container services-hero-shell">
           <div className="services-hero-grid">
             <div className="services-hero-content reveal">
-              <p className="eyebrow">Our Services</p>
+              {/* <p className="eyebrow">Our Services</p> */}
               <h1>
                 Software solutions built for <span className="gradient-text">your business</span>
               </h1>

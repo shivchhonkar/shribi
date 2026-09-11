@@ -21,11 +21,12 @@ body.page-home .page-bg {
   display: none;
 }
 
-/* Light hero — dark nav so links stay readable */
+/* Light hero — dark nav, no header bar over the banner */
 body.page-home .header:not(.scrolled):not(.nav-solid) {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
+  box-shadow: none;
 }
 
 body.page-home .header:not(.scrolled):not(.nav-solid) .nav-links > li > a,
@@ -165,7 +166,7 @@ body.page-home .hero {
   min-height: auto;
   display: block;
   align-items: stretch;
-  padding: calc(var(--header-h) + 2.75rem) 0 2.5rem;
+  padding: calc(var(--header-h) + 2.75rem) 0 clamp(2.5rem, 5vw, 4rem);
   background: #e8f1f8;
   overflow: hidden;
   isolation: isolate;
@@ -256,7 +257,7 @@ body.page-home .hero {
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: clamp(1rem, 2.5vw, 2rem);
   align-items: center;
-  min-height: clamp(380px, 52vh, 520px);
+  min-height: clamp(360px, 48vh, 500px);
   padding-bottom: 2.5rem;
 }
 
@@ -1128,7 +1129,7 @@ body.page-home .hero {
 @media (max-width: 1024px) and (min-width: 769px) and (min-height: 500px) {
   .page-home .hero-grid {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    min-height: clamp(300px, 52vh, 440px);
+    min-height: clamp(360px, 48vh, 500px);
     padding-bottom: 1.75rem;
     text-align: left;
   }

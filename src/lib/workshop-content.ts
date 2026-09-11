@@ -16,8 +16,8 @@ export const workshopPage = {
   h1: 'Industry workshops',
   h1Highlight: 'on your college campus',
   lead: 'Empower your college with Shribi’s hands-on technical workshops and build a strong culture of coding and innovation. Host expert-led workshops on React, Next.js, Node.js, DSA, web development, machine learning, and more.',
-  leadSecondary:
-    'Students gain practical experience by building real-world projects, while colleges can organize hackathons, collaborate with industry professionals, and help students develop the skills needed for successful tech careers.' //Built from our work with the GLA University ecosystem in Mathura, these sessions help students ship real projects and help placement cells connect campus talent with industry.',
+  leadSecondary:''
+    // 'Students gain practical experience by building real-world projects, while colleges can organize hackathons, collaborate with industry professionals, and help students develop the skills needed for successful tech careers.' //Built from our work with the GLA University ecosystem in Mathura, these sessions help students ship real projects and help placement cells connect campus talent with industry.',
 }
 
 export const workshopHeroActions = [

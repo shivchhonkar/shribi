@@ -142,19 +142,45 @@ export default function AboutPageContent() {
   return (
     <>
       <section className="about-hero about-hero--banner" id="about-hero">
-        <div className="about-hero-banner-bg" aria-hidden="true" />
-        <div className="container about-hero-grid">
-          <div className="about-hero-content reveal">
-            <p className="eyebrow">About Shribi Technologies</p>
-            <h1>
-              Innovative software for <span className="gradient-text">growing businesses</span>
-            </h1>
-            <div className="about-hero-accent" aria-hidden="true" />
-            <p className="about-hero-lead">
-              Shribi Technologies is a software development company focused on delivering innovative,
-              scalable, and cost-effective digital solutions for businesses of all sizes.
-            </p>
+        <div className="about-hero-banner-bg" aria-hidden="true">
+          <Image
+            src="/assets/bannerImages/slider/hero-banner-about-us.png"
+            alt=""
+            width={1920}
+            height={1080}
+            priority
+            decoding="async"
+          />
+        </div>
+        <div className="container about-hero-shell">
+          <div className="about-hero-grid">
+            <div className="about-hero-content reveal">
+              {/* <p className="eyebrow">About Shribi</p> */}
+              <h1>
+                Innovative software for <span className="gradient-text">growing businesses</span>
+              </h1>
+              <p className="about-hero-lead">
+                Shribi Technologies is a software development company focused on delivering innovative,
+                scalable, and cost-effective digital solutions for businesses of all sizes.
+              </p>
+              <div className="about-hero-actions">
+                <Link href="/services/" className="btn btn-primary">
+                  Explore Services →
+                </Link>
+                <Link href="/contact/" className="btn btn-ghost">
+                  Talk to an Expert
+                </Link>
+              </div>
+            </div>
           </div>
+          {/* <div className="about-hero-stats reveal">
+            {kpiCards.map((card) => (
+              <div key={card.label} className="about-hero-stat">
+                <strong>{card.value}</strong>
+                <span>{card.label}</span>
+              </div>
+            ))}
+          </div> */}
         </div>
       </section>
 
