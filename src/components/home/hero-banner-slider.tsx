@@ -43,17 +43,6 @@ export default function HeroBannerSlider() {
           className={index === active ? 'is-active' : undefined}
         />
       ))}
-      <div className="hero-banner-dots">
-        {HERO_SLIDES.map((src, index) => (
-          <button
-            key={src}
-            type="button"
-            className={index === active ? 'is-active' : undefined}
-            aria-label={`Show banner ${index + 1}`}
-            onClick={() => setActive(index)}
-          />
-        ))}
-      </div>
     </div>
   )
 }

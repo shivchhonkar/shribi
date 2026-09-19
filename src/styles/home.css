@@ -183,7 +183,6 @@ body.page-home .hero {
 .page-home .hero-banner-bg {
   position: absolute;
   inset: 0;
-  z-index: 0;
 }
 
 .page-home .hero-banner-bg img {
@@ -199,6 +198,82 @@ body.page-home .hero {
 
 .page-home .hero-banner-bg img.is-active {
   opacity: 1;
+  animation: hero-scene-drift 18s ease-in-out infinite alternate;
+}
+
+.page-home .hero-aether {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.page-home .hero-aether-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.page-home .hero-aether-veil {
+  position: absolute;
+  inset: -18%;
+  background:
+    radial-gradient(ellipse 42% 34% at 74% 36%, rgba(96, 165, 250, 0.2), transparent 64%),
+    radial-gradient(ellipse 30% 42% at 18% 70%, rgba(186, 230, 253, 0.16), transparent 68%),
+    radial-gradient(ellipse 24% 22% at 48% 16%, rgba(255, 255, 255, 0.26), transparent 70%);
+  filter: blur(10px);
+  animation: aether-veil-drift 20s ease-in-out infinite alternate;
+}
+
+.page-home .hero-aether-shimmer {
+  position: absolute;
+  inset: -25%;
+  background: linear-gradient(
+    118deg,
+    transparent 36%,
+    rgba(255, 255, 255, 0.16) 48%,
+    rgba(147, 197, 253, 0.1) 52%,
+    transparent 66%
+  );
+  mix-blend-mode: soft-light;
+  animation: aether-shimmer-sweep 12s ease-in-out infinite;
+}
+
+@keyframes hero-scene-drift {
+  from {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.08) translate3d(-1.6%, 1.1%, 0);
+  }
+}
+
+@keyframes aether-veil-drift {
+  from {
+    transform: translate3d(-2%, -1.5%, 0) scale(1);
+    opacity: 0.72;
+  }
+  to {
+    transform: translate3d(3%, 2%, 0) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes aether-shimmer-sweep {
+  0% {
+    transform: translate3d(-18%, 0, 0) rotate(0.001deg);
+    opacity: 0.15;
+  }
+  45% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(18%, 4%, 0) rotate(0.001deg);
+    opacity: 0.2;
+  }
 }
 
 .page-home .hero-banner-bg::after {
@@ -216,39 +291,27 @@ body.page-home .hero {
   pointer-events: none;
 }
 
-.page-home .hero-banner-dots {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 1.25rem;
-  z-index: 2;
-  display: flex;
-  gap: 0.45rem;
-}
-
-.page-home .hero-banner-dots button {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.28);
-  cursor: pointer;
-}
-
-.page-home .hero-banner-dots button.is-active {
-  width: 22px;
-  background: #2563eb;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .page-home .hero-banner-bg img {
+  .page-home .hero-banner-bg img,
+  .page-home .hero-banner-bg img.is-active,
+  .page-home .hero-aether-veil,
+  .page-home .hero-aether-shimmer {
+    animation: none;
     transition: none;
+  }
+
+  .page-home .hero-aether {
+    display: none;
+  }
+
+  .page-home .hero-grid {
+    transform: none !important;
   }
 }
 
 .page-home .hero-shell {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding-bottom: 0;
 }
 
@@ -259,6 +322,7 @@ body.page-home .hero {
   align-items: center;
   min-height: clamp(360px, 48vh, 500px);
   padding-bottom: 2.5rem;
+  will-change: transform;
 }
 
 .page-home .hero-content {
@@ -893,14 +957,14 @@ body.page-home .hero {
 
 .page-home .metric-bar {
   height: 7px;
-  background: #e2e8f0;
+  background: #eff6ff;
   border-radius: 999px;
   overflow: hidden;
 }
 
 .page-home .metric-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  background: #3b7fd9; /* var(--home-blue) */
   border-radius: 999px;
 }
 
@@ -1078,13 +1142,6 @@ body.page-home .hero {
     object-position: 72% center;
   }
 
-  .page-home .hero-banner-dots {
-    left: 50%;
-    right: auto;
-    bottom: 1rem;
-    transform: translateX(-50%);
-  }
-
   .page-home .hero-banner-bg::after {
     background: linear-gradient(
       180deg,
@@ -1166,12 +1223,6 @@ body.page-home .hero {
     );
   }
 
-  .page-home .hero-banner-dots {
-    left: auto;
-    right: 1.5rem;
-    bottom: 1rem;
-    transform: none;
-  }
 }
 
 @media (max-width: 768px) {

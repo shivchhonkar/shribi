@@ -2,8 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import ContactForm from '@/components/forms/contact-form'
+import HeroAetherField from '@/components/home/hero-aether-field'
 import HeroBannerSlider from '@/components/home/hero-banner-slider'
+import HeroStatsBar from '@/components/home/hero-stats-bar'
 import TestimonialsSlider from '@/components/home/testimonials-slider'
+import WhyMetricsPanel from '@/components/home/why-metrics-panel'
 import { ContactLinks, ServiceCard } from '@/components/shared/service-card'
 import { coreServices, industries } from '@/lib/content'
 import { IndustryIcon } from '@/lib/industry-icons'
@@ -211,6 +214,7 @@ export default function HomePageContent() {
     <>
       <section className="hero hero--globe hero--banner" id="home">
         <HeroBannerSlider />
+        <HeroAetherField />
         <div className="container hero-shell">
           <div className="hero-grid">
             <div className="hero-content reveal">
@@ -234,40 +238,7 @@ export default function HomePageContent() {
               </div>
             </div>
           </div>
-          <div className="hero-stats-bar reveal">
-            {/* <div className="hero-stat-item">
-              <strong>4+</strong>
-              <span>Years of experience</span>
-            </div>
-            <div className="hero-stat-item">
-              <strong>50+</strong>
-              <span>Happy clients</span>
-            </div>
-            <div className="hero-stat-item">
-              <strong>88%</strong>
-              <span>Client retention</span>
-            </div>
-            <div className="hero-stat-item">
-              <strong>24/7</strong>
-              <span>Support</span>
-            </div> */}
-            <div className="hero-stat-item">
-              <strong className="gradient-text">50+</strong>
-              <span className="gradient-text">Happy clients</span>
-            </div>
-            <div className="hero-stat-item">
-              <strong>150+</strong>
-              <span className="gradient-text">Projects delivered</span>
-            </div>
-            <div className="hero-stat-item">
-              <strong>95%</strong>
-              <span className="gradient-text">Client retention</span>
-            </div>
-            <div className="hero-stat-item">
-              <strong>98%</strong>
-              <span className="gradient-text">On-time delivery</span>
-            </div> 
-          </div>
+          <HeroStatsBar />
         </div>
       </section>
 
@@ -440,24 +411,7 @@ export default function HomePageContent() {
               </li>
             </ul>
           </div>
-          <div className="metrics-panel reveal reveal-delay">
-            {[
-              ['Projects Delivered', '150+', '92%'],
-              ['Client Retention Rate', '95%', '95%'],
-              ['On-time Delivery', '98%', '98%'],
-              ['Support Availability', '24/7', '100%'],
-            ].map(([label, value, width]) => (
-              <div key={label as string} className="metric-row">
-                <div className="metric-row-header">
-                  <span>{label}</span>
-                  <strong>{value}</strong>
-                </div>
-                <div className="metric-bar">
-                  <div className="metric-bar-fill" style={{ width }} />
-                </div>
-              </div>
-            ))}
-          </div>
+          <WhyMetricsPanel />
         </div>
       </section>
 
