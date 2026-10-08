@@ -14,17 +14,30 @@ import {
 } from '@/lib/site'
 
 function ContactDetail({
+  label,
   href,
   icon,
   children,
   external = false,
 }: {
+  label: string
   href?: string
   icon: ReactNode
   children: ReactNode
   external?: boolean
 }) {
   const className = 'contact-page__detail'
+  const body = (
+    <>
+      <span className="contact-page__detail-icon" aria-hidden="true">
+        {icon}
+      </span>
+      <span className="contact-page__detail-copy">
+        <span className="contact-page__detail-label">{label}</span>
+        <span className="contact-page__detail-value">{children}</span>
+      </span>
+    </>
+  )
 
   if (href) {
     return (
@@ -33,22 +46,12 @@ function ContactDetail({
         className={className}
         {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       >
-        <span className="contact-page__detail-icon" aria-hidden="true">
-          {icon}
-        </span>
-        {children}
+        {body}
       </a>
     )
   }
 
-  return (
-    <div className={className}>
-      <span className="contact-page__detail-icon" aria-hidden="true">
-        {icon}
-      </span>
-      {children}
-    </div>
-  )
+  return <div className={className}>{body}</div>
 }
 
 function googleMapsEmbed(query: string) {
@@ -94,14 +97,14 @@ export default function ContactPageContent({
           <div className="hero-ambient-glow hero-ambient-glow--2" />
         </div>
         <div className="container hero-grid">
-          <div className="hero-content reveal">
+          <div className="hero-content">
             <p className="eyebrow">Contact us</p>
             <h1>
-              Let&apos;s build something <span className="gradient-text">great</span>
+              Tell us what you want to <span className="gradient-text">build</span>
             </h1>
             <p className="hero-lead">
-              We&apos;re here to help you simplify operations, solve complex challenges, and grow
-              with technology.
+              Share a few details and we reply within one business day. Prefer a call or WhatsApp?
+              Use the contacts beside the form.
             </p>
           </div>
         </div>
@@ -109,15 +112,15 @@ export default function ContactPageContent({
 
       <section className="section contact-page__touch">
         <div className="container contact-page__grid">
-          <div className="contact-page__info reveal">
-            <span className="section-tag">Get in touch</span>
-            <h2 className="text-normal-weight">Shribi Technologies</h2>
+          <div className="contact-page__info">
+            <h2 className="text-normal-weight">Reach the team directly</h2>
             <p>
-              Have a project in mind or need expert guidance? Reach out to us and our team will get
-              back to you within one business day.
+              Email, phone, and WhatsApp all come to the same team. Office hours are Monday to
+              Saturday, 9:00 AM – 7:00 PM IST.
             </p>
             <div className="contact-page__details">
               <ContactDetail
+                label="Email"
                 href={`mailto:${CONTACT_EMAIL}`}
                 icon={
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -128,6 +131,7 @@ export default function ContactPageContent({
                 {CONTACT_EMAIL}
               </ContactDetail>
               <ContactDetail
+                label="Phone"
                 href={`tel:${CONTACT_PHONE_TEL}`}
                 icon={
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -135,9 +139,10 @@ export default function ContactPageContent({
                   </svg>
                 }
               >
-                Call {CONTACT_PHONE}
+                {CONTACT_PHONE}
               </ContactDetail>
               <ContactDetail
+                label="WhatsApp"
                 href={WHATSAPP_URL}
                 external
                 icon={
@@ -146,9 +151,10 @@ export default function ContactPageContent({
                   </svg>
                 }
               >
-                WhatsApp — {WHATSAPP_PHONE}
+                {WHATSAPP_PHONE}
               </ContactDetail>
               <ContactDetail
+                label="Google"
                 href={GOOGLE_BUSINESS_URL}
                 external
                 icon={
@@ -161,6 +167,7 @@ export default function ContactPageContent({
                 {GOOGLE_BUSINESS_LABEL}
               </ContactDetail>
               <ContactDetail
+                label="Hours"
                 icon={
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <circle cx="12" cy="12" r="9" />
@@ -173,68 +180,49 @@ export default function ContactPageContent({
             </div>
           </div>
 
-          <ContactForm
-            stacked
-            showPhone
-            showSubject={false}
-            submitLabel="Send Message"
-            phonePlaceholder="Your phone number"
-            defaultSubject={defaultSubject}
-            defaultMessage={defaultMessage}
-          />
+          <div className="contact-form-panel">
+            <div className="contact-form-panel__head">
+              <h2>Send a message</h2>
+              <p>Required fields are marked. We reply within one business day.</p>
+            </div>
+            <ContactForm
+              showPhone
+              showSubject={false}
+              submitLabel="Send message"
+              phonePlaceholder="Your phone number"
+              defaultSubject={defaultSubject}
+              defaultMessage={defaultMessage}
+            />
+          </div>
         </div>
       </section>
 
-      <section className="section contact-page__reviews" id="google-reviews">
+      <section className="section contact-page__reviews" id="offices">
         <div className="container">
-          <div className="contact-page__offices-header reveal">
-            <span className="section-tag">Google reviews</span>
-            <h2>
-              Find us on <span className="accent-text">Google</span>
-            </h2>
+          <div className="contact-page__offices-header">
+            <h2>Offices</h2>
+            <p>Visit Noida or Mathura, or get directions from Google Maps.</p>
           </div>
           <div className="google-reviews-grid">
-            <article className="google-reviews-panel reveal">
-              <div className="google-reviews-brand" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="28" height="28">
-                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.56c2.08-1.92 3.28-4.74 3.28-8.1z" />
-                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" />
-                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                </svg>
-                <span>Google Business Profile</span>
-              </div>
-              <h3>Shribi Technologies</h3>
-              <p>
-                Read reviews, get directions, and see our offices on Google. Your feedback helps
-                other businesses find a technology partner they can trust.
-              </p>
-              <div className="google-reviews-actions">
-                <a
-                  href={GOOGLE_BUSINESS_URL}
-                  className="btn btn-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Google reviews
-                </a>
-                {/* <a
-                  href={GOOGLE_BUSINESS_URL}
-                  className="btn btn-ghost"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Write a review
-                </a> */}
-                <a href={`tel:${CONTACT_PHONE_TEL}`} className="btn btn-ghost">
-                  Call now
-                </a>
-              </div>
-            </article>
-            <div className="google-reviews-map reveal reveal-delay">
+            <div className="contact-office-list">
+              {offices.map((office) => (
+                <article key={office.name} className="contact-office">
+                  <h3>{office.name}</h3>
+                  <p>{office.address}</p>
+                  <a
+                    href={googleMapsDirections(office.mapsQuery)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get directions
+                  </a>
+                </article>
+              ))}
+            </div>
+            <div className="google-reviews-map">
               <iframe
                 title="Shribi Technologies on Google Maps"
-                src={googleMapsEmbed(offices[1].mapsQuery)}
+                src={googleMapsEmbed(offices[0].mapsQuery)}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen

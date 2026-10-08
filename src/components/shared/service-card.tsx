@@ -54,23 +54,50 @@ export function ServiceCard({
   description,
   features,
   delayClass = '',
+  flip = false,
 }: {
-    icon: ServiceIconType
+  icon: ServiceIconType
   title: string
   description: string
   features: string[]
   delayClass?: string
+  flip?: boolean
 }) {
+  const featureList = (
+    <ul>
+      {features.map((feature) => (
+        <li key={feature}>{feature}</li>
+      ))}
+    </ul>
+  )
+
+  if (flip) {
+    return (
+      <article className={`service-card service-card--flip reveal ${delayClass}`.trim()} tabIndex={0}>
+        <div className="service-card__inner">
+          <div className="service-card__face service-card__face--front">
+            <ServiceIcon type={icon} />
+            <h3>{title}</h3>
+            <p>{description}</p>
+            <span className="service-card__hint">What&apos;s included</span>
+          </div>
+          <div className="service-card__face service-card__face--back">
+            <ServiceIcon type={icon} />
+            <h3>{title}</h3>
+            <p className="service-card__kicker">What&apos;s included</p>
+            {featureList}
+          </div>
+        </div>
+      </article>
+    )
+  }
+
   return (
     <article className={`service-card reveal ${delayClass}`.trim()}>
       <ServiceIcon type={icon} />
       <h3>{title}</h3>
       <p>{description}</p>
-      <ul>
-        {features.map((feature) => (
-          <li key={feature}>{feature}</li>
-        ))}
-      </ul>
+      {featureList}
     </article>
   )
 }

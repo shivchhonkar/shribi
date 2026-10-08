@@ -107,15 +107,15 @@ export const serviceIndustries = [
 ]
 
 export const offices = [
-  {
-    name: 'Noida Office',
-    address: 'A-56, Sector 64, Noida, Uttar Pradesh 201301, India',
-    email: 'noida@shribi.com',
-    phone: '+91 9528-466-566',
-    tel: '+919528466566',
-    mapCenter: '28.625,77.375',
-    mapsQuery: 'A-56, Sector 64, Noida, Uttar Pradesh 201301, India',
-  },
+  // {
+  //   name: 'Noida Office',
+  //   address: 'A-56, Sector 64, Noida, Uttar Pradesh 201301, India',
+  //   email: 'noida@shribi.com',
+  //   phone: '+91 9528-466-566',
+  //   tel: '+919528466566',
+  //   mapCenter: '28.625,77.375',
+  //   mapsQuery: 'A-56, Sector 64, Noida, Uttar Pradesh 201301, India',
+  // },
   {
     name: 'Mathura Office',
     address: 'NH-19, 43 KA Bhag Near, GLA University, Mathura, Uttar Pradesh 281406, India',

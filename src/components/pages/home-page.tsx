@@ -4,6 +4,7 @@ import Link from 'next/link'
 import ContactForm from '@/components/forms/contact-form'
 import HeroBannerSlider from '@/components/home/hero-banner-slider'
 import HeroStatsBar from '@/components/home/hero-stats-bar'
+import TechStack from '@/components/home/tech-stack'
 import TestimonialsSlider from '@/components/home/testimonials-slider'
 import WhyMetricsPanel from '@/components/home/why-metrics-panel'
 import { ContactLinks, ServiceCard } from '@/components/shared/service-card'
@@ -283,6 +284,7 @@ export default function HomePageContent() {
                 title={service.title}
                 description={service.description}
                 features={service.features}
+                flip
                 delayClass={
                   i === 1
                     ? 'reveal-delay'
@@ -297,6 +299,8 @@ export default function HomePageContent() {
           </div>
         </div>
       </section>
+
+      <TechStack />
 
       <section className="section section-light companies" id="companies">
         <div className="container">

@@ -230,7 +230,7 @@ export default function ContactForm({
   )
 
   return (
-    <form className="contact-form reveal reveal-delay" onSubmit={onSubmit} noValidate>
+    <form className="contact-form" onSubmit={onSubmit} noValidate>
       <div className="form-row form-row--honeypot" aria-hidden="true">
         <label htmlFor="hp_field">Company website</label>
         <input type="text" id="hp_field" name="hp_field" tabIndex={-1} autoComplete="off" />

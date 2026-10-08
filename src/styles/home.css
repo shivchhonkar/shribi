@@ -589,6 +589,155 @@ body:has(.page-home) {
   text-align: left;
 }
 
+.page-home .service-card--flip {
+  position: relative;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  min-height: 20rem;
+  perspective: 1200px;
+  outline: none;
+}
+
+.page-home .service-card--flip.reveal,
+.page-home .service-card--flip.reveal.visible {
+  transform: none;
+}
+
+.page-home .service-card--flip:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 4px;
+  border-radius: 16px;
+}
+
+.page-home .service-card__inner {
+  position: relative;
+  height: 100%;
+  min-height: 20rem;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.15, 0.2, 1);
+}
+
+.page-home .service-card--flip:hover .service-card__inner,
+.page-home .service-card--flip:focus-visible .service-card__inner {
+  transform: rotateY(180deg);
+}
+
+.page-home .service-card__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.35rem 1.35rem;
+  background: #fff;
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.page-home .service-card__face--front {
+  transform: rotateY(0deg);
+}
+
+.page-home .service-card__face--back {
+  transform: rotateY(180deg);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.page-home .service-card--flip:hover .service-card__face,
+.page-home .service-card--flip:focus-visible .service-card__face {
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.page-home .service-card__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  color: #2563eb;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.page-home .service-card__hint::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.page-home .service-card--flip:hover .service-card__hint::after,
+.page-home .service-card--flip:focus-visible .service-card__hint::after {
+  transform: translateX(3px);
+}
+
+.page-home .service-card__kicker {
+  margin: 0 0 0.85rem;
+  color: #2563eb;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px), (hover: none), (prefers-reduced-motion: reduce) {
+  .page-home .service-card--flip {
+    min-height: 0;
+    background: #fff;
+    border: 1px solid #e8edf3;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+    perspective: none;
+  }
+
+  .page-home .service-card--flip:focus-visible {
+    outline: none;
+  }
+
+  .page-home .service-card--flip:hover .service-card__inner,
+  .page-home .service-card--flip:focus .service-card__inner,
+  .page-home .service-card--flip:focus-visible .service-card__inner,
+  .page-home .service-card__inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    height: auto;
+    transform: none;
+    transform-style: flat;
+  }
+
+  .page-home .service-card__face,
+  .page-home .service-card__face--front,
+  .page-home .service-card__face--back,
+  .page-home .service-card--flip:hover .service-card__face,
+  .page-home .service-card--flip:focus-visible .service-card__face {
+    position: relative;
+    inset: auto;
+    transform: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+  }
+
+  .page-home .service-card__face--back {
+    padding-top: 0;
+    background: transparent;
+  }
+
+  .page-home .service-card__face--back h3,
+  .page-home .service-card__face--back .service-icon,
+  .page-home .service-card__hint,
+  .page-home .service-card__kicker {
+    display: none;
+  }
+}
+
 .page-home .service-icon {
   width: 52px;
   height: 52px;
@@ -638,7 +787,7 @@ body:has(.page-home) {
   margin-bottom: 0.625rem;
 }
 
-.page-home .service-card > p {
+.page-home .service-card p:not(.service-card__kicker) {
   font-size: 0.8125rem;
   color: #475569;
   line-height: 1.55;
@@ -835,6 +984,80 @@ body:has(.page-home) {
   font-weight: 600;
   color: #475569;
   line-height: 1.35;
+}
+
+/* Technologies */
+.page-home .tech-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.875rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-home .tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-width: 0;
+  min-height: 7.25rem;
+  padding: 1.15rem 0.75rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  color: #0f172a;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.page-home .tech-item:hover {
+  border-color: #dbeafe;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.page-home .tech-item__icon {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: #eff6ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-home .tech-item__icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.page-home .tech-item__icon svg.tech-item__brand {
+  width: 34px;
+  height: 34px;
+}
+
+.page-home .tech-item__mark {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-align: center;
+}
+
+.page-home .tech-item__name {
+  display: block;
+  width: 100%;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
 }
 
 /* Why partner */
@@ -1089,6 +1312,12 @@ body:has(.page-home) {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .page-home .tech-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 900px) {
   .page-home .services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1211,6 +1440,10 @@ body:has(.page-home) {
   .page-home .companies-grid,
   .page-home .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .page-home .tech-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .page-home .form-row--half {
