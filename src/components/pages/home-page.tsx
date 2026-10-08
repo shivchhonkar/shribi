@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import ContactForm from '@/components/forms/contact-form'
-import HeroAetherField from '@/components/home/hero-aether-field'
 import HeroBannerSlider from '@/components/home/hero-banner-slider'
 import HeroStatsBar from '@/components/home/hero-stats-bar'
 import TestimonialsSlider from '@/components/home/testimonials-slider'
@@ -174,7 +173,7 @@ const products = [
   {
     href: '/billing-and-inventory-management-software/',
     label: 'Visit Billint',
-    image: '/assets/thumbnails/billint-thumbnail.png',
+    image: '/assets/thumbnails/billint-thumbnail.webp',
     alt: 'Billint dashboard',
     name: 'Billint - CRM & Billing Software',
     description:
@@ -186,7 +185,7 @@ const products = [
   {
     href: 'https://www.zamiwala.com',
     label: 'Visit Zamiwala',
-    image: '/assets/thumbnails/zamiwala-thumbnail.png',
+    image: '/assets/thumbnails/zamiwala-thumbnail.webp',
     alt: 'Zamiwala platform',
     name: 'Zamiwala',
     description:
@@ -198,7 +197,7 @@ const products = [
   {
     href: 'https://edufy.shribi.com/',
     label: 'Visit Shribi Edufy',
-    image: '/assets/thumbnails/edufy-shribi.png',
+    image: '/assets/thumbnails/edufy-shribi.webp',
     alt: 'Shribi Edufy school ERP',
     name: 'Shribi Edufy',
     description:
@@ -213,17 +212,15 @@ export default function HomePageContent() {
   return (
     <>
       <section className="hero hero--globe hero--banner" id="home">
-        <HeroBannerSlider />
-        <HeroAetherField />
         <div className="container hero-shell">
           <div className="hero-grid">
-            <div className="hero-content reveal">
+            <div className="hero-content">
               <h1>
               We build software that <span className="gradient-text">solves real business problems</span>
                 {/* Building digital solutions that <span className="gradient-text">scale with you</span> */}
               </h1>
               <p className="hero-lead">
-              Shribi helps businesses in improve and manage their digital operations through custom software, websites, mobile apps and business platforms. 
+              Shribi helps businesses improve and manage their digital operations through custom software, websites, mobile apps and business platforms. 
               {/* We also build and operate our own products, including Billint, Zamiwala and Shribi Edufy. */}
                 {/* Shribi delivers modern software, cloud infrastructure, and business technology
                 tailored for growth — precise, reliable, and beautifully engineered. */}
@@ -237,6 +234,7 @@ export default function HomePageContent() {
                 </Link>
               </div>
             </div>
+            <HeroBannerSlider />
           </div>
           <HeroStatsBar />
         </div>
@@ -320,7 +318,13 @@ export default function HomePageContent() {
                 aria-label={product.label}
               >
                 <figure className="company-screenshot">
-                  <Image src={product.image} alt={product.alt} width={880} height={720} />
+                  <Image
+                    src={product.image}
+                    alt={product.alt}
+                    width={880}
+                    height={720}
+                    sizes="(max-width: 768px) 100vw, 360px"
+                  />
                 </figure>
                 <div className="company-card-body">
                   <h3>{product.name}</h3>

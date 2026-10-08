@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 
 export default function BodyClass({ className }: { className: string }) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.body.classList.add(className)
     return () => {
       document.body.classList.remove(className)

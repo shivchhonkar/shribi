@@ -3,46 +3,46 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-const HERO_SLIDES = [
-  '/assets/bannerImages/slider/hero-banner1.png',
-  '/assets/bannerImages/slider/hero-banner2.png',
-  '/assets/bannerImages/slider/hero-banner3.png',
+const SLIDES = [
+  {
+    src: '/assets/thumbnails/billint-thumbnail.webp',
+    alt: 'Billint dashboard on a laptop and phone',
+  },
+  {
+    src: '/assets/thumbnails/edufy-shribi.webp',
+    alt: 'Shribi Edufy school dashboard on a laptop and phone',
+  },
 ]
 
-const INTERVAL_MS = 9000
+const INTERVAL_MS = 6000
 
 export default function HeroBannerSlider() {
   const [active, setActive] = useState(0)
-  const [paused, setPaused] = useState(false)
 
   useEffect(() => {
-    if (paused || HERO_SLIDES.length < 2) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-
     const timer = window.setInterval(() => {
-      setActive((current) => (current + 1) % HERO_SLIDES.length)
+      setActive((current) => (current + 1) % SLIDES.length)
     }, INTERVAL_MS)
 
     return () => window.clearInterval(timer)
-  }, [paused])
+  }, [])
 
   return (
-    <div
-      className="hero-banner-bg"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      {HERO_SLIDES.map((src, index) => (
-        <Image
-          key={src}
-          src={src}
-          alt=""
-          width={1920}
-          height={800}
-          priority={index === 0}
-          className={index === active ? 'is-active' : undefined}
-        />
-      ))}
+    <div className="hero-banner-visual">
+      <div className="hero-banner-stage">
+        {SLIDES.map((slide, index) => (
+          <Image
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            fill
+            priority={index === 0}
+            sizes="(max-width: 1024px) 92vw, 46vw"
+            className={index === active ? 'is-active' : undefined}
+            aria-hidden={index === active ? undefined : true}
+          />
+        ))}
+      </div>
     </div>
   )
 }

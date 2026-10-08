@@ -92,7 +92,7 @@ export default function BillintPageContent() {
           <div className="erp-hero-visual reveal reveal-delay">
             <div className="erp-hero-frame erp-hero-frame--banner">
               <Image
-                src="/assets/thumbnails/billint-thumbnail.png"
+                src="/assets/thumbnails/billint-thumbnail.webp"
                 alt="Billint GST billing and inventory dashboard"
                 width={1280}
                 height={720}

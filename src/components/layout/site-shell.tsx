@@ -14,7 +14,7 @@ export default function SiteShell({
   children: React.ReactNode
 }) {
   return (
-    <>
+    <div className={bodyClass}>
       <BodyClass className={bodyClass} />
       <div className="page-bg" aria-hidden="true">
         <div className="hex-grid" />
@@ -25,6 +25,6 @@ export default function SiteShell({
       <main>{children}</main>
       <Footer />
       <PageEffects theme={activePage} />
-    </>
+    </div>
   )
 }

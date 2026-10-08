@@ -32,14 +32,14 @@ export const SOCIAL_LINKS = [
     label: 'LinkedIn',
     icon: 'linkedin',
   },
-  { href: 'https://x.com/shribi', label: 'X', icon: 'x' },
+  { href: 'https://x.com/shribitech', label: 'X', icon: 'x' },
   {
     href: 'https://www.facebook.com/shribitechnologies',
     label: 'Facebook',
     icon: 'facebook',
   },
-  { href: 'https://www.instagram.com/shribi', label: 'Instagram', icon: 'instagram' },
-  { href: 'https://www.youtube.com/@shribi', label: 'YouTube', icon: 'youtube' },
+  { href: 'https://www.instagram.com/shribitechnologies/', label: 'Instagram', icon: 'instagram' },
+  { href: 'https://www.youtube.com/@ShribiTechnologies', label: 'YouTube', icon: 'youtube' },
 ] as const
 
 export function pageMetadata({

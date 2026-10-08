@@ -8,7 +8,8 @@ function easeOutCubic(progress: number) {
 
 export function useScrollReplayProgress(durationMs = 1600) {
   const ref = useRef<HTMLDivElement>(null)
-  const [progress, setProgress] = useState(0)
+  const hasLeft = useRef(false)
+  const [progress, setProgress] = useState(1)
 
   useEffect(() => {
     const element = ref.current
@@ -31,7 +32,7 @@ export function useScrollReplayProgress(durationMs = 1600) {
       const startedAt = performance.now()
 
       const tick = (now: number) => {
-        const next = Math.min((now - startedAt) / durationMs, 1)
+        const next = Math.min(Math.max((now - startedAt) / durationMs, 0), 1)
         setProgress(easeOutCubic(next))
         if (next < 1) {
           frame = window.requestAnimationFrame(tick)
@@ -44,10 +45,11 @@ export function useScrollReplayProgress(durationMs = 1600) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
-          play()
+          if (hasLeft.current) play()
           return
         }
 
+        hasLeft.current = true
         stop()
         setProgress(0)
       },
