@@ -85,7 +85,7 @@ export default function WorkshopPageContent() {
         id="services-hero"
         style={
           {
-            '--services-hero-banner': 'url("/assets/shribi-college-traning.png")',
+            '--services-hero-banner': 'url("/assets/shribi-college-traning.webp")',
           } as CSSProperties
         }
       >

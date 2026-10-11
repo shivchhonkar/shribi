@@ -46,7 +46,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
     title: 'Website Development Services',
     description:
       'Shribi delivers website development services for businesses across India — custom websites, e-commerce, CMS, and high-performance web apps built to convert.',
-    bannerImage: '/assets/website-development.png',
+    bannerImage: '/assets/website-development.webp',
     keywords: [
       'website development services',
       'custom website development',
@@ -137,7 +137,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
     title: 'Mobile App Development Services',
     description:
       'Shribi offers mobile app development services for Android, iOS, and cross-platform apps — from MVP to scalable consumer and enterprise products.',
-    bannerImage: '/assets/application-development.png',
+    bannerImage: '/assets/application-development.webp',
     keywords: [
       'mobile app development services',
       'Android app development',
@@ -228,7 +228,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
     title: 'Custom Software Development Services',
     description:
       'Custom software development services from Shribi — tailored web platforms, internal tools, integrations, and automation for businesses that have outgrown off-the-shelf products.',
-    bannerImage: '/assets/website-development.png',
+    bannerImage: '/assets/website-development.webp',
     keywords: [
       'custom software development services',
       'bespoke software development',
@@ -409,7 +409,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
     title: 'Real Estate Website Development',
     description:
       'Real estate website development for builders, brokers, and property brands — listing sites, lead capture, CRM hooks, and project microsites by Shribi.',
-    bannerImage: '/assets/website-development.png',
+    bannerImage: '/assets/website-development.webp',
     keywords: [
       'real estate website development',
       'property listing website',

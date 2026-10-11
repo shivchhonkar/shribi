@@ -595,7 +595,7 @@ body:has(.page-home) {
   border: none;
   background: transparent;
   box-shadow: none;
-  min-height: 20rem;
+  min-height: 22rem;
   perspective: 1200px;
   outline: none;
 }
@@ -614,13 +614,13 @@ body:has(.page-home) {
 .page-home .service-card__inner {
   position: relative;
   height: 100%;
-  min-height: 20rem;
+  min-height: 22rem;
   transform-style: preserve-3d;
   transition: transform 0.7s cubic-bezier(0.4, 0.15, 0.2, 1);
 }
 
 .page-home .service-card--flip:hover .service-card__inner,
-.page-home .service-card--flip:focus-visible .service-card__inner {
+.page-home .service-card--flip:focus-within .service-card__inner {
   transform: rotateY(180deg);
 }
 
@@ -657,8 +657,6 @@ body:has(.page-home) {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  margin-top: auto;
-  padding-top: 1rem;
   color: #2563eb;
   font-size: 0.75rem;
   font-weight: 600;
@@ -670,8 +668,43 @@ body:has(.page-home) {
 }
 
 .page-home .service-card--flip:hover .service-card__hint::after,
-.page-home .service-card--flip:focus-visible .service-card__hint::after {
+.page-home .service-card--flip:focus-within .service-card__hint::after {
   transform: translateX(3px);
+}
+
+.page-home .service-card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.page-home .service-card__link {
+  margin-top: 0;
+  color: #1d4ed8;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.page-home .service-card__link:hover {
+  color: #1e40af;
+}
+
+.page-home .service-card__readable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .page-home .service-card__kicker {
@@ -700,6 +733,7 @@ body:has(.page-home) {
   .page-home .service-card--flip:hover .service-card__inner,
   .page-home .service-card--flip:focus .service-card__inner,
   .page-home .service-card--flip:focus-visible .service-card__inner,
+  .page-home .service-card--flip:focus-within .service-card__inner,
   .page-home .service-card__inner {
     display: flex;
     flex-direction: column;

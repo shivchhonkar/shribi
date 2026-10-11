@@ -144,11 +144,12 @@ export default function AboutPageContent() {
       <section className="about-hero about-hero--banner" id="about-hero">
         <div className="about-hero-banner-bg" aria-hidden="true">
           <Image
-            src="/assets/bannerImages/slider/hero-banner-about-us.png"
+            src="/assets/bannerImages/slider/hero-banner-about-us.webp"
             alt=""
-            width={1920}
-            height={1080}
+            width={1400}
+            height={731}
             priority
+            sizes="100vw"
             decoding="async"
           />
         </div>

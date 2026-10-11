@@ -11,6 +11,22 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        has: [{ type: 'host', value: 'shribi.com' }],
+        destination: 'https://www.shribi.com/',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'shribi.com' }],
+        destination: 'https://www.shribi.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig

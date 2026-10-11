@@ -44,11 +44,12 @@ export default function SchoolErpPageContent() {
           <div className="erp-hero-visual reveal reveal-delay">
             <div className="erp-hero-frame">
               <Image
-                src="/assets/thumbnails/Shribi_Edufy_school_ERP.png"
+                src="/assets/thumbnails/Shribi_Edufy_school_ERP.webp"
                 alt="Shribi Edufy school dashboard preview"
-                width={1280}
-                height={720}
+                width={1400}
+                height={757}
                 priority
+                sizes="(max-width: 900px) 92vw, 560px"
               />
             </div>
           </div>

@@ -216,12 +216,15 @@ export default function HomePageContent() {
         <div className="container hero-shell">
           <div className="hero-grid">
             <div className="hero-content">
-              <h1>
-              We build software that <span className="gradient-text">solves real business problems</span>
+              <h1 style={{fontWeight: 'normal', fontSize: '2.5rem'}}>
+                Custom Software, Website & Mobile App Development
+                <br />
+                for Growing Businesses
+              {/* We build software that <span className="gradient-text" style={{fontWeight: 'normal'}}>solves real business problems</span> */}
                 {/* Building digital solutions that <span className="gradient-text">scale with you</span> */}
               </h1>
               <p className="hero-lead">
-              Shribi helps businesses improve and manage their digital operations through custom software, websites, mobile apps and business platforms. 
+              Shribi helps businesses improve and manage their digital operations with <strong style={{color: '#475569', fontWeight: 'normal'}}>custom software development</strong>, <strong style={{color: '#475569', fontWeight: 'normal'}}>website and mobile application development</strong>, <strong style={{color: '#475569', fontWeight: 'normal'}}>billing software</strong>, <strong style={{color: '#475569', fontWeight: 'normal'}}>school ERP platforms</strong> and <strong style={{color: '#475569', fontWeight: 'normal'}}>AI-powered solutions</strong>. 
               {/* We also build and operate our own products, including Billint, Zamiwala and Shribi Edufy. */}
                 {/* Shribi delivers modern software, cloud infrastructure, and business technology
                 tailored for growth — precise, reliable, and beautifully engineered. */}
@@ -284,6 +287,8 @@ export default function HomePageContent() {
                 title={service.title}
                 description={service.description}
                 features={service.features}
+                href={service.href}
+                linkLabel={service.linkLabel}
                 flip
                 delayClass={
                   i === 1

@@ -92,7 +92,7 @@ export default function ServiceLandingPageContent({ slug }: { slug: string }) {
         id="services-hero"
         style={
           {
-            '--services-hero-banner': `url("${page.bannerImage || '/assets/services.png'}")`,
+            '--services-hero-banner': `url("${page.bannerImage || '/assets/services.webp'}")`,
           } as CSSProperties
         }
       >

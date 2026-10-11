@@ -1,6 +1,8 @@
 export const coreServices = [
   {
     icon: 'web' as const,
+    href: '/website-development-services/',
+    linkLabel: 'Website development services',
     title: 'Website Design & Development',
     description:
       'Modern, responsive and high-performance websites that elevate your brand and deliver great user experiences.',
@@ -13,6 +15,8 @@ export const coreServices = [
   },
   {
     icon: 'mobile' as const,
+    href: '/mobile-app-development-services/',
+    linkLabel: 'Mobile app development services',
     title: 'Mobile Application Development',
     description:
       'Native and cross-platform apps for Android and iOS — from MVP to store-ready products your users actually use.',
@@ -25,6 +29,8 @@ export const coreServices = [
   },
   {
     icon: 'billing' as const,
+    href: '/billing-and-inventory-management-software/',
+    linkLabel: 'Billing and inventory software',
     title: 'Billing & Inventory Management',
     description:
       'Smart billing, inventory tracking, GST compliance and real-time reporting to simplify your business operations.',
@@ -32,6 +38,8 @@ export const coreServices = [
   },
   {
     icon: 'erp' as const,
+    href: '/school-erp/',
+    linkLabel: 'School ERP solution',
     title: 'School ERP Solution',
     description:
       'Comprehensive ERP for schools to manage academics, fees, exams, communication and administration in one platform.',
@@ -44,6 +52,8 @@ export const coreServices = [
   },
   {
     icon: 'estate' as const,
+    href: '/real-estate-website-development/',
+    linkLabel: 'Real estate website development',
     title: 'Estate Property & CRM Solution',
     description:
       'End-to-end property management with Estate CRM to manage leads, clients, bookings, projects and post-sales service.',
@@ -57,6 +67,8 @@ export const coreServices = [
   
   {
     icon: 'ai' as const,
+    href: '/ai-automation-and-integration/',
+    linkLabel: 'AI automation and integration',
     title: 'AI Integration',
     description:
       'Add AI to your existing products and business processes to automate repetitive work, assist your teams and make better use of your data.',

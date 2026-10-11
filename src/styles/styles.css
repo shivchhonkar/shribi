@@ -1109,6 +1109,16 @@ ul {
   transition: border-color var(--transition);
 }
 
+.service-card__link {
+  display: inline-flex;
+  margin-top: 1rem;
+  color: var(--blue-cyan, #2563eb);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .service-card:hover {
   border-color: rgba(37, 99, 235, 0.4);
 }

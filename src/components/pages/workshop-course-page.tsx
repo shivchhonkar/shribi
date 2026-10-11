@@ -95,10 +95,11 @@ export default function WorkshopCoursePageContent({ course }: { course: Workshop
           <aside className="workshop-course-card reveal">
             <div className="workshop-course-card__visual">
               <Image
-                src="/assets/shribi-college-traning.png"
+                src="/assets/shribi-college-traning.webp"
                 alt=""
-                width={640}
-                height={360}
+                width={1400}
+                height={700}
+                sizes="(max-width: 768px) 100vw, 640px"
               />
               <p>On-campus labs · live Shribi mentors</p>
             </div>

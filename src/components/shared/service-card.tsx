@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import Link from 'next/link'
 
 const icons = {
   billing: (
@@ -48,6 +49,25 @@ export function ServiceIcon({
   )
 }
 
+function FeatureList({ features, hidden = false }: { features: string[]; hidden?: boolean }) {
+  return (
+    <ul aria-hidden={hidden || undefined}>
+      {features.map((feature) => (
+        <li key={feature}>{feature}</li>
+      ))}
+    </ul>
+  )
+}
+
+function ServiceLink({ href, label }: { href?: string; label?: string }) {
+  if (!href || !label) return null
+  return (
+    <Link href={href} className="service-card__link">
+      {label}
+    </Link>
+  )
+}
+
 export function ServiceCard({
   icon,
   title,
@@ -55,6 +75,8 @@ export function ServiceCard({
   features,
   delayClass = '',
   flip = false,
+  href,
+  linkLabel,
 }: {
   icon: ServiceIconType
   title: string
@@ -62,31 +84,33 @@ export function ServiceCard({
   features: string[]
   delayClass?: string
   flip?: boolean
+  href?: string
+  linkLabel?: string
 }) {
-  const featureList = (
-    <ul>
-      {features.map((feature) => (
-        <li key={feature}>{feature}</li>
-      ))}
-    </ul>
-  )
-
   if (flip) {
     return (
-      <article className={`service-card service-card--flip reveal ${delayClass}`.trim()} tabIndex={0}>
+      <article className={`service-card service-card--flip reveal ${delayClass}`.trim()}>
         <div className="service-card__inner">
           <div className="service-card__face service-card__face--front">
             <ServiceIcon type={icon} />
             <h3>{title}</h3>
             <p>{description}</p>
-            <span className="service-card__hint">What&apos;s included</span>
+            <div className="service-card__actions">
+              <ServiceLink href={href} label={linkLabel} />
+              <span className="service-card__hint">What&apos;s included</span>
+            </div>
           </div>
           <div className="service-card__face service-card__face--back">
             <ServiceIcon type={icon} />
-            <h3>{title}</h3>
-            <p className="service-card__kicker">What&apos;s included</p>
-            {featureList}
+            <h3 aria-hidden="true">{title}</h3>
+            <p className="service-card__kicker" aria-hidden="true">
+              What&apos;s included
+            </p>
+            <FeatureList features={features} hidden />
           </div>
+        </div>
+        <div className="service-card__readable">
+          <FeatureList features={features} />
         </div>
       </article>
     )
@@ -97,7 +121,8 @@ export function ServiceCard({
       <ServiceIcon type={icon} />
       <h3>{title}</h3>
       <p>{description}</p>
-      {featureList}
+      <FeatureList features={features} />
+      <ServiceLink href={href} label={linkLabel} />
     </article>
   )
 }

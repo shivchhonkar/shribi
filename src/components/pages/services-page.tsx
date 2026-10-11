@@ -54,11 +54,12 @@ export default function ServicesPageContent() {
       <section className="services-hero" id="services-hero">
         <div className="services-hero-banner-bg" aria-hidden="true">
           <Image
-            src="/assets/services.png"
+            src="/assets/services.webp"
             alt=""
-            width={1920}
-            height={1080}
+            width={1400}
+            height={731}
             priority
+            sizes="100vw"
             decoding="async"
           />
         </div>
@@ -97,6 +98,8 @@ export default function ServicesPageContent() {
                 title={service.title}
                 description={service.description}
                 features={service.features}
+                href={service.href}
+                linkLabel={service.linkLabel}
                 delayClass={serviceDelayClass(i)}
               />
             ))}
