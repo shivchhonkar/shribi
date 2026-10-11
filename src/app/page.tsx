@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: {
     absolute: 'Custom Software Development Company | Shribi',
   },
+  verification: {
+    google: '1pEs8v-7ALRXMIlq_DHeWM-jkY2r_AkEevuugj-c8E4',
+  },
 }
 
 export default function HomePage() {
