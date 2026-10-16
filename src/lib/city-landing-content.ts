@@ -278,7 +278,7 @@ function buildPage(city: CityProfile, kind: ServiceKind): ServiceLandingContent 
       ctaTitle: `Need a website or online store in ${city.name}?`,
       ctaText: `Tell us the pages and products you need. We will reply with a sample sitemap and a realistic start date. ${city.meet}`,
       areaServed: place,
-      bannerImage: '/assets/website-development.webp',
+      bannerImage: '/assets/Website%20Development.png',
     }
   }
 
@@ -409,7 +409,7 @@ function buildPage(city: CityProfile, kind: ServiceKind): ServiceLandingContent 
     ctaTitle: `Need an Android, iOS, or business app in ${city.name}?`,
     ctaText: `Tell us who the app is for and what the first version must do. We will reply with a practical scope. ${city.meet}`,
     areaServed: place,
-    bannerImage: '/assets/application-development.webp',
+    bannerImage: '/assets/mobile-app-development.png',
   }
 }
 

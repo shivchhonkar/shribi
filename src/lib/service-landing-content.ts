@@ -513,6 +513,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
       'website developers near GLA University',
       'website company in Uttar Pradesh',
     ],
+    bannerImage: '/assets/Website%20Development.png',
     eyebrow: '',//'Website Development Company in Mathura',
     h1: 'Website development company in',
     h1Highlight: 'Mathura',
@@ -645,6 +646,8 @@ const lightHeroClass: Record<string, string> = {
 }
 
 export function lightHeroTone(slug: string) {
+  if (slug.startsWith('website-development-company-in-')) return 'page-web'
+  if (slug.startsWith('mobile-app-development-company-in-')) return 'page-mobile'
   if (slug.startsWith('software-development-company-in-')) return 'page-software'
   return lightHeroClass[slug] ?? ''
 }
