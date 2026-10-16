@@ -4,9 +4,10 @@ import { useLayoutEffect } from 'react'
 
 export default function BodyClass({ className }: { className: string }) {
   useLayoutEffect(() => {
-    document.body.classList.add(className)
+    const classes = className.split(/\s+/).filter(Boolean)
+    document.body.classList.add(...classes)
     return () => {
-      document.body.classList.remove(className)
+      document.body.classList.remove(...classes)
     }
   }, [className])
 

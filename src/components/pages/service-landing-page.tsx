@@ -5,6 +5,7 @@ import { ServiceCard } from '@/components/shared/service-card'
 import {
   getRelatedServiceLandings,
   getServiceLanding,
+  lightHeroTone,
 } from '@/lib/service-landing-content'
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, SITE_NAME, SITE_URL } from '@/lib/site'
 
@@ -99,7 +100,9 @@ export default function ServiceLandingPageContent({ slug }: { slug: string }) {
         <div className="services-hero-banner-bg" aria-hidden="true" />
         <div className="container services-hero-shell">
           <div className="services-hero-grid">
-            <div className="services-hero-content reveal">
+            <div
+              className={`services-hero-content${lightHeroTone(slug) ? '' : ' reveal'}`}
+            >
               <nav className="landing-breadcrumb" aria-label="Breadcrumb">
                 <ol>
                   <li>
@@ -111,7 +114,7 @@ export default function ServiceLandingPageContent({ slug }: { slug: string }) {
                   <li aria-current="page">{page.navLabel}</li>
                 </ol>
               </nav>
-              <p className="eyebrow">{page.eyebrow}</p>
+              {/* <p className="eyebrow">{page.eyebrow}</p> */}
               <h1>
                 {page.h1} <span className="gradient-text">{page.h1Highlight}</span>
               </h1>

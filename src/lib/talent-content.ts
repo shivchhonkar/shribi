@@ -17,9 +17,9 @@ export const talentPage = {
   h1: 'Hire Skilled',
   h1Highlight: 'React & Next.js Developers',
   h1Suffix: 'from India',
-  lead: 'Shribi Talent helps companies hire skilled and technically assessed software developers for remote roles, dedicated teams, and contract staffing.',
-  leadSecondary:
-    'Access talent from the GLA University ecosystem in Mathura, Uttar Pradesh, backed by experienced engineering leadership from Shribi Technologies Pvt. Ltd.',
+  lead: 'Shribi Talent helps companies hire skilled and technically assessed software\ndevelopers for remote roles, dedicated teams, and contract staffing.',
+  leadSecondary:'',//
+    // 'Access talent from the GLA University ecosystem in Mathura, Uttar Pradesh, backed by experienced engineering leadership from Shribi Technologies Pvt. Ltd.',
 }
 
 export const talentHeroActions = [

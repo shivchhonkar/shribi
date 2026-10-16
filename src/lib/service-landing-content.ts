@@ -1,4 +1,10 @@
 import type { ServiceIconType } from '@/components/shared/service-card'
+import {
+  cityLandingPages,
+  citySlugFromLanding,
+  locationCityOrder,
+  nationalServiceSlug,
+} from '@/lib/city-landing-content'
 import { pageMetadata } from '@/lib/site'
 
 export type ServiceOffering = {
@@ -46,7 +52,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
     title: 'Website Development Services',
     description:
       'Shribi delivers website development services for businesses across India — custom websites, e-commerce, CMS, and high-performance web apps built to convert.',
-    bannerImage: '/assets/website-development.webp',
+    bannerImage: '/assets/Website%20Development.png',
     keywords: [
       'website development services',
       'custom website development',
@@ -137,7 +143,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
     title: 'Mobile App Development Services',
     description:
       'Shribi offers mobile app development services for Android, iOS, and cross-platform apps — from MVP to scalable consumer and enterprise products.',
-    bannerImage: '/assets/application-development.webp',
+    bannerImage: '/assets/mobile-app-development.png',
     keywords: [
       'mobile app development services',
       'Android app development',
@@ -228,7 +234,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
     title: 'Custom Software Development Services',
     description:
       'Custom software development services from Shribi — tailored web platforms, internal tools, integrations, and automation for businesses that have outgrown off-the-shelf products.',
-    bannerImage: '/assets/website-development.webp',
+    bannerImage: '/assets/software-development-banner.png',
     keywords: [
       'custom software development services',
       'bespoke software development',
@@ -319,6 +325,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
     title: 'AI Automation and Integration',
     description:
       'Shribi AI automation and integration services — chatbots, workflow automation, API connections, and custom AI solutions that plug into your existing software.',
+    bannerImage: '/assets/ai-development.png',
     keywords: [
       'AI automation and integration',
       'AI integration services',
@@ -409,7 +416,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
     title: 'Real Estate Website Development',
     description:
       'Real estate website development for builders, brokers, and property brands — listing sites, lead capture, CRM hooks, and project microsites by Shribi.',
-    bannerImage: '/assets/website-development.webp',
+    bannerImage: '/assets/software-development-banner.png',
     keywords: [
       'real estate website development',
       'property listing website',
@@ -506,7 +513,7 @@ export const serviceLandingPages: ServiceLandingContent[] = [
       'website developers near GLA University',
       'website company in Uttar Pradesh',
     ],
-    eyebrow: 'Website Development Company in Mathura',
+    eyebrow: '',//'Website Development Company in Mathura',
     h1: 'Website development company in',
     h1Highlight: 'Mathura',
     lead: 'Local team, national delivery. From NH-19 near GLA University we build websites, apps, and custom software for Mathura, Vrindavan, Agra, and businesses across India.',
@@ -586,8 +593,17 @@ export const serviceLandingPages: ServiceLandingContent[] = [
   },
 ]
 
+const allLandingPages = [...serviceLandingPages, ...cityLandingPages]
+
+function landingServiceRank(slug: string) {
+  if (slug.startsWith('website-')) return 0
+  if (slug.startsWith('software-')) return 1
+  if (slug.startsWith('mobile-')) return 2
+  return 3
+}
+
 export function getServiceLanding(slug: string) {
-  const page = serviceLandingPages.find((item) => item.slug === slug)
+  const page = allLandingPages.find((item) => item.slug === slug)
   if (!page) {
     throw new Error(`Unknown service landing page: ${slug}`)
   }
@@ -595,7 +611,42 @@ export function getServiceLanding(slug: string) {
 }
 
 export function getRelatedServiceLandings(slug: string) {
+  const citySlug = citySlugFromLanding(slug)
+  if (citySlug) {
+    const siblings = allLandingPages.filter(
+      (item) => citySlugFromLanding(item.slug) === citySlug && item.slug !== slug,
+    )
+    const nationalSlug = nationalServiceSlug(slug)
+    const national = nationalSlug
+      ? serviceLandingPages.find((item) => item.slug === nationalSlug)
+      : undefined
+    return national ? [...siblings, national] : siblings
+  }
+
   return serviceLandingPages.filter((item) => item.slug !== slug)
+}
+
+export function getLocationLandingGroups() {
+  return locationCityOrder.map((city) => ({
+    slug: city.slug,
+    name: city.name,
+    pages: allLandingPages
+      .filter((page) => citySlugFromLanding(page.slug) === city.slug)
+      .sort((a, b) => landingServiceRank(a.slug) - landingServiceRank(b.slug)),
+  }))
+}
+
+const lightHeroClass: Record<string, string> = {
+  'ai-automation-and-integration': 'page-ai',
+  'website-development-services': 'page-web',
+  'mobile-app-development-services': 'page-mobile',
+  'custom-software-development-services': 'page-software',
+  'real-estate-website-development': 'page-software',
+}
+
+export function lightHeroTone(slug: string) {
+  if (slug.startsWith('software-development-company-in-')) return 'page-software'
+  return lightHeroClass[slug] ?? ''
 }
 
 export function serviceLandingMetadata(slug: string) {

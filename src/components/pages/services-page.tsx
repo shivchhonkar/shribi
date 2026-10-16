@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { ServiceCard } from '@/components/shared/service-card'
 import { coreServices, serviceIndustries } from '@/lib/content'
-import { serviceLandingPages } from '@/lib/service-landing-content'
+import { getLocationLandingGroups, serviceLandingPages } from '@/lib/service-landing-content'
 import { IndustryIcon } from '@/lib/industry-icons'
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from '@/lib/site'
 
@@ -65,7 +65,7 @@ export default function ServicesPageContent() {
         </div>
         <div className="container services-hero-shell">
           <div className="services-hero-grid">
-            <div className="services-hero-content reveal">
+            <div className="services-hero-content">
               {/* <p className="eyebrow">Our Services</p> */}
               <h1>
                 Software solutions built for <span className="gradient-text">your business</span>
@@ -162,12 +162,41 @@ export default function ServicesPageContent() {
               <li>
                 <Link href="/shribi-workshop-in-college/">College Workshops</Link>
               </li>
-              {serviceLandingPages.map((page) => (
-                <li key={page.slug}>
-                  <Link href={page.path}>{page.navLabel}</Link>
-                </li>
-              ))}
+              {serviceLandingPages
+                .filter((page) => !page.slug.includes('-company-in-'))
+                .map((page) => (
+                  <li key={page.slug}>
+                    <Link href={page.path}>{page.navLabel}</Link>
+                  </li>
+                ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-light" id="locations">
+        <div className="container">
+          <div className="section-header reveal">
+            <span className="section-tag">Cities</span>
+            <h2>Development companies by city</h2>
+            <p>
+              Website, custom software, and mobile app pages for businesses in these cities. Shribi is
+              based in Mathura and delivers for each of them.
+            </p>
+          </div>
+          <div className="location-city-grid">
+            {getLocationLandingGroups().map((city) => (
+              <article key={city.slug} className="location-city-card reveal">
+                <h3>{city.name}</h3>
+                <ul>
+                  {city.pages.map((page) => (
+                    <li key={page.slug}>
+                      <Link href={page.path}>{page.navLabel}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </div>
       </section>

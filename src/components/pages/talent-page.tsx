@@ -94,7 +94,7 @@ export default function TalentPageContent() {
         <div className="services-hero-banner-bg" aria-hidden="true" />
         <div className="container services-hero-shell">
           <div className="services-hero-grid">
-            <div className="services-hero-content reveal">
+            <div className="services-hero-content">
               <nav className="landing-breadcrumb" aria-label="Breadcrumb">
                 <ol>
                   <li>
@@ -111,7 +111,9 @@ export default function TalentPageContent() {
                 <span className="gradient-text">{talentPage.h1Highlight}</span> {talentPage.h1Suffix}
               </h1>
               <p className="services-hero-lead">{talentPage.lead}</p>
-              <p className="services-hero-lead services-hero-lead--secondary">{talentPage.leadSecondary}</p>
+              {talentPage.leadSecondary ? (
+                <p className="services-hero-lead services-hero-lead--secondary">{talentPage.leadSecondary}</p>
+              ) : null}
               <div className="services-hero-actions">
                 {talentHeroActions.map((action) =>
                   action.href.startsWith('/') ? (
@@ -191,7 +193,7 @@ export default function TalentPageContent() {
         </div>
       </section>
 
-      <section className="section section-services-dark" id="models">
+      <section className="section section-light" id="models">
         <div className="container">
           <div className="section-header reveal">
             <span className="section-tag">How You Engage</span>
@@ -238,7 +240,7 @@ export default function TalentPageContent() {
         </div>
       </section>
 
-      <section className="section section-dark" id="why-partner">
+      <section className="section section-light" id="why-partner">
         <div className="container">
           <div className="section-header reveal">
             <span className="section-tag">Why Shribi Talent</span>
@@ -320,7 +322,7 @@ export default function TalentPageContent() {
         </div>
       </section>
 
-      <section className="section section-dark services-cta-section">
+      <section className="section section-muted services-cta-section">
         <div className="container">
           <div className="services-cta-banner reveal">
             <div className="services-cta-text">

@@ -1,19 +1,22 @@
 /* About page — light theme aligned with homepage */
 
-body.page-about {
+body.page-about,
+body:has(.page-about) {
   --about-container: 1180px;
   --about-gutter: clamp(1rem, 4vw, 1.75rem);
   --about-section-y: clamp(3rem, 6vw, 5rem);
   --about-card-gap: 1.25rem;
-  background: #f1f5f9;
+  background: #f8fafc;
   color: #0f172a;
 }
 
-body.page-about .page-bg {
+body.page-about .page-bg,
+body:has(.page-about) .page-bg {
   display: none;
 }
 
-body.page-about main {
+body.page-about main,
+body:has(.page-about) main {
   background: transparent;
 }
 
@@ -22,46 +25,72 @@ body.page-about .container {
   margin-inline: auto;
 }
 
-body.page-about .section {
+body.page-about .section,
+.page-about .section {
   position: relative;
   padding: var(--about-section-y) 0;
   background: transparent;
 }
 
-body.page-about .section::before {
+body.page-about .section::before,
+.page-about .section::before {
   display: none;
 }
 
-body.page-about .section-light {
+body.page-about .section-light,
+.page-about .section-light {
   background: #ffffff;
 }
 
-body.page-about .section-muted {
-  background: #f1f5f9;
+body.page-about .section-muted,
+.page-about .section-muted {
+  background: #f3f4f6;
 }
 
 body.page-about .section-dark {
   background: linear-gradient(180deg, #0a1628 0%, #0f2744 100%);
 }
 
-/* Header — stay readable over the light photo banner */
-body.page-about .header:not(.scrolled):not(.nav-solid) {
-  background: linear-gradient(180deg, rgba(8, 18, 36, 0.72) 0%, rgba(8, 18, 36, 0.28) 70%, transparent 100%);
+/* Header — dark type on the light banner, same as the homepage */
+body.page-about .header:not(.scrolled):not(.nav-solid),
+.page-about .header:not(.scrolled):not(.nav-solid) {
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
+  box-shadow: none;
 }
 
 body.page-about .header:not(.scrolled):not(.nav-solid) .nav-links > li > a,
-body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn {
-  color: #f8fafc;
+body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn,
+.page-about .header:not(.scrolled):not(.nav-solid) .nav-links > li > a,
+.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn {
+  color: #334155;
 }
 
 body.page-about .header:not(.scrolled):not(.nav-solid) .nav-links > li > a:hover,
-body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn:hover {
-  color: #fff;
+body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn:hover,
+.page-about .header:not(.scrolled):not(.nav-solid) .nav-links > li > a:hover,
+.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn:hover {
+  color: #0f172a;
 }
 
 body.page-about .header:not(.scrolled):not(.nav-solid) .nav-links > li > a.nav-active,
-body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active {
-  color: #93c5fd;
+body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active,
+.page-about .header:not(.scrolled):not(.nav-solid) .nav-links > li > a.nav-active,
+.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active {
+  color: #2563eb;
+}
+
+body.page-about .header:not(.scrolled):not(.nav-solid) .nav-toggle span,
+.page-about .header:not(.scrolled):not(.nav-solid) .nav-toggle span {
+  background: #0f172a;
+}
+
+body.page-about .header:not(.scrolled):not(.nav-solid) .brand-name,
+.page-about .header:not(.scrolled):not(.nav-solid) .brand-name {
+  background: none;
+  -webkit-text-fill-color: #0f172a;
+  color: #0f172a;
 }
 
 /* Section headers */
@@ -94,24 +123,19 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
   margin: 0;
 }
 
-/* Hero — same navy photo banner theme as services */
+/* Hero — light banner, same palette as the homepage */
 .page-about .about-hero {
   position: relative;
   padding: calc(var(--header-h) + 2.75rem) 0 clamp(2.5rem, 5vw, 4rem);
-  background: linear-gradient(135deg, #0a1628 0%, #0f2744 48%, #0a1929 100%);
+  background:
+    radial-gradient(ellipse 48% 62% at 78% 42%, rgba(191, 219, 254, 0.85), transparent 72%),
+    linear-gradient(180deg, #f7fbfe 0%, #e8f1f8 100%);
   overflow: hidden;
   isolation: isolate;
 }
 
 .page-about .about-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(8, 18, 36, 0.7) 0%, rgba(8, 18, 36, 0.22) 26%, transparent 48%),
-    linear-gradient(90deg, rgba(8, 18, 36, 0.88) 0%, rgba(8, 18, 36, 0.62) 30%, rgba(8, 18, 36, 0.22) 54%, transparent 74%);
+  display: none;
 }
 
 .page-about .about-hero-banner-bg {
@@ -123,24 +147,12 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
 
 .page-about .about-hero-banner-bg img {
   width: 100%;
-  height: 130%;
+  height: 100%;
   object-fit: cover;
-  object-position: 72% center;
-  opacity: 0.9;
-  -webkit-mask-image: linear-gradient(
-    105deg,
-    rgba(0, 0, 0, 0.28) 0%,
-    #000 24%,
-    #000 68%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    105deg,
-    rgba(0, 0, 0, 0.28) 0%,
-    #000 24%,
-    #000 68%,
-    transparent 100%
-  );
+  object-position: right center;
+  opacity: 0.72;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 34%, #000 62%);
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 34%, #000 62%);
 }
 
 .page-about .about-hero-shell {
@@ -175,19 +187,19 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  color: #ffffff;
+  color: #0b1220;
   margin-bottom: 1.125rem;
 }
 
 .page-about .about-hero-content .gradient-text {
-  background: linear-gradient(135deg, #60a5fa, #38bdf8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #1d4ed8;
+  font-weight: 600;
+  background: none;
+  -webkit-text-fill-color: unset;
 }
 
 .page-about .about-hero-lead {
-  color: #e2e8f0;
+  color: #475569;
   font-size: 1.0625rem;
   line-height: 1.65;
   margin-bottom: 1.75rem;
@@ -213,9 +225,9 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
 }
 
 .page-about .about-hero-actions .btn-ghost {
-  background: rgba(15, 23, 42, 0.28);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: #fff;
+  color: #2563eb;
+  border: 1.5px solid #2563eb;
   border-radius: 8px;
   padding: 0.8125rem 1.375rem;
   font-size: 0.9375rem;
@@ -223,9 +235,9 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
 }
 
 .page-about .about-hero-actions .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.5);
-  color: #fff;
+  background: #eff6ff;
+  border-color: #1d4ed8;
+  color: #1d4ed8;
 }
 
 .page-about .about-hero-stats {
@@ -568,8 +580,8 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
   margin: 0;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
 }
 
 .page-about .about-founder-photo img {
@@ -581,12 +593,12 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
 }
 
 .page-about .about-founder-content .section-tag {
-  color: #60a5fa;
+  color: #2563eb;
   text-align: left;
 }
 
 .page-about .about-founder-content h2 {
-  color: #fff;
+  color: #0f172a;
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 700;
   line-height: 1.15;
@@ -594,14 +606,14 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
 }
 
 .page-about .about-founder-role {
-  color: #60a5fa;
+  color: #2563eb;
   font-size: 0.9375rem;
   font-weight: 600;
   margin-bottom: 1.25rem;
 }
 
 .page-about .about-founder-content p {
-  color: #cbd5e1;
+  color: #475569;
   font-size: 0.875rem;
   line-height: 1.65;
   margin-bottom: 0.875rem;
@@ -613,9 +625,11 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
 
 .page-about .about-expertise-card {
   background: #fff;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   padding: 1.5rem 1.375rem;
   height: 100%;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
 }
 
 .page-about .about-expertise-card .section-tag {
@@ -655,24 +669,24 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
 }
 
 .page-about .about-commitment-box {
-  background: linear-gradient(135deg, #0c1a2e 0%, #132d4a 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(ellipse 70% 120% at 100% 0%, rgba(191, 219, 254, 0.7), transparent 60%),
+    #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.25rem, 3vw, 2rem);
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: clamp(1rem, 2.5vw, 2rem);
   align-items: center;
-  background-image:
-    linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, transparent 50%),
-    linear-gradient(135deg, #0c1a2e 0%, #132d4a 100%);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
 }
 
 .page-about .about-commitment-icon {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #fff;
+  background: #eff6ff;
   color: #2563eb;
   display: flex;
   align-items: center;
@@ -686,13 +700,13 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
 }
 
 .page-about .about-commitment-text .section-tag {
-  color: #60a5fa;
+  color: #2563eb;
   text-align: left;
   margin-bottom: 0.5rem;
 }
 
 .page-about .about-commitment-text h2 {
-  color: #fff;
+  color: #0f172a;
   font-size: clamp(1.25rem, 2.5vw, 1.625rem);
   font-weight: 700;
   line-height: 1.25;
@@ -700,7 +714,7 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
 }
 
 .page-about .about-commitment-text p {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 0.875rem;
   line-height: 1.6;
   max-width: 36rem;
@@ -729,13 +743,13 @@ body.page-about .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active 
   }
 
   .page-about .about-hero::after {
-    background:
-      linear-gradient(180deg, rgba(8, 18, 36, 0.78) 0%, rgba(8, 18, 36, 0.42) 36%, rgba(8, 18, 36, 0.28) 100%),
-      linear-gradient(90deg, rgba(8, 18, 36, 0.82) 0%, rgba(8, 18, 36, 0.48) 48%, transparent 78%);
+    display: none;
   }
 
   .page-about .about-hero-banner-bg img {
-    opacity: 0.55;
+    opacity: 0.45;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 28%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 28%);
   }
 
   .page-about .about-kpi-grid {

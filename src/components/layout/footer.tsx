@@ -99,6 +99,9 @@ export default function Footer() {
               <Link href="/website-development-company-in-mathura/">Mathura Web Company</Link>
             </li>
             <li>
+              <Link href="/services/#locations">Cities we serve</Link>
+            </li>
+            <li>
               <Link href="/school-erp/">School ERP</Link>
             </li>
             <li>

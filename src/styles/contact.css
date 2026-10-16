@@ -1,16 +1,16 @@
-/* Contact page — dark theme */
+/* Contact page — light theme, same palette as the homepage */
 
 body:has(.page-contact) {
-  background: #020617;
-  color: #f8fafc;
+  background: #f8fafc;
+  color: #0f172a;
 }
 
 .page-contact {
   --contact-container: 1180px;
   --contact-gutter: clamp(1rem, 4vw, 1.75rem);
   --contact-section-y: clamp(3.5rem, 6vw, 5rem);
-  background: #020617;
-  color: #f8fafc;
+  background: #f8fafc;
+  color: #0f172a;
 }
 
 .page-contact .page-bg {
@@ -40,6 +40,53 @@ body:has(.page-contact) {
 .page-contact .contact-hero {
   min-height: auto;
   padding-bottom: 2.5rem;
+  background:
+    radial-gradient(ellipse 48% 62% at 78% 42%, rgba(191, 219, 254, 0.55), transparent 72%),
+    linear-gradient(180deg, #f7fbfe 0%, #eef6fb 100%);
+}
+
+.page-contact .hero--contact.hero--banner::before,
+.page-contact .hero--contact.hero--banner::after,
+.page-contact .contact-hero .hero-ambient {
+  display: none;
+}
+
+body.page-contact .header:not(.scrolled):not(.nav-solid),
+.page-contact .header:not(.scrolled):not(.nav-solid) {
+  background: transparent;
+}
+
+body.page-contact .header:not(.scrolled):not(.nav-solid) .nav-links > li > a,
+body.page-contact .header:not(.scrolled):not(.nav-solid) .nav-menu-btn,
+.page-contact .header:not(.scrolled):not(.nav-solid) .nav-links > li > a,
+.page-contact .header:not(.scrolled):not(.nav-solid) .nav-menu-btn {
+  color: #334155;
+}
+
+body.page-contact .header:not(.scrolled):not(.nav-solid) .nav-links > li > a:hover,
+body.page-contact .header:not(.scrolled):not(.nav-solid) .nav-menu-btn:hover,
+.page-contact .header:not(.scrolled):not(.nav-solid) .nav-links > li > a:hover,
+.page-contact .header:not(.scrolled):not(.nav-solid) .nav-menu-btn:hover {
+  color: #0f172a;
+}
+
+body.page-contact .header:not(.scrolled):not(.nav-solid) .nav-links > li > a.nav-active,
+body.page-contact .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active,
+.page-contact .header:not(.scrolled):not(.nav-solid) .nav-links > li > a.nav-active,
+.page-contact .header:not(.scrolled):not(.nav-solid) .nav-menu-btn.nav-active {
+  color: #2563eb;
+}
+
+body.page-contact .header:not(.scrolled):not(.nav-solid) .nav-toggle span,
+.page-contact .header:not(.scrolled):not(.nav-solid) .nav-toggle span {
+  background: #0f172a;
+}
+
+body.page-contact .header:not(.scrolled):not(.nav-solid) .brand-name,
+.page-contact .header:not(.scrolled):not(.nav-solid) .brand-name {
+  background: none;
+  -webkit-text-fill-color: #0f172a;
+  color: #0f172a;
 }
 
 .page-contact .contact-hero .hero-content {
@@ -47,7 +94,7 @@ body:has(.page-contact) {
 }
 
 .page-contact .contact-hero .eyebrow {
-  color: #60a5fa;
+  color: #1d4ed8;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -56,29 +103,64 @@ body:has(.page-contact) {
 }
 
 .page-contact .contact-hero h1 {
-  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  color: #0b1220;
+  font-size: clamp(2.125rem, 3.8vw, 3.35rem);
   font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.25rem;
+  line-height: 1.08;
+  letter-spacing: -0.038em;
+  margin-bottom: 1.125rem;
+}
+
+.page-contact .contact-hero .gradient-text {
+  color: #1d4ed8;
+  background: none;
+  -webkit-text-fill-color: unset;
 }
 
 .page-contact .contact-hero .hero-lead {
-  color: #cbd5e1;
+  color: #475569;
   font-size: clamp(1rem, 1.6vw, 1.125rem);
   line-height: 1.7;
   max-width: 34rem;
 }
 
-.page-contact .hero--contact .hero-banner-bg img {
-  object-position: 72% center;
-  opacity: 0.95;
+.page-contact .hero--contact .hero-banner-bg {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .page-contact .hero--contact .hero-banner-bg {
+    display: block;
+    inset: auto;
+    left: auto;
+    top: -2%;
+    height: 108%;
+    width: min(780px, 54%);
+    right: max(var(--contact-gutter), calc((100% - var(--contact-container, 1180px)) / 2));
+  }
+
+  .page-contact .hero--contact .hero-banner-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    opacity: 1;
+    -webkit-mask-image:
+      linear-gradient(90deg, transparent 0%, #000 16%, #000 76%, transparent 100%),
+      linear-gradient(180deg, transparent 0%, #000 10%, #000 72%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(90deg, transparent 0%, #000 16%, #000 76%, transparent 100%),
+      linear-gradient(180deg, transparent 0%, #000 10%, #000 72%, transparent 100%);
+    mask-composite: intersect;
+  }
 }
 
 /* Get in touch */
 .page-contact .contact-page__touch {
-  padding-top: 0;
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
   padding-bottom: var(--contact-section-y);
+  background: #f8fafc;
 }
 
 .page-contact .contact-page__grid {
@@ -90,7 +172,7 @@ body:has(.page-contact) {
 
 .page-contact .contact-page__info .section-tag {
   display: inline-block;
-  color: #60a5fa;
+  color: #2563eb;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -99,16 +181,16 @@ body:has(.page-contact) {
 }
 
 .page-contact .contact-page__info h2 {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-size: clamp(1.625rem, 2.8vw, 2.125rem);
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-  color: #fff;
+  margin-bottom: 0.75rem;
+  color: #0f172a;
 }
 
 .page-contact .contact-page__info > p {
-  color: #94a3b8;
+  color: #64748b;
   font-size: clamp(1rem, 1.5vw, 1.0625rem);
   line-height: 1.7;
   max-width: 28rem;
@@ -126,18 +208,18 @@ body:has(.page-contact) {
   align-items: center;
   gap: 0.875rem;
   padding: 0.8rem 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
-  background: rgba(15, 23, 42, 0.45);
-  color: #f8fafc;
+  background: #fff;
+  color: #0f172a;
   text-decoration: none;
   text-align: left;
   transition: border-color 0.2s, background 0.2s;
 }
 
 .page-contact a.contact-page__detail:hover {
-  border-color: rgba(96, 165, 250, 0.45);
-  background: rgba(15, 23, 42, 0.72);
+  border-color: #bfdbfe;
+  background: #f8fafc;
 }
 
 .page-contact .contact-page__detail-icon {
@@ -148,8 +230,8 @@ body:has(.page-contact) {
   height: 2.25rem;
   flex-shrink: 0;
   border-radius: 10px;
-  background: rgba(37, 99, 235, 0.16);
-  color: #93c5fd;
+  background: #eff6ff;
+  color: #2563eb;
 }
 
 .page-contact .contact-page__detail-icon svg {
@@ -169,23 +251,23 @@ body:has(.page-contact) {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #94a3b8;
+  color: #64748b;
 }
 
 .page-contact .contact-page__detail-value {
   font-size: 0.9375rem;
   font-weight: 500;
-  color: #f8fafc;
+  color: #0f172a;
   line-height: 1.4;
 }
 
 /* Form card */
 .page-contact .contact-form-panel {
-  background: rgba(15, 23, 42, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
   padding: clamp(1.5rem, 3vw, 2rem);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
 }
 
 .page-contact .contact-form-panel__head {
@@ -193,15 +275,15 @@ body:has(.page-contact) {
 }
 
 .page-contact .contact-form-panel__head h2 {
-  font-size: 1.35rem;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
   font-weight: 500;
-  color: #fff;
+  color: #0f172a;
   letter-spacing: -0.02em;
   margin-bottom: 0.35rem;
 }
 
 .page-contact .contact-form-panel__head p {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 0.9375rem;
   line-height: 1.5;
 }
@@ -231,7 +313,7 @@ body:has(.page-contact) {
 
 .page-contact .contact-form label {
   display: block;
-  color: #e2e8f0;
+  color: #334155;
   font-size: 0.8125rem;
   font-weight: 600;
   margin-bottom: 0.45rem;
@@ -241,18 +323,19 @@ body:has(.page-contact) {
 .page-contact .contact-form select,
 .page-contact .contact-form textarea {
   width: 100%;
-  background: rgba(2, 6, 23, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  color: #f8fafc !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
   border-radius: 10px !important;
-  padding: 0.875rem 1rem !important;
+  padding: 0.55rem 1rem !important;
   font-size: 0.9375rem !important;
+  line-height: 1.3;
 }
 
 .page-contact .contact-form select {
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
   background-repeat: no-repeat !important;
   background-position: right 0.85rem center !important;
   background-size: 16px !important;
@@ -261,19 +344,20 @@ body:has(.page-contact) {
 
 .page-contact .contact-form input::placeholder,
 .page-contact .contact-form textarea::placeholder {
-  color: #64748b !important;
+  color: #94a3b8 !important;
 }
 
 .page-contact .contact-form input:focus,
 .page-contact .contact-form select:focus,
 .page-contact .contact-form textarea:focus {
   outline: none;
+  background: #fff !important;
   border-color: #2563eb !important;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2) !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12) !important;
 }
 
 .page-contact .contact-form textarea {
-  min-height: 120px;
+  min-height: 96px;
   resize: vertical;
 }
 
@@ -281,26 +365,26 @@ body:has(.page-contact) {
   margin-top: 0.5rem;
   width: 100%;
   border-radius: 10px;
-  padding: 0.9375rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   font-size: 0.9375rem;
   font-weight: 600;
 }
 
 .page-contact .contact-form .form-note {
-  color: #94a3b8;
+  color: #64748b;
 }
 
 .page-contact .contact-form .form-note.error {
-  color: #f87171;
+  color: #dc2626;
 }
 
 .page-contact .accent-text {
-  color: #60a5fa;
+  color: #2563eb;
 }
 
 /* Offices */
 .page-contact .contact-page__offices {
-  background: linear-gradient(180deg, #020617 0%, #0a1628 100%);
+  background: #f8fafc;
   padding-top: 0;
 }
 
@@ -312,7 +396,7 @@ body:has(.page-contact) {
 
 .page-contact .contact-page__offices-header .section-tag {
   display: inline-block;
-  color: #60a5fa;
+  color: #2563eb;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -321,16 +405,16 @@ body:has(.page-contact) {
 }
 
 .page-contact .contact-page__offices-header h2 {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-size: clamp(1.625rem, 2.8vw, 2.125rem);
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: #0f172a;
   margin-bottom: 0.5rem;
 }
 
 .page-contact .contact-page__offices-header p {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -343,27 +427,27 @@ body:has(.page-contact) {
 
 .page-contact .contact-office {
   padding: 1.1rem 1.15rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
-  background: rgba(15, 23, 42, 0.55);
+  background: #fff;
 }
 
 .page-contact .contact-office h3 {
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: #0f172a;
   margin-bottom: 0.35rem;
 }
 
 .page-contact .contact-office p {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 0.9375rem;
   line-height: 1.55;
   margin-bottom: 0.65rem;
 }
 
 .page-contact .contact-office a {
-  color: #93c5fd;
+  color: #2563eb;
   font-size: 0.875rem;
   font-weight: 600;
 }
@@ -375,15 +459,15 @@ body:has(.page-contact) {
 }
 
 .page-contact .office-card {
-  background: rgba(15, 23, 42, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #fff;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   overflow: hidden;
   transition: border-color 0.2s, transform 0.2s;
 }
 
 .page-contact .office-card:hover {
-  border-color: rgba(96, 165, 250, 0.35);
+  border-color: #bfdbfe;
   transform: translateY(-3px);
 }
 
@@ -428,12 +512,12 @@ body:has(.page-contact) {
 .page-contact .office-card__body h3 {
   font-size: 1.0625rem;
   font-weight: 700;
-  color: #fff;
+  color: #0f172a;
   margin-bottom: 0.625rem;
 }
 
 .page-contact .office-card__address {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 0.8125rem;
   line-height: 1.65;
   margin-bottom: 1rem;
@@ -450,7 +534,7 @@ body:has(.page-contact) {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #60a5fa;
+  color: #2563eb;
   font-size: 0.8125rem;
   font-weight: 500;
   transition: color 0.2s;
@@ -463,13 +547,14 @@ body:has(.page-contact) {
 }
 
 .page-contact .office-card__link:hover {
-  color: #93c5fd;
+  color: #1d4ed8;
 }
 
 /* Google reviews */
 .page-contact .contact-page__reviews {
   padding-top: 0;
   padding-bottom: var(--contact-section-y);
+  background: #f8fafc;
 }
 
 .page-contact .google-reviews-grid {
@@ -480,8 +565,8 @@ body:has(.page-contact) {
 }
 
 .page-contact .google-reviews-panel {
-  background: rgba(15, 23, 42, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #fff;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   padding: 1.75rem 1.5rem;
 }
@@ -490,7 +575,7 @@ body:has(.page-contact) {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  color: #e2e8f0;
+  color: #334155;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -501,12 +586,12 @@ body:has(.page-contact) {
 .page-contact .google-reviews-panel h3 {
   font-size: 1.375rem;
   font-weight: 600;
-  color: #fff;
+  color: #0f172a;
   margin-bottom: 0.75rem;
 }
 
 .page-contact .google-reviews-panel p {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 0.9375rem;
   line-height: 1.65;
   margin-bottom: 1.5rem;
@@ -519,20 +604,23 @@ body:has(.page-contact) {
 }
 
 .page-contact .google-reviews-actions .btn-ghost {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.28);
+  background: #fff;
+  color: #2563eb;
+  border: 1.5px solid #2563eb;
 }
 
 .page-contact .google-reviews-actions .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: #eff6ff;
+  border-color: #1d4ed8;
+  color: #1d4ed8;
 }
 
 .page-contact .google-reviews-map {
   min-height: 280px;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #0f172a;
+  border: 1px solid #e2e8f0;
+  background: #f1f5f9;
 }
 
 .page-contact .google-reviews-map iframe {

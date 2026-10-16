@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function ServicesPage() {
   return (
-    <SiteShell activePage="services" bodyClass="page-services">
+    <SiteShell activePage="services" bodyClass="page-services page-services-hub">
       <ServicesPageContent />
     </SiteShell>
   )

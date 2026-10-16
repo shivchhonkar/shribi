@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 
+import { cityLandingPages } from '@/lib/city-landing-content'
 import { serviceLandingPages } from '@/lib/service-landing-content'
 import { SITE_URL } from '@/lib/site'
 import { workshopCoursePages, workshopCoursePath } from '@/lib/workshop-course-content'
@@ -25,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
     ...staticPages,
     ...serviceLandingPages.map((page) => ({ path: page.path, priority: 0.8 })),
+    ...cityLandingPages.map((page) => ({ path: page.path, priority: 0.7 })),
     ...workshopCoursePages.map((course) => ({
       path: workshopCoursePath(course.slug),
       priority: course.slug.startsWith('data-structures') ? 0.7 : 0.6,

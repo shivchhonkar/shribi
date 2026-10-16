@@ -76,7 +76,7 @@ export default function WorkshopCoursePageContent({ course }: { course: Workshop
                 <li aria-current="page">{course.highlight}</li>
               </ol>
             </nav>
-            <p className="eyebrow">{course.eyebrow}</p>
+            {/* <p className="eyebrow">{course.eyebrow}</p> */}
             <h1>{course.title}</h1>
             <p className="workshop-course-hero__lead">{course.lead}</p>
             <p className="workshop-course-hero__meta">

@@ -155,7 +155,7 @@ export default function AboutPageContent() {
         </div>
         <div className="container about-hero-shell">
           <div className="about-hero-grid">
-            <div className="about-hero-content reveal">
+            <div className="about-hero-content">
               {/* <p className="eyebrow">About Shribi</p> */}
               <h1>
                 Innovative software for <span className="gradient-text">growing businesses</span>
@@ -323,7 +323,7 @@ export default function AboutPageContent() {
 
       {/* Founder Section */}
 
-      <section className="section section-dark">
+      <section className="section section-light">
         <div className="container about-founder-grid">
           <figure className="about-founder-photo reveal">
             <Image
@@ -377,7 +377,7 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      <section className="section section-dark about-commitment">
+      <section className="section section-muted about-commitment">
         <div className="container">
           <div className="about-commitment-box reveal">
             <div className="about-commitment-icon" aria-hidden="true">

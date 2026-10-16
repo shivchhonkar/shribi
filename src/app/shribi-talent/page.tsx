@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function ShribiTalentPage() {
   return (
-    <SiteShell activePage="services" bodyClass="page-services">
+    <SiteShell activePage="services" bodyClass="page-services page-talent">
       <TalentPageContent />
     </SiteShell>
   )

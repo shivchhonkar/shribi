@@ -90,7 +90,7 @@ export default function ContactPageContent({
         id="contact-hero"
       >
         <div className="hero-banner-bg" aria-hidden="true">
-          <Image src="/assets/contactus.webp" alt="" width={1400} height={700} priority sizes="100vw" />
+          <Image src="/assets/contact-page.png" alt="" width={1536} height={1024} priority sizes="(min-width: 769px) 54vw, 0px" />
         </div>
         <div className="hero-ambient" aria-hidden="true">
           <div className="hero-ambient-glow hero-ambient-glow--1" />
